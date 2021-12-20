@@ -1,0 +1,6 @@
+{"message":"✌️ DB loaded and connected!","level":"info","timestamp":"2021-12-16 18:24:05"}
+{"message":"✌️ Agenda injected into container","level":"info","timestamp":"2021-12-16 18:24:05"}
+{"message":"✌️ Dependency Injector loaded","level":"info","timestamp":"2021-12-16 18:24:05"}
+{"message":"✌️ Jobs loaded","level":"info","timestamp":"2021-12-16 18:24:05"}
+{"message":"✌️ Express loaded","level":"info","timestamp":"2021-12-16 18:24:05"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 4001 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2021-12-16 18:24:05"}

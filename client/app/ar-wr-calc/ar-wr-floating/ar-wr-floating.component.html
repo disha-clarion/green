@@ -1,0 +1,29 @@
+<div class="row wr-ar-pressin">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <form *ngIf="calculatorConfig && arwrFloatingForm" (ngSubmit)="performCalculation()"
+            [formGroup]="arwrFloatingForm" novalidate
+            class="form-horizontal {{calculatorConfig.form.form_title_css_class}}">
+            <div class="row">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 ignorePdf">
+                    <p class="info-tab pt-0">IMPORTANT: <span class="required">&nbsp;*&nbsp;</span> Are required fields.
+                    </p>
+                </div>
+                <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 ignorePdf">
+                    <calculator-toolbar [calculatorConfig]="calculatorConfig" [form]="arwrFloatingForm"
+                        [isSubmitted]="isSubmitted" (reset)="onReset()" (print)="onPrint()">
+                    </calculator-toolbar>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <dynamic-form-two-column-layout [form]="arwrFloatingForm" [isSubmitted]="isSubmitted"
+                        [calculatorJSON]="calculatorConfig" [isShowNotes]="true" [decimalPoint]="3"
+                        [isUpdateDecimalPointOnUnitChange]="false" [clientErrors]="clientErrors"
+                        [clientWarnings]="clientWarnings" [serverErrors]="serverErrors"
+                        [serverWarnings]="serverWarnings" [isWrAr]="true" [notes]="notes"
+                        (dropdownSelectionChange)="dropdownSelectionChange($event)"
+                        (numericInputValueChange)="numericInputValueChange($event)" (focusOut)="lostFocus($event)">
+                    </dynamic-form-two-column-layout>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

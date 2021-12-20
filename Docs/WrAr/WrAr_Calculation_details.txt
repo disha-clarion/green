@@ -1,0 +1,717 @@
+WrAr formula -
+
+
+1.	Press-In Imperial
+		1.1 Final Dimensions		
+			1.1.1 Machine Composite OD "Inch" = IF(J26="";"";VLOOKUP(C$7;M3:W61;9;0))
+				1. Composite selected option -> Final_OD (Mat'l Check)
+					Where C$7 = search criteria => common in both tables => search selected item of Composite Dropdown.
+								  M3:W61 =	array -> source where we finding the search => lookup in Mat'l Check tables -> Material Data	
+								  9      =	index	-> column that have the value for search => Final OD column value
+								  0      = sort order > 
+													0 -> Identical match
+													1 -> No identical								
+				2. Final_OD (Mat'l Check) =IF(M5=O$3;IF(D$22>120;"Check Temperature";J$30-J$31);"")
+						AR®1 && AR®HT && WR®300
+						=IF(M31=O$23;IF(D$22>275;"Check Temperature";J$30-J$31);"")
+						
+						WR®525 && WR®650 && WR®600
+						=IF(M35=O$33;IF(D$22>525;"Check Temperature";J$14+J$36-J$28);"")
+						(J$14+J$36-J$28)
+						(J$14 + J$36 - J$28)
+						(maxStatorIDAtMaxTemp(J$14) + interferenceINT(J$36) - compositeODGrowth(J$28))
+				
+				
+					** TODO: Validation => D$22>120;"Check Temperature";
+										Service / Storage Temperature (Ambient 75°F) Max	TH	120 > 120 => "Check Temperature"
+					
+					
+					=> J$30-J$31 => Min AR1/AR-HT/300 OD at Min Temp - Composite OD Shrinkage
+								=> J$30 formula => IF(D21=""; ""; J36+J16)							** Note : J36 => =IF(C$7="";"";VLOOKUP(C$7;O$79:S$84;2;0)) based on Composite selected value => Target Value (in) => =IF(D$17*0.002>V79;D$17*0.002;V79)= ((stationaryElementIDMax * 0.002 > compositeItemMinValue); (stationaryElementIDMax * 0.002); compositeItemMinValue)= ((0.005 * 0.002 > 0.004); (0.005 * 0.002); compositeItemMinValue)
+															   => Interference INT(inputted and calculated) + Max Stator ID at Min Temp 
+															   => IF(C$7="";"";VLOOKUP(C$7;O$79:S$84;2;0)) + IF(D21="";"";D17+J17)
+															   => D17+J17 
+															   => Stationary Element ID Max + Stator ID Shrinkage at Min Temp 
+															   => Stationary Element ID Max + IF(D21="";"";J4*D17*J13)
+															   => Stationary Element ID Max + ((Service_Storage_Temperature_(Ambient 75°F)_Min - 75) * Stationary Element ID	Max * Stator CTE )
+															   => Stationary Element ID Max + ((Service_Storage_Temperature_(Ambient 75°F)_Min - 75) * Stationary Element ID	Max * VLOOKUP(C$18;O$67:S$76;5;0))
+															   => 
+
+
+															   
+								=> J$31 formula => IF(D21=""; ""; J4*D17*J29)
+											   => Low Temp Change DTLDTL * Stationary Element ID	Max * Composite OD CTE at Min Temp aOL
+											   => IF(D21="";"";D21-75) * Stationary Element ID	Max * IF(C$7="";"";VLOOKUP(C$7;N$4:T$61;6;0))
+											   => (Service_Storage_Temperature_(Ambient 75°F)_Min - 75) * Stationary Element ID	Max * VLOOKUP(C$7;N$4:T$61;6;0)
+											   => (Service_Storage_Temperature_(Ambient 75°F)_Min - 75) * Stationary Element ID	Max * VLOOKUP(C$7;N$4:T$61;6;0)
+											   => (Service_Storage_Temperature_(Ambient 75°F)_Min - 75) * Stationary Element ID	Max * OD CTE
+					
+														
+						formula 1 => J$30-J$31 => finalOD (Mat'l Check) => Min AR1/AR-HT/300 OD at Min Temp - Composite OD Shrinkage
+									finalOD => minAr1Arht300ODAtMinTemp(J$30) - compositeODShrinkage($31)
+						
+						
+						formula 2 => Min AR1/AR-HT/300 OD at Min Temp => J36+J16 => Interference INT(inputted and calculated) + Max Stator ID at Min Temp 
+								minAr1Arht300ODAtMinTemp = interferenceInt + maxStatorIDAtMinTemp
+						
+						formula 3 => Max Stator ID at Min Temp  => D17+J17 => Stationary Element ID Max(input) + Stator ID Shrinkage at Min Temp 
+									maxStatorIDAtMinTemp = stationaryElementIDMax + statorIDShrinkageAtMinTemp
+						
+						
+						formula 4 => Stator ID Shrinkage at Min Temp  => J4*D17*J13 => (Low Temp Change(J4) * Stationary Element ID	Max(input) * Stator CTE (in/in/°F))
+									statorIDShrinkageAtMinTemp = lowTempChange * stationaryElementIDMax * statorCTE
+						
+						formula 5=> Low Temp Change(J4) => D21-75 => (Service_Storage_Temperature_(Ambient 75°F)_Min - 75)
+									=> lowTempChange => (serviceStorageTemperatureAmbient75FMin - 75)
+						
+						get => Stator CTE (in/in/°F) or J13 => =IF(C$18="";"";VLOOKUP(C$18;O$67:S$76;5;0)) => based on stationary material => Stator CTE (in/in/°F) column value
+							=> statorCTE = implement the code to get the stator cte	
+						
+						formula 6 => Composite OD Shrinkage => =IF(D21="";"";J4*D17*J29) => Low Temp Change(J4) * Stationary Element ID	Max(input)  * Composite OD CTE at Min Temp
+									compositeODShrinkage = lowTempChange * stationaryElementIDMax  * compositeODCTEAtMinTemp
+						
+						
+						formula 7 => Low Temp Change(J4) => D21-75 => (Service_Storage_Temperature_(Ambient 75°F)_Min - 75)
+									=> lowTempChange => (serviceStorageTemperatureAmbient75FMin - 75)
+									
+									
+						get =>		Composite OD CTE at Min Temp  => IF(C$7="";"";VLOOKUP(C$7;N$4:T$61;6;0))
+																	check composite selection	 => CTE at Temperature => OD CTE
+																	
+																=> compositeODCTEAtMinTemp => implement the code to get the compositeODCTEAtMinTemp
+																
+																
+			
+				Excel calculation
+						 finalOD = IF(M6=O$3;IF(D$22>120;"Check Temperature";J$30-J$31);"") => minAr1Arht300ODAtMinTemp(J$30) - compositeODShrinkage(J$31) => 0.016  - 0 => 0.016
+						 1. minAr1Arht300ODAtMinTemp(J$30) 	=> IF(D21="";"";J36+J16) => 0.0040 + 0.012 => 0.016
+														1.1 interferenceInt(J36)(input) => 0.0040
+														1.2 maxStatorIDAtMinTemp(J16)(formula) => IF(D21="";"";D17+J17) =>  
+															= (stationaryElementIDMax(D17) + statorIDShrinkageAtMinTemp(J17)) => 0.012 + 0 => 0.012
+															1.2.1 stationaryElementIDMax(D17)(Input) => 0.012
+															1.2.2 statorIDShrinkageAtMinTemp(formula)(J17) = (lowTempChange(J4) * stationaryElementIDMax(D17) * statorCTE(J13)) => 
+																	=> 0 * 0.012 * 0.000009 => 0
+																	1.2.2.1 lowTempChange(formula)(J4) = serviceStorageTemperatureAmbient75FMin(Input)(D21) - 75 => 75 - 75 => 0
+																	1.2.2.2 stationaryElementIDMax(Input)(D17) => 0.012	
+																	1.2.2.3 statorCTE(J13) = get from db =IF(C$18="";"";VLOOKUP(C$18;O$67:S$76;5;0))
+																			0.000009
+																	
+																	
+																	
+						 2. compositeODShrinkage(J$31) => IF(D21="";"";J4*D17*J29) => 0 * 0.012 * 0.000067 => 0
+												2.1 lowTempChange(formula)(J4) = (serviceStorageTemperatureAmbient75FMin(Input)(D21) - 75) => 75 - 75 => 0
+												2.2 stationaryElementIDMax(Input)(D17) => 0.012
+												2.3 compositeODCTEAtMinTemp(J29)	 = get from db	=IF(C$7="";"";VLOOKUP(C$7;N$4:T$61;6;0)) 
+													=> 0.000067 => 6.70E-05
+			
+			
+
+				Machine Composite OD "Tol" = IF(D25="";"";CONCATENATE("+";VLOOKUP(C$7;M5:Y61;12;0))) => OD Tol
+
+											 Machine Composite OD "Inch" == ""  => ""
+											 VLOOKUP(C$7;M5:Y61;12;0)
+											 Composite selection check => get column vaue of "OD Tol"
+											 
+											 calculation of the "OD Tol"
+												=IF(U6="";"";IF(U6<3;0.003;IF(U6<6;0.004;IF(U6<12;0.005;"Check"))))
+												= 1. finalOD is empty then return empty.
+												= 2. finalOD < 3 then return +0.003
+												= 3. finalOD < 6 then return +0.004
+												= 4. finalOD < 12 then return +0.005
+												= TODO: Validation return error => "check"
+																							
+											
+											=IF(D25="";"";CONCATENATE("+";VLOOKUP(C$7;M5:Y61;12;0)))
+												=> 12 OD tol
+											
+												AR®1(1) && AR®HT(2)
+												=IF(U5="";"";IF(U5<3;0.003;IF(U5<6;0.004;IF(U5<12;0.005;"Check"))))
+													=> Final OD => U5
+													
+													
+												WR®300
+												=IF(U25="";"";IF(U25<3;0.003;  IF(U25<6;0.005;  IF(U25<12;0.006;     "Check"))))
+												=IF(U25="";"";IF(U25<75;0.08;  IF(U25<152.4;0.13;  IF(U25<304.8;0.15;  "Check"))))
+												
+												
+												WR®525 && WR®650 && WR®600
+												=IF(U35="";"";IF(U35<3;0.002;  IF(U35<6;0.003;  IF(U35<12;0.004;"Check"))))
+												=IF(U35="";"";IF(U35<75;0.05;  IF(U35<152.4;0.08;  IF(U35<304.8;0.1;  "Check"))))
+											 
+											 
+																
+						
+						
+			
+			
+			1.1.2 Finish Machine Composite ID After Installation
+						Inch =IF(J19="";"";VLOOKUP(C$7;M3:W61;10;0))
+							 = C$7 => Composite
+							 = 10 => Final ID => finalID
+							 = finalID =IF(M6=O$3;IF(D$22>120;"Check Temp Range";D$13+J$37+J$9+J$28-J$21-J$15);"")
+							 = ** TODO: Validation D$22>120 => serviceStorageTemperatureAmbient75FMax > 120 => show error => "Check Temp Range"
+							 = finalID = (D$13 + J$37 + J$9 + J$28 - J$21 - J$15)
+						formula 8 = finalID = (D$13 + J$37 + J$9 + J$28 - J$21 - J$15)
+											= (rotatingElementODMaxDR0DR0(input)(D$13) 
+												+ ClearanceCLR(J$37)
+												+ rotorODGrowthAtMaxTempGRHGRH(J$9)
+												+ compositeODGrowthGOH(J$28)
+												- compositeIDGrowthGIH(J$21) 
+												- statorIDGrowthAtMaxTempGSHGSH(J$15))
+												
+											= rotatingElementODMaxDR0DR0(input) 
+											+ (=IF($C$7="";"";IF(C10=R78;T88;HLOOKUP(C6;O87:R90;VLOOKUP(C5;O88:S90;5;0);0)))) 
+											+ (=IF(D22="";"";D13*J5*J7)) 
+											+ (=IF(D22="";"";VLOOKUP(C7;O3:AG61;17;0))) 
+											- (=IF(D22="";"";VLOOKUP(C7;O3:AG61;15;0))) 
+											- (=IF(D22="";"";D17*J5*J13))
+											
+											= ClearanceCLR  IF(C10=R78;T88;HLOOKUP(C6;O87:R90;VLOOKUP(C5;O88:S90;5;0);0)) => Clearance Target === Custom
+													= HLOOKUP(C6;O87:R90;VLOOKUP(C5;O88:S90;5;0);0) => HLOOKUP(Component Type;O87:R90;VLOOKUP(Pump Type;O88:S90;5;0);0)
+													= TODO:  based on pump type and component type => select or get calculated ClearanceCLR
+													
+											formula 9 = rotorODGrowthAtMaxTempGRHGRH 
+														= IF(D22="";"";D13*J5*J7) 
+														=> rotatingElementODMaxDR0DR0(input) * highTempChange * rotorCTE
+														
+											formula 10 = highTempChange = D22-75 = serviceStorageTemperatureAmbient75FMax - 75
+
+														rotorCTE = IF(C$14="";"";VLOOKUP(C$14;O$67:R$76;4;0)) => based on "Rotating Material" => RotorCTE
+														
+										
+											compositeODGrowthGOH(J$28) = =IF(D22="";"";VLOOKUP(C7;O3:AG61;17;0)) 
+												=> 17  => AE => OD Growth
+												formula 11	=> based on "Composite DDL item" => calculate => OD Growth => =J5*D17*S5
+													=> highTempChange(already added) * stationaryElementIDMax(input) * cteAtTemperatureODCTE(fix value)
+
+
+
+
+  
+											compositeIDGrowthGIH(J$21) = =IF(D22="";"";VLOOKUP(C7;O3:AG61;15;0))
+												=> 15 => AC => ID Growth
+												formula 12	=> based on "Composite DDL item" => calculate => ID Growth => =J5*D13*R5
+													=> highTempChange(already added) * rotatingElementODMaxDR0DR0(input) * cteAtTemperatureIDCTE(fix value)
+
+
+											
+											statorIDGrowthAtMaxTempGSHGSH => =IF(D22="";"";D17*J5*J13) => D17*J5*J13
+																		=> D17*J5*J13
+												formula 13				=> stationaryElementIDMax(input) * highTempChange(already added) * statorCTE
+																		=>statorCTE =IF(C$18="";"";VLOOKUP(C$18;O$67:S$76;5;0))
+																		=> get => Stator CTE (in/in/°F) or J13 => =IF(C$18="";"";VLOOKUP(C$18;O$67:S$76;5;0)) => based on stationary material => Stator CTE (in/in/°F) column value
+																					=> statorCTE = implement the code to get the stator cte	
+																		
+
+
+							 
+							 
+						
+						Tol =IF(D26="";"";CONCATENATE("+";VLOOKUP(C$7;M5:Y61;13;0))) => based on "Composite DDL item" get "ID Tol" column value
+							= "ID Tol"=> =IF(V5="";"";IF(V5<3;0.003;IF(V5<6;0.004;IF(V5<12;0.005;"Check")))) => V5 => Final ID
+										=IF(V6="";"";IF(V6<3;0.003;IF(V6<6;0.004;IF(V6<12;0.005;"Check"))))
+										
+										
+										
+										
+										
+										
+***********************************************************************************************
+PressIn(Imperial and metric) remaining functionality -
+ReCheck - Finish Machine Composite ID After Installation calculation
+
+	***compositeODGrowth(J$28) => =IF(D22="";"";VLOOKUP(C7;O3:AG61;17;0)) => 17 =>Column "AE" => "Growth" => aeGrowth
+				Composite(C7)for AR®1(id=1),AR®HT(id=2),WR®300(id=3) => 	=J5*D17*S5 => (highTempChange * stationaryElementIDMax * cteAtTemperatureODCTE)
+																			=J5*D17*S15
+																			=J5*D17*S25														
+				
+				Composite(C7)for WR®525(id=4), WR®650(id=6) and WR®600(id=5) => sum of the column(AE) "Growth" values.
+								WR®525
+									Imperial
+										=IF(AA35>D$22;0;IF(D$22>AA36;(AA36-AA35)*D$17*AD36;(D$22-AA35)*AD36*D$17))
+												AA35>D$22;0; => (Temp > serviceStorageTemperatureAmbient75FMax) => use "0".
+												aeGrowth1 => if D$22>AA36 => (serviceStorageTemperatureAmbient75FMax > nextTemp) 
+															((AA36 - AA35) * D$17 * AD36);
+															((nextTemp - Temp) * stationaryElementIDMax * nextTempODCTE)
+												aeGrowth2 => else		(D$22-AA35)*AD36*D$17;															
+															((serviceStorageTemperatureAmbient75FMax - Temp) * nextTempODCTE * stationaryElementIDMax)
+										=IF(AA36>D$22;0;IF(D$22>AA37;(AA37-AA36)*D$17*AD37;(D$22-AA36)*AD37*D$17))
+										=IF(AA37>D$22;0;IF(D$22>AA38;(AA38-AA37)*D$17*AD37;(D$22-AA37)*AD37*D$17))
+									Metric Same as its own Imperial
+										=IF(AA35>D$22;0;IF(D$22>AA36;(AA36-AA35)*D$17*AD36;(D$22-AA35)*AD36*D$17))
+										=IF(AA36>D$22;0;IF(D$22>AA37;(AA37-AA36)*D$17*AD37;(D$22-AA36)*AD37*D$17))
+										=IF(AA37>D$22;0;IF(D$22>AA38;(AA38-AA37)*D$17*AD37;(D$22-AA37)*AD37*D$17))										
+								WR®650 Same as above "WR®525"
+									Imperial
+										=IF(AA45>D$22;0;IF(D$22>AA46;(AA46-AA45)*D$17*AD46;(D$22-AA45)*AD46*D$17))
+										=IF(AA46>D$22;0;IF(D$22>AA47;(AA47-AA46)*D$17*AD47;(D$22-AA46)*AD47*D$17))
+										=IF(AA47>D$22;0;IF(D$22>AA48;(AA48-AA47)*D$17*AD48;(D$22-AA47)*AD48*D$17))
+									Metric Same as its own Imperial
+										=IF(AA45>D$22;0;IF(D$22>AA46;(AA46-AA45)*D$17*AD46;(D$22-AA45)*AD46*D$17))
+										=IF(AA46>D$22;0;IF(D$22>AA47;(AA47-AA46)*D$17*AD47;(D$22-AA46)*AD47*D$17))
+										=IF(AA47>D$22;0;IF(D$22>AA48;(AA48-AA47)*D$17*AD48;(D$22-AA47)*AD48*D$17))									
+								WR®600	Same as above "WR®525"
+									Imperial
+										=IF(AA55>D$22;0;IF(D$22>AA56;(AA56-AA55)*D$17*AD56;(D$22-AA55)*AD56*D$17))
+										=IF(AA56>D$22;0;IF(D$22>AA57;(AA57-AA56)*D$17*AD57;(D$22-AA56)*AD57*D$17))
+										=IF(AA57>D$22;0;IF(D$22>AA58;(AA58-AA57)*D$17*AD58;(D$22-AA57)*AD58*D$17))
+									Metric Same as its own Imperial
+										=IF(AA55>D$22;0;IF(D$22>AA56;(AA56-AA55)*D$17*AD56;(D$22-AA55)*AD56*D$17))
+										=IF(AA56>D$22;0;IF(D$22>AA57;(AA57-AA56)*D$17*AD57;(D$22-AA56)*AD57*D$17))
+										=IF(AA57>D$22;0;IF(D$22>AA58;(AA58-AA57)*D$17*AD58;(D$22-AA57)*AD58*D$17))
+				
+	***compositeIDGrowth(J$21) => =IF(D22="";"";VLOOKUP(C7;O3:AG61;15;0)) => 15 => Column "AC" => "ID Growth". => acGrowth
+				
+				Composite(C7)for WR®525(id=4), WR®650(id=6) and WR®600(id=5) => sum of the column(AC) "Growth" values.
+							WR®525(id=4) && WR®650(id=6) => CTE Calcs => column(AC) values => "Growth"
+									=IF(AA35>D$22;0;IF(D$22>AA36;(AA36-AA35)*D$13*AB36;(D$22-AA35)*AB36*D$13))
+									=IF(temperature > serviceStorageTemperatureAmbient75FMax;0;IF(D$22>AA36;(AA36-AA35)*D$13*AB36;(D$22-AA35)*AB36*D$13))
+										**formula if (serviceStorageTemperatureAmbient75FMax(D$22) > nextTemp(AA36)) => 
+														(AA36-AA35)*D$13*AB36;
+														((nextTemp - temperature) * rotatingElementODMax * nextTempIDCTE)
+										**formula else 	  
+													(D$22-AA35)*AB36*D$13
+													=> ((serviceStorageTemperatureAmbient75FMax - temperature) * nextTempIDCTE * rotatingElementODMax)
+
+																		=> AA35 temperature => Temperature
+																		=> D$22 serviceStorageTemperatureAmbient75FMax
+																		=> AA36 nextTemp => Temperature
+																		=> D$13 rotatingElementODMax
+																		=> AB36 nextTempIDCTE 
+									=IF(AA36>D$22;0;IF(D$22>AA37;(AA37-AA36)*D$13*AB37;(D$22-AA36)*AB37*D$13))
+									=IF(AA37>D$22;0;IF(D$22>AA38;(AA38-AA37)*D$13*AB38;(D$22-AA37)*AB38*D$13))
+								
+								
+							
+								
+							WR®600(id=5) CTE Calcs column(AC) values => "Growth" 
+								Imperial
+									=AE55-2*AI55
+									**formula= ((aeGrowth - 2) * aiGrowth)
+										AE55 aeGrowth	=IF(AA55>D$22;0;IF(D$22>AA56;(AA56-AA55)*D$17*AD56;(D$22-AA55)*AD56*D$17))
+														(temperature(AA55) > serviceStorageTemperatureAmbient75FMax(D22)) => 0
+														if
+														=(serviceStorageTemperatureAmbient75FMax(D$22) > nextTemp(AA56)); 
+																			(AA56-AA55)*D$17*AD56;	
+																**formula=> ((nextTemp(AA56) - temperature(AA55)) * stationaryElementIDMax(D$17) * nextTempODCTE(AD56));
+																			((nextTemp - temperature) * stationaryElementIDMax * nextTempODCTE);																																					
+																	
+														else 
+																((D$22-AA55)*AD56*D$17)
+																**formula=> ((serviceStorageTemperatureAmbient75FMax(D$22) - temperature(AA55)) * nextTempODCTE(AD56) * stationaryElementIDMax(D$17))
+																		((serviceStorageTemperatureAmbient75FMax - temperature) * nextTempODCTE * stationaryElementIDMax)
+																		*AA55 temperature => Temperature
+																		*D$22 serviceStorageTemperatureAmbient75FMax
+																		*AA56 nextTemp
+																		*D$17 stationaryElementIDMax	
+																		*AD56 nextTempODCTE
+										AI55 aiGrowth	=IF(AA55>D$22;0;IF(D$22>AA56;(AA56-AA55)*(D$17-D$13)/2*AH56;(D$22-AA55)*AH56*(D$17-D$13)/2))
+														=AA55 > D$22; 0;
+														**formula=>		if
+																		(serviceStorageTemperatureAmbient75FMax(D$22) > nextCXCTE(AA56)) => 
+																	=>	(AA56-AA55)*(D$17-D$13)/2*AH56;
+																	=>	((((nextTemp - temperature) * (stationaryElementIDMax - rotatingElementODMax)) / 2) * nextCXCTE)
+														**formula=> 	else
+																		(D$22-AA55)*AH56*(D$17-D$13)/2
+																		((D$22-AA55)*AH56*(D$17-D$13)/2)
+																		(((serviceStorageTemperatureAmbient75FMax - temperature) * nextCXCTE * (stationaryElementIDMax - rotatingElementODMax)) / 2)
+																				*AA55 temperature => Temperature
+																				*D$22 serviceStorageTemperatureAmbient75FMax
+																				*AA56 nextTemp
+																				*D$17 stationaryElementIDMax	
+																				*AD56 nextTempODCTE
+																				*D$13 rotatingElementODMax
+																				*AH56 CX CTE => nextCXCTE(fixed value)
+												
+									=AE56-2*AI56
+									=AE57-2*AI57
+		
+		
+		getSumOfPressInACGrowth
+		getSumOfPressInACGrowthWR600
+		getSumOfPressInAEGrowth
+***********************************************************************************************
+						
+						
+
+
+			1.1.3 Machine Composite OAL
+						Inch =IF(J33="";"";VLOOKUP(C$7;M3:W61;11;0))
+							=> =IF(D22="";"";IF(C$7="";"";VLOOKUP(C$7;M$4:T$61;8;0))) 
+							=> serviceStorageTemperatureAmbient75FMax && "Composite DDL" is empty then do nothing
+							=> cteAtTemperatureOALCTE => fixed
+
+						
+						
+						Tol =IF(D27="";"";"-.010") => machineCompositeOALInch(D27)
+						
+						
+						
+						
+						
+						
+						
+						
+						
+
+
+						
+																	
+						
+						
+						
+						
+
+ 
+						
+									
+
+2. Automated Design Notes
+	2.1 Pressure Info => r/t =IF(COUNT(D22;D21;D17;C8;C10)<3;"";$H$54)
+	
+	2.2 Estimated Interface Pressure at Highest Temperature =IF(COUNT(D22;D21;D17)<3;"";$H$52)
+	
+	2.3 Estimated Collapse Pressure at Highest Temperature =IF(COUNT(D22;D21;D17)<3;"";H55)
+			=> =H52+H53 => = (Interface P (MPa converted to bar)) + Collapse P (MPa converted to bar)
+			=> (interfaceP + collapseP)
+	
+	2.4 Minimum Clearance at Ambient =IF(D26="";"";D26-D13)
+
+
+	
+
+
+
+=IF(ISNA(O98);"";IF(O99="YES";"For Thermal Fitting, Heat Carrier to a Minimum";"Thermal Fitting Temperature Exceeds Composite Temperature Limit"))
+	O98 Material Max Temp => materialMaxTemp =VLOOKUP(C7;R98:S100;2;0)	
+	O99 Max Temp Check => maxTempCheck =IF(O98>O97;"YES";"NO")
+		O98>O97 => materialMaxTemp > thermalFitTemp
+			YES => For Thermal Fitting, Heat Carrier to a Minimum
+			No => Thermal Fitting Temperature Exceeds Composite Temperature Limit
+	O97 Thermal Fit Temp (F) => thermalFitTemp (F) 
+		=75+(($D$25+0.002+(VLOOKUP($C$7;$M$5:$Y$61;12;0)))-$D$16)/($J$13*$D$17)
+		=((thermalFitTempConst2 + ((machineCompositeODInch + thermalFitTempConst1 + (odTol)) - stationaryElementIDMin)) / (statorCTE * stationaryElementIDMax))
+		
+		=((75 + ((0.014002196 + 0.002 + (0.002)) - 0.012)) / (0.000009 * 0.012))
+		75+((0.014002196 + 0.002 + (0.002)) - 0.012) / (0.000009 * 0.012)
+		
+		thermalFitTempConst2 + ((machineCompositeODInch + thermalFitTempConst1 + (odTol)) - stationaryElementIDMin) / (statorCTE * stationaryElementIDMax)
+
+
+=IF(ISNA(O98);"";(TRUNC(O97)))
+
+
+
+
+
+
+******************************************************************************************************************
+											WrAr Floating
+
+******************************************************************************************************************
+
+Clearance Target
+	=IF(C8="";"";IF(C8="Custom";"Custom Clearance";CONCATENATE("Standard Clearance = ";FIXED(J37;3))))
+	
+		=> J37 => clearanceCLR => =IF(C7="";"";IF(C8=T84;T85;HLOOKUP(C6;O84:R87;VLOOKUP(C5;O85:S87;5;0);0)))
+		
+
+
+Machine Composite OD
+
+		Imperial
+			finalODConstant = 0.002; 
+		Metric
+			finalODConstant = 0.05;
+
+
+		Inch =IF(J26="";"";VLOOKUP(C$7;M3:W61;9;0))  => 
+			=> 9 => finalOD => 
+						=IF(M5=O$3;IF(D$20>120;"Check Temperature";D$14-0.002);"")
+								=> D$14 stationaryElementIDMin(input)
+								=> (stationaryElementIDMin - 0.002)
+						
+		
+		Tol =IF(D23="";"";CONCATENATE("-";VLOOKUP(C$7;M5:Y61;12;0)))	=> Same formula as in WrAr Press-In only return with negetive sign(-)
+			=> 12 => OD Tol => ODTol =IF(U5="";"";IF(U5<3;0.003;IF(U5<6;0.004;IF(U5<12;0.005;"Check"))))
+			
+			
+
+
+
+
+
+
+
+
+
+
+Finish Machine Composite ID After Installation
+	Inch	=IF(J19="";"";VLOOKUP(C$7;M3:W61;10;0))
+			=> 10 => Final ID => finalID =IF(M6=O$3;IF(AK6>AL6;AK6;AL6);"")
+						=> AK6 => ID Calcs = T_HTHTH => idCalcTH
+						=> AL6 => ID Calcs = T_LTLTL => idCalcTL
+						
+	
+	Tol		=IF(D24="";"";CONCATENATE("+";VLOOKUP(C$7;M5:Y61;13;0))) => use existing "getTolValue"
+				=>  13 => ID Tol => idTol => Use existing => getTolValue()
+					Imperial
+					ID Tol => =IF(V5="";"";IF(finalID(V5)<3;0.003;IF(finalID(V5)<6;0.004;IF(V5<12;0.005;"Check"))))
+							  =IF(V6="";"";IF(V6<3;0.003;IF(V6<6;0.004;IF(V6<12;0.005;"Check"))))
+					Metric		  
+					ID Tol => =IF(V5="";"";IF(V5<75;0.08;IF(V5<152.4;0.1;IF(V5<304.8;0.13;"Check"))))
+							  =IF(V6="";"";IF(V6<75;0.08;IF(V6<152.4;0.1;IF(V6<304.8;0.13;"Check"))))					  
+			
+			
+			
+			
+idCalcTH &&  idCalcTL     =====================================>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+AR®1(1) && AR®HT(2) && WR®300(3)
+	THTHTH(idCalcTH1)
+			=D$11+J$37+J$28-J$15-J$21+J$9-0.002
+			**formula=(rotatingElementODMax(input) + clearanceCLR(calculate) + compositeODGrowth(aeGrowth) - statorIDGrowthAtMaxTemp(calculate) - compositeIDGrowth(calculate or acGrowth) + rotorODGrowthAtMaxTemp(calculate) - 0.002)
+					=> D$11 rotatingElementODMax(input)
+					=> J$37 clearanceCLR(already calculated) => use existing function
+					=> J$28 compositeODGrowth(aeGrowth) =IF(D23="";"";VLOOKUP(C7;O3:AG61;17;0)) => (Not Same as "PressIn calculator aeGrowth")
+												=> 17 => AE => Growth => compositeODGrowth(aeGrowth)														
+												=> C7 composite
+												=> D23 Machine Composite OD(output)
+												=> compositeODGrowth(aeGrowth) only for the WR®525, WR®650,WR®600 CTE Calcs
+														=> sum of the compositeODGrowth(aeGrowth)
+														=IF(AA35>D$20;0;IF(D$20>AA36;(AA36-AA35)*D$15*AD36;(D$20-AA35)*AD36*D$15))
+															AA35 = Temp => Temperature
+															D$20 = serviceStorageTemperatureAmbient75FMax
+															AA36 = Temp => Temperature
+															D$15 = stationaryElementIDMax
+															AD36 = OD CTE
+																												
+															**formula (AA36-AA35)*D$15*AD36; (Same as "PressIn calculator aeGrowth")																	  
+																	  ((nextTemp - temperature) * stationaryElementIDMax * nextTempODCTE);
+															**formula (D$20-AA35)*AD36*D$15 (Same as "PressIn calculator aeGrowth")
+																	  ((serviceStorageTemperatureAmbient75FMax - temperature) * nextTempODCTE * stationaryElementIDMax)
+															
+													
+					=> J$15 Stator ID Growth at Max Temp = statorIDGrowthAtMaxTemp
+							statorIDGrowthAtMaxTemp => =IF(D20="";"";D15*J5*J13) (already formula exist use that from "PressIn calculator")
+													**formula = 
+														(stationaryElementIDMax(input) * highTempChange(calculate) * statorCTE(use existing already developed))
+														(stationaryElementIDMax * highTempChange * statorCTE)
+														=> D15 => stationaryElementIDMax
+														**formula=> J5 => highTempChange => =IF(D20="";"";D20-75)
+														=> J13 => statorCTE => =IF(C$16="";"";VLOOKUP(C$16;O$64:S$73;5;0))
+																			=> 5 => statorCTE
+					=> J$21 Composite ID Growth = compositeIDGrowth => acGrowth/compositeIDGrowth => use PressIn acGrowth calculation
+								acGrowth only for AR®1(1), AR®HT(2), WR®300(3)
+									compositeIDGrowth(acGrowth) =IF(D20="";"";VLOOKUP(C7;O3:AC53;15;0))
+															=> D20 serviceStorageTemperatureAmbient75FMax 
+															=> C7 Composite
+															=> 15 => AC => OD Growth (acGrowth/compositeIDGrowth)
+																					=S5*$J$5*$D$15 (Note: Same as formula of "compositeODGrowth")
+																					=>(highTempChange * stationaryElementIDMax * cteAtTemperatureODCTE)																																										
+																					 =S15*$J$5*$D$15
+																					 =S25*$J$5*$D$15
+								acGrowth for WR®525(4), WR®650(6) and WR®600(5) sum the column(AC) values => "Growth" .
+											"Growth" column(AC) Formula's
+													WR®525(4) CTE Calcs => column(AC) values => "acGrowth" 
+														Imperial && Metric same
+															=IF(AA35>D$20;0;IF(D$20>AA36;(AA36-AA35)*D$11*AB36;(D$20-AA35)*AB36*D$11))
+															=IF(AA36>D$20;0;IF(D$20>AA37;(AA37-AA36)*D$11*AB37;(D$20-AA36)*AB37*D$11))
+															=IF(AA37>D$20;0;IF(D$20>AA38;(AA38-AA37)*D$11*AB37;(D$20-AA37)*AB37*D$11))
+																if		(AA36-AA35)*D$11*AB36;
+																		(nextTemp(AA36) - temperature(AA35)) * rotatingElementODMax(D$11) * nextTempIDCTE(AB36);
+																		((nextTemp - temperature) * rotatingElementODMax * nextTempIDCTE) (Note: Same as acGrowth formula of WR®525(4))
+																else	(D$20-AA35)*AB36*D$11
+																		(serviceStorageTemperatureAmbient75FMax(D$20) - temperature(AA35)) * nextTempIDCTE(AB36) * rotatingElementODMax(D$11)																		
+																		((serviceStorageTemperatureAmbient75FMax - temperature) * nextTempIDCTE * rotatingElementODMax)  (Note: Same as acGrowth formula of WR®525(4))
+					
+													WR®650(6) CTE Calcs column(AC) values => "acGrowth" 
+														Imperial Same as "WR®525 CTE Calcs => column(AC) values => "acGrowth"															
+														Metric 
+															-- Wrong
+															=IF(AA45>D$22;0;IF(D$22>AA46;(AA46-AA45)*D$13*AB46;(D$22-AA45)*AB46*D$13))
+															=IF(AA46>D$22;0;IF(D$22>AA47;(AA47-AA46)*D$13*AB47;(D$22-AA46)*AB47*D$13))
+															=IF(AA47>D$22;0;IF(D$22>AA48;(AA48-AA47)*D$13*AB48;(D$22-AA47)*AB48*D$13))
+																if		(AA46-AA45)*D$13*AB46;
+																else	(D$22-AA45)*AB46*D$13
+															
+															-- Correct	Same as "WR®525 CTE Calcs => column(AC) values => "acGrowth"
+													
+													***************************************													
+														WR®525(id=4) && WR®650(id=6) => CTE Calcs => column(AC) values => "acGrowth" are Same
+														can use PressIn acGrowth function
+													***************************************													
+
+													WR®600(5) CTE Calcs column(AC) values => "acGrowth" => same as PressIn acGrowth/compositeIDGrowth calculation
+														Imperial
+															=AE55-2*AI55
+															=AE56-2*AI56
+															=AE57-2*AI57
+															**formula= ((aeGrowth - 2) * aiGrowth)
+																AE55 aeGrowth	=IF(AA55>D$20;0;IF(D$20>AA56;(AA56-AA55)*D$15*AD56;(D$20-AA55)*AD56*D$15))																															
+																AI55 aiGrowth	=IF(AA55>D$20;0;IF(D$20>AA56;(AA56-AA55)*($D$15-$D$11)/2*AH56;(D$20-AA55)*AH56*($D$15-$D$11)/2))
+																
+															
+														Metric => Same as its own Imperial calculation
+															=AE55-2*AI55
+															=AE56-2*AI56
+															=AE57-2*AI57		
+
+															
+
+					=> J$9	Rotor OD Growth at Max Temp 
+						= rotorODGrowthAtMaxTemp(J$9) =IF(D20="";"";D11*J5*J7) (already implemented in PressIn use that)
+													=> (D11*J5*J7)
+													**formula => (rotatingElementODMax(input) * highTempChange(calculate) * rotorCTE(calculate))
+																(rotatingElementODMax * highTempChange * rotorCTE)
+															=> D20 serviceStorageTemperatureAmbient75FMax
+															=> D11 rotatingElementODMax
+															=> J5 highTempChange
+															=> J7	Rotor CTE => rotorCTE =IF(C$12="";"";VLOOKUP(C$12;O$64:R$73;4;0))
+																					=> C$12 rotatingMaterial(input)
+																					=> 4 rotorCTE (use existing already developed)
+										
+	
+	TLTLTL(idCalcTL1)
+		=D$11+J$37+J$24-J$11
+		**formula= rotatingElementODMax(D11)(input) + clearanceCLR(J$37)(already existing) + compositeIDShrinkage(J$24) - rotorODShrinkageAtMinTemp(J$11)
+				=> compositeIDShrinkage(J$24) =IF(D19="";"";J4*D11*J22)			(new need to implement)
+					=> (J4*D11*J22)
+					**formula=> (lowTempChange(J4) * rotatingElementODMax(D11)(input) * cteAtTemperatureIDCTE)								
+							**formula=> lowTempChange(J4) =IF(D19="";"";D19-75)
+															=> (serviceStorageTemperatureAmbient75FMin-75)
+							=> cteAtTemperatureIDCTE => compositeIDCTEAtMinTemp(J22) => cteAtTemperatureIDCTE =IF(C$7="";"";VLOOKUP(C$7;N$4:T$61;5;0))							
+									=> C$7 Composite
+									**get fixed value	=> CTE at Temperature => ID CTE => cteAtTemperatureIDCTE
+				=> J$11 Rotor OD Shrinkage at Min Temp => rotorODShrinkageAtMinTemp =IF(D19="";"";D11*J4*J7)
+						=> (D11*J4*J7)
+						**formula=> (rotatingElementODMax(D11)(input) * lowTempChange(J4) * rotorCTE(J7))	(new need to implement)									
+										=> rotorCTE(J7) =IF(C$12="";"";VLOOKUP(C$12;O$64:R$73;4;0))
+															=> C$12 rotatingMaterial
+															=> 4 => rotorCTE
+
+
+
+
+WR®525(4) && WR®650(6)
+	TH(idCalcTH2)
+		=D$11+J$37-J$21+J$9
+		=(rotatingElementODMax(D$11) + clearanceCLR(J$37) - compositeIDGrowth(J$21) + rotorODGrowthAtMaxTemp(J$9))
+	
+	TL(idCalcTL2)
+		=D$11+J$37-J$24+J$11-J$17+J$31-0.002
+		=(rotatingElementODMax(D$11) + clearanceCLR(J$37) - compositeIDShrinkage(J$24) + rotorODShrinkageAtMinTemp(J$11) - statorIDShrinkageAtMinTemp(J$17) + compositeODShrinkage(J$31) - 0.002)
+
+	
+
+WR®600(5)
+	TH(idCalcTH3) 	Same as above(WR®525 && WR®650)
+	TL(idCalcTL3)
+		=D$11+J$37-$AN$55+J$11-J$17+J$31-0.002
+		=(rotatingElementODMax(D$11) + clearanceCLR(J$37) - idShinkage($AN$55) + rotorODShrinkageAtMinTemp(J$11) - statorIDShrinkageAtMinTemp(J$17) + compositeODShrinkage(J$31) - 0.002)
+			=> idShinkage($AN$55)	= ((AO55) - 2 * (AP55))
+									= (odShrinkage(AO55) - 2 * cxShrinkage(AP55))
+											odShrinkage(AO55)	=AD55*D15*J4
+																=(odCTE(AD55)(fixed) * stationaryElementIDMax(D15)(input) * lowTempChange(J4)(calculate))
+											cxShrinkage(AP55)	=(D15-D11)/2*J4*AH55
+																=((stationaryElementIDMax(D15)(input) - rotatingElementODMax(D11)(input)) / 2 * lowTempChange(J4)(input) * cxCTE(AH55)(fixed))
+																	=> Note : insert CX CTE into wrArCompositeMatlCheck and wrArMetricCompositeMatlCheck documents.
+																	
+			
+																	
+
+// Finish Machine Composite ID After Installation "Tol"
+	=IF(D24="";"";CONCATENATE("+";VLOOKUP(C$7;M5:Y61;13;0)))
+		=> ID Tol(Y)
+		
+																	
+																	
+																	
+																	
+
+Note :
+	Other values are same in Press-In Imperial and floating Imperial => wrArCompositeMatlCheck
+	WR®600
+	500 => Property at Temperature
+			=> Compressive Modulus = 
+				PressIn Imperial => 537682.5
+				Floating Imperial => 459528.000000004
+	
+	
+	
+	
+
+
+Machine Composite OAL => machineCompositeOAL
+	Inch		
+		=IF(J33="";"";VLOOKUP(C$7;M3:W61;11;0))
+			=> Final OAL(W) for AR®1(1) && AR®HT(2) && WR®300(3) && WR®525(4) && WR®650(6)
+				=IF(M5=O$3;IF(D$20>120;"Check Temp Range";IF(D$20>300;D$18-J$34;D$18));"")
+					D$20 > 120;"Check Temp Range";
+					D$20>300; => (D$18-J$34) => (stationaryBoreDepth - compositeAxialGrowthAtMaxTemp(J$34))
+					else => D$18	=> stationaryBoreDepth
+					
+					
+						compositeAxialGrowthAtMaxTemp(J$34) =IF(J33="";"";VLOOKUP(C$7;O3:AG61;19;0))
+								=> 19 => column "AG / axialGrowth" => 
+										axialGrowth 
+											for AR®1(1) && AR®HT(2) && WR®300(3)
+													=D18*J5*J33 => (stationaryBoreDepth * highTempChange * compositeOALCTE)
+													=D18*J5*J33
+													=D18*J5*J33
+											for WR®525(4) && WR®650(6) => 0
+											** not need to implement because implementing below and note comes in this condition
+											for WR®600(5) => AG$62 => sum of agGrowth
+											
+											compositeOALCTE(J33) = =IF(D20="";"";IF(C$7="";"";VLOOKUP(C$7;M$4:T$61;8;0)))
+																	=> D20 serviceStorageTemperatureAmbient75FMax
+																	=> 8(T) => cteAtTemperatureOALCTE
+			
+			=> Final OAL(W) for WR®600(5)
+				=IF(M55=$O$53;IF(D$20>500;"Check Temp Range";IF(D$20>150;D$18-AG$62;D$18));"")
+					IF D$20 > 150; (stationaryBoreDepth - agGrowth);
+					else D$18 => stationaryBoreDepth
+					
+					
+					=> agGrowth(AG$62) (same for all the composite material)(same as Press-In agGrowth)
+						=IF(AA35>D$20;0;IF(D$20>AA36;(AA36-AA35)*D$18*AF36;(D$20-AA35)*AF36*D$18))
+						=IF(AA36>D$20;0;IF(D$20>AA37;(AA37-AA36)*D$18*AF37;(D$20-AA36)*AF37*D$18))
+						
+						
+						IF Temp > serviceStorageTemperatureAmbient75FMax;0; 
+							IF serviceStorageTemperatureAmbient75FMax > nextTemp;
+								(AA36 - AA35) * D$20 * AF36;
+								(nextTemp - temperature) * stationaryBoreDepth * nextOALCTE(AF36);
+								
+								else (D$22-AA35)*AF36*D$20
+									 (serviceStorageTemperatureAmbient75FMax - temperature) * nextOALCTE(AF36) * stationaryBoreDepth
+						
+	Tol
+		=IF(D25="";"";"-.010")
+	
+	
+
+
+
+Automated Design Notes
+	Floating Imperial
+		=IF($C$6="";"";HLOOKUP(C6;O89:R92;VLOOKUP(C5;O90:S92;5;0);0))
+			=> VLOOKUP(C5;O90:S92;5;0)
+				=> 5 => (2,3,4)
+			=> 
+			
+		=IF(D24="";"";IF((D23-D24)>0.236;"";"Check cross section thickness"))
+			=> D23 Machine Composite OD Inch => machineCompositeODInch
+			=> D24 Finish Machine Composite ID After Installation Inch => finishMachineCompositeIDAfterInstallationInch
+		
+		
+	Floating Metric
+		=IF($C$6="";"";HLOOKUP(C6;O89:R92;VLOOKUP(C5;O90:S92;5;0);0))
+		=IF(D24="";"";IF((D23-D24)>0.6;"";"Check cross section thickness"))	
+	
+	
+	
+	
+	
+	 
+

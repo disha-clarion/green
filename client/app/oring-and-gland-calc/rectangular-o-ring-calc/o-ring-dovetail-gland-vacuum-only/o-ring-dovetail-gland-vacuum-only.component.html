@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+        <form *ngIf="calculatorConfig && dovetailGlandForm" (ngSubmit)="onSubmit(true)" [formGroup]="dovetailGlandForm"
+            novalidate class="form-horizontal {{calculatorConfig.form.form_title_css_class}}">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-1 ignorePdf">
+                    <calculator-toolbar [calculatorConfig]="calculatorConfig"
+                        [isShowOptions]="calculatorConfig.toolbarOption ? true : false" [form]="dovetailGlandForm"
+                        [control]="calculatorConfig.toolbarOption" [isSubmitted]="isSubmitted"
+                        [isShowPasteBtn]="isShowPasteBtn" (optionChange)="onOptionChange($event)" (reset)="onReset()"
+                        (print)="onPrint()"></calculator-toolbar>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-1">
+                    <dynamic-form-two-column-layout [form]="dovetailGlandForm" [isSubmitted]="isSubmitted"
+                        [calculatorJSON]="calculatorConfig" [clientErrors]="clientErrors"
+                        [clientWarnings]="clientWarnings" [serverErrors]="serverErrors"
+                        [serverWarnings]="serverWarnings">
+                    </dynamic-form-two-column-layout>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 p-1">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <!-- graph -->
+                <div class="graph-sec">
+                    <h3>Gland Information</h3>
+                    <div class="graph-bg dovtail-bg">
+                        <div class="gld-id">CL: <strong>{{getControlValue('glandCenterlineNominal')}}</strong> <br>
+                            (to centerline)</div>
+                        <div class="gld-width">GLAND WIDTH: <strong>{{getControlValue('glandWidthNominal')}}</strong>
+                            <br>(to sharp corners)</div>
+                        <div class="gld-depth">GLAND DEPTH:
+                            <br><strong>{{getControlValue('glandDepthNominal')}}</strong></div>
+                        <div class="top-radii">TOP RADII: <strong>{{getControlValue('topRadiiNominal')}}</strong>
+                        </div>
+                        <div class="bottom-radii">BOTTOM RADII:
+                            <strong>{{getControlValue('bottomRadiiNominal')}} </strong></div>
+                        <div class="gld-angle">GLAND ANGLE: <strong>{{getControlValue('glandAngleNominal')}}</strong>
+                        </div>
+                        <div class="gap-full-comp">GAP: <strong>{{getControlValue('gapNominal')}}</strong> <br>(may
+                            or may not exist)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ignorePdf">
+                <user-rules></user-rules>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,200 @@
+[
+  {
+    "id": 1,
+    "mname": "Chemraz® E38",
+    "cte": "0.0003495369",
+    "mintemp": "-20",
+    "maxtemp": "260",
+    "mintempF": "-4",
+    "maxtempF": "500"
+  },
+  {
+    "id": 2,
+    "mname": "Chemraz® XCD",
+    "cte": "0.0003012228",
+    "mintemp": "-20",
+    "maxtemp": "300",
+    "mintempF": "-4",
+    "maxtempF": "572"
+  },
+  {
+    "id": 3,
+    "mname": "Chemraz® XHP",
+    "cte": "0.0003476",
+    "mintemp": "-10",
+    "maxtemp": "255",
+    "mintempF": "14",
+    "maxtempF": "491"
+  },
+  {
+    "id": 4,
+    "mname": "Chemraz® XPE",
+    "cte": "0.0004121553",
+    "mintemp": "-16",
+    "maxtemp": "280",
+    "mintempF": "3.2",
+    "maxtempF": "536"
+  },
+  {
+    "id": 5,
+    "mname": "Chemraz® XRZ",
+    "cte": "0.000370575",
+    "mintemp": "-20",
+    "maxtemp": "300",
+    "mintempF": "-4",
+    "maxtempF": "572"
+  },
+  {
+    "id": 6,
+    "mname": "Chemraz® XTR",
+    "cte": "0.000376",
+    "mintemp": "-20",
+    "maxtemp": "300",
+    "mintempF": "-4",
+    "maxtempF": "572"
+  },
+  {
+    "id": 7,
+    "mname": "Chemraz® 513",
+    "cte": "0.0003430481",
+    "mintemp": "-30",
+    "maxtemp": "210",
+    "mintempF": "-22",
+    "maxtempF": "410"
+  },
+  {
+    "id": 8,
+    "mname": "Chemraz® 518 ",
+    "cte": "0.0003562",
+    "mintemp": "-12",
+    "maxtemp": "300",
+    "mintempF": "10",
+    "maxtempF": "572"
+  },
+  {
+    "id": 9,
+    "mname": "Chemraz® 520",
+    "cte": "0.0003157511",
+    "mintemp": "-30",
+    "maxtemp": "240",
+    "mintempF": "-22",
+    "maxtempF": "464"
+  },
+  {
+    "id": 10,
+    "mname": "Chemraz® 536 ",
+    "cte": "0.0003850",
+    "mintemp": "-12",
+    "maxtemp": "300",
+    "mintempF": "10",
+    "maxtempF": "572"
+  },
+  {
+    "id": 11,
+    "mname": "Chemraz® 547",
+    "cte": "0.0003931",
+    "mintemp": "-20",
+    "maxtemp": "300",
+    "mintempF": "-4",
+    "maxtempF": "572"
+  },
+  {
+    "id": 12,
+    "mname": "Chemraz® 551",
+    "cte": "0.0003524375",
+    "mintemp": "-12",
+    "maxtemp": "361",
+    "mintempF": "10.4",
+    "maxtempF": "681.8"
+  },
+  {
+    "id": 13,
+    "mname": "Chemraz® 570",
+    "cte": "0.0004172646",
+    "mintemp": "-30",
+    "maxtemp": "210",
+    "mintempF": "-22",
+    "maxtempF": "410"
+  },
+  {
+    "id": 14,
+    "mname": "Chemraz® 592",
+    "cte": "0.0003264508",
+    "mintemp": "-30",
+    "maxtemp": "240",
+    "mintempF": "-22",
+    "maxtempF": "464"
+  },
+  {
+    "id": 15,
+    "mname": "Chemraz® 629",
+    "cte": "0.0003679768",
+    "mintemp": "-20",
+    "maxtemp": "260",
+    "mintempF": "-4",
+    "maxtempF": "500"
+  },
+  {
+    "id": 16,
+    "mname": "Chemraz® 653",
+    "cte": "0.0003407783",
+    "mintemp": "-18",
+    "maxtemp": "324",
+    "mintempF": "-0.4",
+    "maxtempF": "615.2"
+  },
+  {
+    "id": 17,
+    "mname": "Chemraz® 655",
+    "cte": "0.0004689223",
+    "mintemp": "-20",
+    "maxtemp": "315",
+    "mintempF": "-4",
+    "maxtempF": "599"
+  },
+  {
+    "id": 18,
+    "mname": "Chemraz® 657",
+    "cte": "0.0003065739",
+    "mintemp": "-20",
+    "maxtemp": "280",
+    "mintempF": "-4",
+    "maxtempF": "536"
+  },
+  {
+    "id": 19,
+    "mname": "Chemraz® 663",
+    "cte": "0.00033357",
+    "mintemp": "-40",
+    "maxtemp": "180",
+    "mintempF": "-40",
+    "maxtempF": "356"
+  },
+  {
+    "id": 20,
+    "mname": "Fusion™ 706",
+    "cte": "0.0002987473",
+    "mintemp": "-29",
+    "maxtemp": "220",
+    "mintempF": "-20.2",
+    "maxtempF": "428"
+  },
+  {
+    "id": 21,
+    "mname": "Fusion™ 707",
+    "cte": "0.00032713",
+    "mintemp": "-20",
+    "maxtemp": "220",
+    "mintempF": "-4",
+    "maxtempF": "428"
+  },
+  {
+    "id": 22,
+    "mname": "Fusion™ 742",
+    "cte": "0.0002417476",
+    "mintemp": "-30",
+    "maxtemp": "250",
+    "mintempF": "-22",
+    "maxtempF": "484"
+  }
+]

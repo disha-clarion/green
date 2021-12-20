@@ -1,0 +1,7 @@
+<div class="switch-btn-section pull-left">
+    <div class="pull-left switch-btn-section__option">
+        <span *ngFor="let switchOption of switchOptions; let switchOptionIndex = index;"
+            (click)="onSwitchClicked(switchOptionIndex)"
+            [ngClass]="{'active': switchOption.isActive}">{{switchOption.display_title}}</span>
+    </div>
+</div>

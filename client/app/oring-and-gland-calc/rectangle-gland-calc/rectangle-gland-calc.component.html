@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row ignorePdf">
+        <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 p-1">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-1">
+                    <p class="info-tab pt-0">Use this tool for designing new glands based upon desired o-ring sizing.
+                        Please contact Greene Tweed engineering for help or advice if required as some applications are
+                        difficult to optimize both at ambient and operating temperatures</p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 p-1"
+                    *ngIf="calculatorTypeDDl && calculatorTypeDDl.length > 0 && calculatorTypeDDLFormGroup">
+                    <custom-drop-down [options]="calculatorTypeDDl" [form]="calculatorTypeDDLFormGroup"
+                        [control]="calculatorTypeDDl[0]" (selectionChange)="onCalculatorChange($event)">
+                    </custom-drop-down>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 p-1">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 p-0">
+                            <div class="pull-left unit-section__label">Units:</div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 p-0">
+                            <unit-button></unit-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 p-0">
+                            <div class="pull-left unit-section__label">Temperature:</div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 p-0">
+                            <temperature-button></temperature-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

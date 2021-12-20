@@ -1,0 +1,14 @@
+.modal-body {
+    position: relative;
+    padding: 15px;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+tbody>tr {
+    cursor: pointer;
+}
+
+tbody>tr:hover {
+    background-color: #add8e6;
+}

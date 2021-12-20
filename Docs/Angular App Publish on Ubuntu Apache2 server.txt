@@ -1,0 +1,54 @@
+ubuntu apache2 hosting angular application - 
+
+1. check the apache2 status and get laoded path.
+	service apache2 status
+	Loaded: loaded (/etc/init.d/apache2; bad; vendor preset: enable
+	
+	move to path /etc/init.d/apache2 using "cd .." command.
+	
+2. move to folder "sites-available" and create a copy of conf file ""
+		
+		command =>  sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/<project-name>.staging.conf
+	
+	open the "<project-name>.staging.conf" to edit the configuration.
+		
+		command => sudo vim <project-name>.staging.conf
+	
+	then press "i"/insert key to update/paste the below configuration -
+		<VirtualHost *:80>
+		  ServerName <domainname> 					example => devsemicalculator.gtweed.com
+		  ServerAlias <domainaliase>				example => devsemicalculator.gtweed.com
+		  DocumentRoot /var/www/<www folder name>	example => /var/www/smsstaging
+		  <Directory /var/www/<www folder name>>
+			Options Indexes FollowSymLinks MultiViews
+			AllowOverride All
+			Order allow,deny
+			allow from all
+		  </Directory>
+		</VirtualHost>
+	
+	then execute the save and exit comand -
+		esc :wq 
+
+3. then move to "root/var/www/" and create a folder using sudo mkdir <projectname>
+	then move to <projectname> folder and paste the Web Application's published/build code.
+	
+	Note : For testing purpose in point 3 => create "index.html" and add some html code.
+		1. sudo mkdir index.html
+		2. sudo vim index.html 
+		3. press insert/i key to insert html code
+		4. save and exit command => ESC:wq
+		
+	
+4. then mve to path "/etc/apache2/sites-available" and enable the web application by running the below command.
+	sudo a2ensite sms.staging.conf
+	
+5. Browse the domainname in browser.
+
+Note: permission update
+	sudo chmod -R a+rw /var/www
+	
+	
+	
+References - 
+	https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-16-04

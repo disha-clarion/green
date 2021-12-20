@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h3 class="modal-title">O-ring and Gland Size</h3>
+</div>
+<div class="modal-body">
+    <table class='table table-bordered table-fixed' aria-describedby="O-ring and Gland Size">
+        <thead>
+            <tr>
+                <th scope="col">Dash Size</th>
+                <th scope="col">O-ring Cross Section Size</th>
+                <th scope="col">O-ring Diameter Size</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dashSize of dashSizes.data" (click)='rowClick(dashSize)'>
+                <td>{{pad(dashSize.dashSize, 3)}}</td>
+                <td>{{dashSize.oringCrossSectionSize.toFixed(fixedTo)}}</td>
+                <td>{{dashSize.oringDiameterSize.toFixed(fixedTo)}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

@@ -1,0 +1,240 @@
+{
+  "calc_group_name": "O_Ring_Gland_Analysis_Tool",
+  "display_group_title": "O_Ring_Gland_Analysis_Tool",
+  "calculators": [
+    {
+      "id": 1,
+      "order": 1,
+      "calculator_group_name": "O_Ring_Gland_Analysis_Tool",
+      "calculator_type": "Rectangular Gland - Internal Vacuum Only",
+      "display_calculator_title": "Rectangular Gland - Internal Vacuum Only",
+      "form": {
+        "form_id": 11,
+        "form_key": "formRectangularGlandInternalVacuumOnly1",
+        "show": true,
+        "form_title": "Rectangular Gland - Internal Vacuum Only",
+        "form_title_css_class": ["test", "test2"],
+        "form_layout_row": [
+          {
+            "row_id": 111,
+            "order": 2,
+            "form_layout_columns": [
+              {
+                "col_id": 1111,
+                "order": 2,
+                "form_controls": [
+                  {
+                    "form_control_id": 11111,
+                    "order": 2,
+                    "key": "lblNominal1",
+                    "label": "Nominal1",
+                    "value": "Nominal1",
+                    "placeholder": "",
+                    "type": "label",
+                    "sub_type": "label",
+                    "show": true,
+                    "required": false,
+                    "validation": []
+                  },
+                  {
+                    "form_control_id": 11112,
+                    "order": 1,
+                    "key": "lblNominal2",
+                    "label": "Nominal2",
+                    "value": "Nominal2",
+                    "placeholder": "",
+                    "type": "label",
+                    "sub_type": "label",
+                    "show": true,
+                    "required": false,
+                    "validation": []
+                  }
+                ]
+              },
+              {
+                "col_id": 1112,
+                "order": 1,
+                "form_controls": [
+                  {
+                    "form_control_id": 11121,
+                    "order": 1,
+                    "key": "lblNominal",
+                    "label": "Nominal",
+                    "value": "Nominal",
+                    "placeholder": "",
+                    "type": "label",
+                    "sub_type": "label",
+                    "show": true,
+                    "required": false,
+                    "validation": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "row_id": 112,
+            "order": 1,
+            "form_layout_columns": [
+              {
+                "col_id": 1121,
+                "order": 1,
+                "form_controls": [
+                  {
+                    "form_control_id": 11211,
+                    "order": 1,
+                    "key": "txtGlandWidth",
+                    "label": "Gland Width",
+                    "value": "",
+                    "placeholder": "",
+                    "type": "textbox",
+                    "sub_type": "text",
+                    "show": true,
+                    "required": true,
+                    "validation": ["FORBIDDEN_NAME_VALIDATOR"]
+                  }
+                ]
+              },
+              {
+                "col_id": 1122,
+                "order": 2,
+                "form_controls": [
+                  {
+                    "form_control_id": 11221,
+                    "order": 1,
+                    "key": "lblNominal",
+                    "label": "Nominal",
+                    "value": "Nominal",
+                    "placeholder": "",
+                    "type": "label",
+                    "sub_type": "label",
+                    "show": true,
+                    "required": false,
+                    "validation": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "order": 2,
+      "calculator_group_name": "O_Ring_Gland_Analysis_Tool",
+      "calculator_type": "Dovetail Gland - Vacuum Only",
+      "display_calculator_title": "Dovetail Gland - Vacuum Only",
+      "form": {
+        "form_id": 21,
+        "form_key": "formDovetailGlandVacuumOnly",
+        "show": true,
+        "form_title": "Dovetail Gland - Vacuum Only",
+        "form_title_css_class": ["test", "test2"],
+        "form_layout_row": [
+          {
+            "row_id": 211,
+            "order": 2,
+            "form_layout_columns": [
+              {
+                "col_id": 2111,
+                "order": 2,
+                "form_controls": [
+                  {
+                    "form_control_id": 21111,
+                    "order": 2,
+                    "key": "lblNominal1",
+                    "label": "Nominal1",
+                    "value": "Nominal1",
+                    "placeholder": "",
+                    "type": "label",
+                    "sub_type": "label",
+                    "show": true,
+                    "required": false,
+                    "validation": []
+                  },
+                  {
+                    "form_control_id": 21112,
+                    "order": 1,
+                    "key": "lblNominal2",
+                    "label": "Nominal2",
+                    "value": "Nominal2",
+                    "placeholder": "",
+                    "type": "label",
+                    "sub_type": "label",
+                    "show": true,
+                    "required": false,
+                    "validation": []
+                  }
+                ]
+              },
+              {
+                "col_id": 2112,
+                "order": 1,
+                "form_controls": [
+                  {
+                    "form_control_id": 21121,
+                    "order": 1,
+                    "key": "lblNominal",
+                    "label": "Nominal",
+                    "value": "Nominal",
+                    "placeholder": "",
+                    "type": "label",
+                    "sub_type": "label",
+                    "show": true,
+                    "required": false,
+                    "validation": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "row_id": 212,
+            "order": 1,
+            "form_layout_columns": [
+              {
+                "col_id": 2121,
+                "order": 1,
+                "form_controls": [
+                  {
+                    "form_control_id": 21211,
+                    "order": 1,
+                    "key": "txtGlandWidth",
+                    "label": "Gland Width",
+                    "value": "",
+                    "placeholder": "",
+                    "type": "textbox",
+                    "sub_type": "text",
+                    "show": true,
+                    "required": true,
+                    "validation": ["FORBIDDEN_NAME_VALIDATOR"]
+                  }
+                ]
+              },
+              {
+                "col_id": 2122,
+                "order": 2,
+                "form_controls": [
+                  {
+                    "form_control_id": 21221,
+                    "order": 1,
+                    "key": "lblNominal",
+                    "label": "Nominal",
+                    "value": "Nominal",
+                    "placeholder": "",
+                    "type": "label",
+                    "sub_type": "label",
+                    "show": true,
+                    "required": false,
+                    "validation": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

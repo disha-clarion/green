@@ -1,0 +1,19 @@
+.switch-btn-section span.active {
+    color: #ffffff;
+    background: #329f59;
+}
+
+.switch-btn-section span:first-child {
+    width: 60px;
+    text-align: center;
+}
+
+.switch-btn-section span {
+    float: left;
+    padding: 6px 8px;
+    color: #777;
+    background: #eee;
+    cursor: pointer;
+    width: 85px;
+    text-align: center;
+}

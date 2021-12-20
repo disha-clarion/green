@@ -1,0 +1,349 @@
+/* .form-horizontal {
+    border: 1px solid #d2d2d2;
+} */
+
+.cal-heading {
+    background: #225a8a;
+    color: #fff;
+    margin: 0;
+    font-size: 1.3rem;
+    padding: 10px 16px 10px 20px;
+}
+
+.form-horizontal .form-group {
+    margin-right: 12px;
+    margin-left: 0px;
+    margin-bottom: 0;
+}
+
+.sms-section__range {
+    width: 72px;
+    text-align: center;
+    float: left;
+    margin-right: 12px;
+}
+
+.fw-600 {
+    /* font-weight: 600; */
+    font-family: 'open_sanssemibold', sans-serif;
+}
+
+.sms-section__inputs {
+    border-bottom: 1px solid #d2d2d2;
+    margin-top: 2%;
+    padding-bottom: 2%;
+    min-height: 67px;
+    position: relative;
+}
+
+.sms-section__inputs:last-child {
+    border-bottom: none;
+}
+
+.sms-section__label {
+    width: 100px;
+    /* width: 13%; */
+    text-align: right;
+    color: #777;
+}
+
+.sms-section__inputs .sms-section__label {
+    float: left;
+    margin-right: 18px;
+    font-size: 1rem;
+    /* font-size: inherit; */
+    line-height: 1.2rem;
+    position: relative;
+}
+
+.sms-section__label .required {
+    color: #ff0000;
+    position: absolute;
+    top: 0px;
+}
+
+.sms-section__heading {
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.sms-section__heading .sms-section__label, .sms-section__heading .sms-section__range {
+    padding: 15px 0;
+    white-space: nowrap;
+}
+
+.sms-section__heading .sms-section__label {
+    float: left;
+    margin-right: 18px;
+}
+
+.sms-celcius, .sms-fahrenheit {
+    width: 15px;
+    height: 15px;
+    background-size: contain!important;
+    position: absolute;
+    top: 6px;
+}
+
+.sms-celcius {
+    background: url(/assets/img/icon_celcius.png) no-repeat;
+    right: -24px;
+}
+
+.custom-button {
+    background: #225a8a;
+    border: #225a8a;
+}
+
+.calculate {
+    background: #329f59;
+    border: none;
+}
+
+.calculate, .custom-button, .reset {
+    float: right;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 3px 15px;
+    /* border-radius: 3px; */
+    margin-right: 11px;
+}
+
+.calculation-results {
+    margin-top: 20px;
+}
+
+.calculation-results .column {
+    /* border: 1px solid #d2d2d2; */
+    background: #f9f9f9;
+}
+
+.calculation-results h3 {
+    color: #fff;
+    background: #8b8b8b;
+    font-size: 1rem;
+    padding: 10px 16px 10px 20px;
+    margin: 0;
+}
+
+.calculation-results__heading, .graph-sec h3 {
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.calculation-results__range {
+    text-align: right;
+    width: 62px;
+    float: left;
+    margin-right: 12px;
+    padding: 10px 0;
+}
+
+.calculation-results__outputs .calculation-results__range {
+    padding: 0 0 10px;
+    text-align: right;
+    width: 62px;
+}
+
+.calculation-results__outputs {
+    /* float: left;
+    width: 100%; */
+    border-bottom: 1px solid #d2d2d2;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    min-height: 44px;
+}
+
+.calculation-results__outputs:last-child {
+    border-bottom: none;
+}
+
+.calculation-results__label {
+    float: left;
+    margin-right: 18px;
+    width: 120px;
+    text-align: right;
+    color: #777;
+    font-size: 1rem;
+    line-height: 1.2rem;
+}
+
+.calculation-results__outputs .calculation-results__label {
+    padding-top: 2px;
+}
+
+/* mail to div css */
+
+.mailto-button {
+    padding-top: 23px;
+}
+
+.mailto-button a {
+    cursor: pointer;
+    background: url(/assets/img/bg_email-gray.png) no-repeat 0 2px;
+    margin-right: 15px;
+    padding-left: 28px;
+    padding-bottom: 10px;
+    color: #225a8a;
+    font-size: 14px;
+    font-family: 'open_sanssemibold', sans-serif;
+    background-size: 20px;
+}
+
+/* Warning message */
+
+.warning-message {
+    background: url(/assets/img/icon_warning.png) 15px 15px no-repeat #fcf8e3;
+    border: 1px solid #faebcc;
+    color: #8c2e0b;
+    padding: 15px;
+    border-radius: 3px;
+    padding-left: 53px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    position: relative;
+    background-size: 25px;
+}
+
+.warning-message>div {
+    margin-bottom: 5px;
+}
+
+.warning-message .warning-message__close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 16px;
+    height: 16px;
+    background: url(/assets/img/icon_warning_close.png) no-repeat;
+    cursor: pointer;
+}
+
+.warning-message .warning-message__body {
+    position: relative;
+    padding-right: 18px;
+}
+
+.warning-message .warning-message__body:before {
+    content: ".";
+    font-size: 29px;
+    line-height: 20px;
+    left: -9px;
+    position: absolute;
+    top: -8px;
+}
+
+.warning-message .warning-message__body strong {
+    position: relative;
+    padding-right: 18px;
+}
+
+.warning-message .warning-message__body strong:after {
+    position: absolute;
+    content: "+";
+    font-size: 21px;
+    right: 0;
+    top: -4px;
+}
+
+.warning-message .warning-message__body>div.selected strong:after {
+    position: absolute;
+    right: 2px;
+    top: 9px;
+    width: 9px;
+    height: 3px;
+    background: #8c2e0b;
+    content: "";
+}
+
+.warning-message .warning-message__body.selected strong:after {
+    position: absolute;
+    right: 2px;
+    top: 9px;
+    width: 9px;
+    height: 3px;
+    background: #8c2e0b;
+    content: "";
+}
+
+.warning-message .error-message__note {
+    position: absolute;
+    right: 18px;
+    top: 6px;
+    color: #8c2e0b;
+}
+
+/* Error message */
+
+.error-message {
+    background: url(/assets/img/icon_error.png) 15px 15px no-repeat #fceded;
+    border: 1px solid #fc5353;
+    color: #8c2e0b;
+    padding: 15px;
+    border-radius: 3px;
+    padding-left: 53px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.error-message div strong {
+    position: relative;
+    padding-right: 18px;
+    cursor: pointer;
+}
+
+.error-message div.error-message__body strong:after, .warning-message .warning-message__body strong:after {
+    position: absolute;
+    content: "+";
+    font-size: 21px;
+    right: 0;
+    top: -4px;
+}
+
+.error-message div.selected strong:after {
+    position: absolute;
+    right: 2px;
+    top: 9px;
+    width: 9px;
+    height: 3px;
+    background: #8c2e0b;
+    content: "";
+}
+
+.error-message .error-message__note {
+    position: absolute;
+    right: 18px;
+    top: 6px;
+    color: #8c2e0b;
+    margin-bottom: 5px;
+}
+
+.error-message div, .error-message__sec {
+    position: relative;
+    margin-bottom: 2px;
+}
+
+.error-message>div {
+    margin-bottom: 5px;
+}
+
+.error-message>div:before, .error-message__sec:before {
+    content: ".";
+    font-size: 29px;
+    line-height: 20px;
+    left: -9px;
+    position: absolute;
+    top: -8px;
+}
+
+.error-message>div:before {
+    top: -6px;
+}
+
+.error-body:before, .error-message .error-message__note:before {
+    content: "";
+}
+
+.notes {
+    border: 1px solid #000;
+}

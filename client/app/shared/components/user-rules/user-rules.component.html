@@ -1,0 +1,98 @@
+<div class="user-rules m-b-5" id="siderule">
+    <div class="user-rules__header" (click)="collapsed=!collapsed"
+        [ngClass]="{'selected': collapsed}">Parameters</div>
+    <div class="user-rules__rules in" *ngIf="collapsed">
+        <ul>
+            <li>Nominal Compression recommended for 20-25% at operating temperature.
+                <p>Depending on the operating temperature, ambient compression can be lower(but not below 15%), but with
+                    risk of sealing at ambient. </p>
+                <p>Higher compression than 25% can result in reduced lifetime of product.</p>
+            </li>
+            <li>Nominal Gland Fill recommended for 85-90% at operating temperature.
+                <p>Higher gland fill can result in reduced lifetime of product. As gland fill reaches 100% premature
+                    failure of the o-ring increases </p>
+                <p>Lower gland fill is acceptable, however gland fill improves the sealing force of the o-ring</p>
+            </li>
+            <li>Nominal Stretch recommended is 1- 3% at ambient
+                <p>Higher stretch can result in reduced lifetime of product</p>
+                <p>Less than 1% stretch is acceptable for o-rings under 1" in diameter.</p>
+                <p>Stretch is required to account for o-ring tolerances and prevent bunching up of the o-ring in the
+                    groove</p>
+                <p>Stretch is not calculated at operating temperature. It is encapsulated by the gland, which makes
+                    gland fill and compression calculations important for improved lifetime.</p>
+            </li>
+            <li>Nominal Radial Compression recommended is 0% </li>
+        </ul>
+    </div>
+</div>
+<div class="user-rules m-b-5" id="siderules">
+    <div class="user-rules__header" (click)="collapsedOring=!collapsedOring"
+        [ngClass]="{'selected': collapsedOring}">Gland Type</div>
+    <div class="user-rules__rules in" *ngIf="collapsedOring">
+        <ul>
+            <li>Rectangular Glands
+                <p>It is recommended for the gland width to be larger than the cross section of the o-ring</p>
+                <p>One Dimension to the ID or OD of the gland only, and then dimension the gland width. Otherwise total
+                    tolerance stackup is too large and causes problems</p>
+                <ul>
+                    <li>This enables the ID or OD tolerance to only affect stretch or radial compression</li>
+                    <li>This enables the gland width tolerance to only affect gland fill</li>
+                </ul>
+            </li>
+            <li>Dovetail Glands
+                <p>Use the centerline of the gland for machining and stretch calculations</p>
+                <p>Always call out a top radius. No top radius callout has resulted in cut o-rings during o-ring
+                    installation</p>
+                <p>Dovetail Gland Angle recommended 55-66 degrees</p>
+                <ul>
+                    <li>Use 66 degrees for ambient up to approximately 140C</li>
+                    <li>Use 55 degrees for temperatures above approximately 140C</li>
+                    <li>45 degree angles may have to be used for very small cross section</li>
+                </ul>
+            </li>
+            <li>Half Dovetail Glands
+                <p>Greene Tweed does not typically recommend
+                    the use of these glands due to very high gland
+                    fill, which leads to premature seal failures</p>
+                <ul>
+                    <li>For large chamber seals, the Greene Tweed
+                        half dovetail gland design allows for thermal
+                        expansion and could be used for easier
+                        installation compared to standard rectangular
+                        glands</li>
+                    <li>Stretch is calculated similar to full dovetail
+                        glands via centerline</li>
+
+                    <li>High Gland Fill is usually the result as there is not enough room for a full dovetail gland</li>
+                    <li>Only stretch is used to hold the seal in place during installation. If the tool is taken down
+                        and the o-ring wiped clean, it may not be reusable as the seal has likely grown slightly and
+                        therefore stretch may not exists to hold the seal during re installation</li>
+                </ul>
+            </li>
+
+            <li>Minimum radii is .005" due to typical machining standards though sharp edges can occur on dovetail
+                grooves if not called out</li>
+        </ul>
+    </div>
+</div>
+<div class="user-rules m-b-5" id="siderules">
+    <div class="user-rules__header" (click)="collapsedSizing=!collapsedSizing"
+        [ngClass]="{'selected': collapsedSizing}">O-ring Sizing</div>
+    <div class="user-rules__rules in" *ngIf="collapsedSizing">
+        <ul>
+            <li>All tolerances are based upon AS568A sizes
+                <p>No tolerance changes allowed</p>
+                <p>Custom o-ring sizes can result in higher tolerances</p>
+            </li>
+            <li>O-ring Cross Sections
+                <p>.070 and .103 (-000 and -100 sizes) cross sections not recommended for high temperatures</p>
+                <p>.139 (-200 size) cross sections will have sealing limitations as ambient as temperatures increase
+                    past 200C. Greene Tweed does offer custom seal designs that can seal both at 300C and at ambient
+                    temperatures.</p>
+                <p>.210 and .275 (-300 and -400 sizes) cross sections recommended for highest temperatures when the user
+                    wants to use standard o-ring sizes</p>
+            </li>
+            <li>Each material has a maximum temperature limit.</li>
+        </ul>
+    </div>
+</div>

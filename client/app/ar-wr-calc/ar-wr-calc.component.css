@@ -1,0 +1,32 @@
+.calculation-results__range {
+    text-align: center;
+    width: 35%;
+}
+
+.calculation-results__outputs .calculation-results__range {
+    text-align: center;
+    width: 30%;
+}
+
+.materialChoice {
+    padding-right: 22% !important;
+    width: 100% !important;
+    min-width: 156px !important;
+}
+
+.sms-section__label {
+    /* width: 20%; */
+    width: 32% !important;
+}
+
+.sms-section__range {
+    width: 27% !important;
+}
+
+.calculation-results__label {
+    width: 56% !important;
+}
+
+.info-tab {
+    padding: 0px !important;
+}

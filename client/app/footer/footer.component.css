@@ -1,0 +1,20 @@
+.footer {
+    background: #CCC;
+    padding: 0 0 20px;
+    color: #777;
+}
+
+.footer .footer-top {
+    background: #eaeaea;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    padding: 20px 0 10px;
+}
+
+.footer .footer-top p {
+    font-size: 10px;
+}
+
+.footer-top p strong {
+    font-family: 'open_sansbold', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+}

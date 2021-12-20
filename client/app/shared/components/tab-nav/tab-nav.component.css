@@ -1,0 +1,75 @@
+.regulator-tabs__main {
+    /* margin-bottom: 40px; */
+    float: left;
+    width: 100%;
+}
+
+.regulator-tabs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    clear: both;
+}
+
+.regulator-tabs ul li {
+    /* margin: 0 5px -1px; */
+    position: relative;
+    display: inline-block;
+}
+
+.regulator-tabs ul li.active {
+    background: #fff;
+    z-index: 1;
+}
+
+/*v2.1*/
+
+.regulator-tabs__main a {
+    padding: 10px 15px;
+    position: relative;
+    text-decoration: none;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+    /* border-radius: 10px 10px 0 0; */
+    /* border: 1px solid #ccc; */
+    /* border-bottom: 1px solid #ccc; */
+    color: #757575;
+}
+
+.regulator-tabs__main a:hover {
+    color: #329f59;
+}
+
+.regulator-tabs ul li.active a {
+    color: #225a8a;
+    position: relative;
+    background: #eee;
+}
+
+.regulator-tabs ul li.active {
+    background: #ffffff;
+}
+
+.regulator-tabs a.view-chemraz-btn {
+    padding: 8px 14px;
+    background: #225a8a;
+    color: #fff;
+    font-size: 16px;
+    z-index: 9;
+}
+
+.regulator-tabs a.view-chemraz-btn:hover, .regulator-tabs a.view-chemraz-btn:focus {
+    text-decoration: none;
+    background: #10385a;
+}
+
+@media (min-width: 700px) {
+    .regulator-tabs a.view-chemraz-btn {
+        position: absolute;
+        right: 15px;
+        top: -8px;
+    }
+}

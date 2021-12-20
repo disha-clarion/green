@@ -1,0 +1,35 @@
+/* bootstrap  */
+
+.content {
+    margin: 25px 0 20px;
+}
+
+.errorMessage {
+    color: red;
+}
+
+.sms-section {
+    /* border: 1px solid #d2d2d2; */
+    background: #f9f9f9;
+    margin-top: 10px;
+}
+
+.pl-1-perc {
+    padding-left: 1%;
+}
+
+.pr-1-right {
+    padding-right: 1%;
+}
+
+.pl-1-row-left > .row {
+    padding-left: 1%;
+}
+
+.pr-1-row-right > .row {
+    padding-right: 1%;
+}
+
+textarea {
+    width: 100%;
+}

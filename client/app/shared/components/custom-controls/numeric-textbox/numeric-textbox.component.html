@@ -1,0 +1,6 @@
+<ng-container [formGroup]="form">
+        <input numeric [maxLength]="maxLength" [decimals]="decimalPoint" [isFormatInputOnBlur]="isFormatInputOnBlur"
+                [isNegetiveNumber]="isNegetiveNumber" type="control.sub_type" [formControl]="getFormControl()"
+                [placeholder]="control.placeholder" [id]="control.key" class="form-control"
+                [ngClass]="{'is-invalid': isFormSubmitted && !isValid}" (focusout)="onFocusOutEvent($event)">
+</ng-container>

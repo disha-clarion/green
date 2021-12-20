@@ -1,0 +1,196 @@
+{
+  "arWrPumptypeDropdown": [
+    {
+      "id": 1,
+      "label": "Overhung (OH)",
+      "value": 1
+    },
+    {
+      "id": 2,
+      "label": "Between Bearings (BB)",
+      "value": 2
+    },
+    {
+      "id": 3,
+      "label": "Vertically Suspended (VS)",
+      "value": 3
+    }
+  ],
+  "arWrComponenttypeDropdown": [
+    {
+      "id": 1,
+      "label": "Wear Ring",
+      "value": 1
+    },
+    {
+      "id": 2,
+      "label": "Bushing",
+      "value": 2
+    },
+    {
+      "id": 3,
+      "label": "Bearing",
+      "value": 3
+    }
+  ],
+  "arWrCompositetypeDropdown": [
+    {
+      "id": 1,
+      "label": "AR®1",
+      "value": 1
+    },
+    {
+      "id": 2,
+      "label": "AR®HT",
+      "value": 2
+    },
+    {
+      "id": 3,
+      "label": "WR®300",
+      "value": 3
+    },
+    {
+      "id": 4,
+      "label": "WR®525",
+      "value": 4
+    },
+    {
+      "id": 5,
+      "label": "WR®600",
+      "value": 5
+    },
+    {
+      "id": 6,
+      "label": "WR®650",
+      "value": 6
+    }
+  ],
+  "arWrInterFerenceTargetPressInDropdown": [
+    {
+      "id": 1,
+      "label": "Standard",
+      "value": 1
+    },
+    {
+      "id": 2,
+      "label": "Custom",
+      "value": 0
+    }
+  ],
+  "arWrClearanceTargetDropdown": [
+    {
+      "id": 1,
+      "label": "Standard",
+      "value": 1
+    },
+    {
+      "id": 2,
+      "label": "Custom",
+      "value": 0
+    }
+  ],
+  "arWrRotatingMaterial": [
+    {
+      "id": 1,
+      "label": "Custom",
+      "value": 0
+    },
+    {
+      "id": 2,
+      "label": "316 SS",
+      "value": "1"
+    },
+    {
+      "id": 3,
+      "label": "410 SS",
+      "value": "2"
+    },
+    {
+      "id": 4,
+      "label": "4140 SS",
+      "value": "3"
+    },
+    {
+      "id": 5,
+      "label": "Carbon Steel",
+      "value": "4"
+    },
+    {
+      "id": 6,
+      "label": "Nitronic 50",
+      "value": "5"
+    },
+    {
+      "id": 7,
+      "label": "Nitronic 60",
+      "value": "6"
+    },
+    {
+      "id": 8,
+      "label": "Cast Iron",
+      "value": "7"
+    },
+    {
+      "id": 9,
+      "label": "Bronze",
+      "value": "8"
+    },
+    {
+      "id": 10,
+      "label": "Super Duplex SS",
+      "value": "9"
+    }
+  ],
+  "arWrStationaryMaterial": [
+    {
+      "id": 1,
+      "label": "Custom",
+      "value": 0
+    },
+    {
+      "id": 2,
+      "label": "316 SS",
+      "value": "1"
+    },
+    {
+      "id": 3,
+      "label": "410 SS",
+      "value": "2"
+    },
+    {
+      "id": 4,
+      "label": "4140 SS",
+      "value": "3"
+    },
+    {
+      "id": 5,
+      "label": "Carbon Steel",
+      "value": "4"
+    },
+    {
+      "id": 6,
+      "label": "Nitronic 50",
+      "value": "5"
+    },
+    {
+      "id": 7,
+      "label": "Nitronic 60",
+      "value": "6"
+    },
+    {
+      "id": 8,
+      "label": "Cast Iron",
+      "value": "7"
+    },
+    {
+      "id": 9,
+      "label": "Bronze",
+      "value": "8"
+    },
+    {
+      "id": 10,
+      "label": "Super Duplex SS",
+      "value": "9"
+    }
+  ]
+}

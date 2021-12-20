@@ -1,0 +1,10 @@
+{
+  "app": {
+    "title": "Semiconductor O-ring and Gland Size Calculator",
+    "wrArTitle": "WrAr Calculator"
+  },
+  "env": {
+    "name": "dev",
+    "api": "http://localhost:4001/api/"
+  }
+}

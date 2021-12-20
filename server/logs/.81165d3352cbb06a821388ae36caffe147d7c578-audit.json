@@ -1,0 +1,29 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/var/www/html/greenetweedservices-master/server/logs/.81165d3352cbb06a821388ae36caffe147d7c578-audit.json",
+    "files": [
+        {
+            "date": 1639647170249,
+            "name": "/var/www/html/greenetweedservices-master/server/logs/GreeneTweed-App-2021-12-16-15.log",
+            "hash": "1ce8ed52f2bbd3d7830032a09d6b3e90"
+        },
+        {
+            "date": 1639659243270,
+            "name": "/var/www/html/greenetweedservices-master/server/logs/GreeneTweed-App-2021-12-16-18.log",
+            "hash": "437cf18bcc5cb77ce9c94a6c26b74744"
+        },
+        {
+            "date": 1639722777915,
+            "name": "/var/www/html/greenetweedservices-master/server/logs/GreeneTweed-App-2021-12-17-12.log",
+            "hash": "a209119387d7f3bed742e32a75a28227"
+        },
+        {
+            "date": 1640000375907,
+            "name": "/var/www/html/greenetweedservices-master/server/logs/GreeneTweed-App-2021-12-20-17.log",
+            "hash": "d807a0ef9d4c1f2c7f85bcc2d755f514"
+        }
+    ]
+}

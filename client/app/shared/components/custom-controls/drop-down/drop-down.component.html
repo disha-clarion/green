@@ -1,0 +1,12 @@
+<ng-container [formGroup]="form">
+    <select class="ddl-options form-control {{control.css_classes?.join(' ')}}" (change)="onSelectionChange($event)"
+        [formGroup]="form" [formControl]="getFormControl()" [ngClass]="{'is-invalid': isFormSubmitted && !isValid}"
+        (focusout)="onFocusOutEvent($event)">
+        <option *ngIf="isAddChooseOption" value="" [ngValue]="" disabled>{{chooseOptionLabel}}</option>
+        <ng-container *ngFor="let option of options">
+            <option *ngIf="(option.show != null && option.show != undefined)  ? option.show : true" [ngValue]="option.value">{{option.label}}</option>
+        </ng-container>
+    </select>
+</ng-container>
+<!-- TODO: test the selected value -->
+<!-- <p>Selected value: {{f[control.key].value | json}}</p> -->

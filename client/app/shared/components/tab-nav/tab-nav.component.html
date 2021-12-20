@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-12 regulator-tabs">
+        <div class="regulator-tabs__main">
+            <!-- <ul>
+                <li routerLink='/evaluateoringglands/createRectangularORing' routerLinkActive='active'
+                    [routerLinkActiveOptions]="{exact:false}">
+                    <a [routerLink]="['evaluateoringglands']">O-ring/GLAND Analysis Tool</a>
+                </li>
+                <li routerLink='/evaluateglandsizecalculatorsglands/createRectangleGland' routerLinkActive='active'
+                    [routerLinkActiveOptions]="{exact:
+                    false}">
+                    <a [routerLink]="['evaluateglandsizecalculatorsglands']">Gland Size Calculator</a>
+                </li>
+            </ul> -->
+
+            <ul>
+                <li *ngFor="let tab of tabMenu" routerLink="{{tab.childrenModuleRoute}}" routerLinkActive='active'
+                    [routerLinkActiveOptions]="{exact:tab.pathExactmatch}">
+                    <a [routerLink]="[tab.rootModuleRoute]">{{tab.linkLabel}}</a>
+                </li>
+            </ul>
+        </div>
+        <a href="{{chemrazURL}}" class="view-chemraz-btn" *ngIf="isShowChemrazBtn"> View Chemraz Microsite &raquo;</a>
+    </div>
+</div>

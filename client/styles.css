@@ -1,0 +1,278 @@
+/* You can add global styles to this file, and also import other style files */
+
+html {
+    /* font-family: 'open_sansregular', sans-serif, Arial, Helvetica; */
+    font-family: 'nimbus_san_nov_con', sans-serif, Arial, Helvetica;
+    /* font-size: 13px; */
+}
+
+body {
+    /* font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; */
+    font-family: 'nimbus_san_nov_con', sans-serif, Arial, Helvetica;
+    /* font-size: 14px; */
+    line-height: 1.42857143;
+    /* color: #777; */
+    background-color: #fff;
+}
+
+/* form CSS */
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 11px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #777;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    /* border-radius: 4px; */
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: #dc3545 !important;
+    color: #dc3545;
+    background-image: none;
+    padding-right: 11px;
+}
+
+/* info div of calculator */
+
+.info-tab {
+    margin-bottom: 15px;
+    color: #757575;
+    padding: 8px 11px;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* unit label */
+
+.unit-section__label {
+    padding: 10px;
+    text-align: right;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.red {
+    color: red!important
+}
+
+/* media query */
+
+@media (min-width:768px) and (max-width:990px) {
+    .calculation-results .p-r-5 {
+        padding-right: 15px;
+        margin-bottom: 12px;
+    }
+    .calculation-results .p-l-5 {
+        padding-left: 15px;
+        margin-bottom: 12px;
+    }
+    .user-rules {
+        margin: 10px 15px;
+    }
+}
+
+@media (max-width:767px) {
+    .select-sms-section .sms-options {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .sms-section__heading .sms-section__label:first-child {
+        display: none;
+    }
+    .sms-section__inputs {
+        float: left;
+        width: 100%;
+        padding-left: 10px;
+    }
+    .sms-section__inputs .sms-section__label {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 6px;
+    }
+    .sms-section__heading .sms-section__label {
+        float: none;
+    }
+    .sms-section__heading {
+        float: left;
+        width: 100%;
+    }
+    .calculation-results .p-r-5 {
+        padding-right: 15px;
+        margin-bottom: 12px;
+    }
+    .calculation-results .p-l-5 {
+        padding-left: 15px;
+        margin-bottom: 12px;
+    }
+    .user-rules {
+        margin: 10px 15px;
+    }
+    .calculation-results__label {
+        margin-bottom: 6px;
+    }
+    .calculation-results__label:first-child {
+        width: 100%;
+        margin-right: 0px;
+        text-align: left;
+        padding-left: 12px;
+    }
+    .calculation-results__label br {
+        display: none;
+    }
+    .sms-section__range, .calculation-results__range {
+        width: 28%;
+    }
+    .navbar-inverse .navbar-toggle .icon-bar {
+        background-color: #329c59;
+        height: 3px;
+    }
+    .navbar-inverse .navbar-toggle {
+        display: none;
+    }
+    .gt-banner .heading {
+        padding-top: 48px;
+    }
+    header .navbar-brand {
+        display: inline-block;
+        margin-left: 15px;
+    }
+}
+
+/* graph CSS */
+
+.graph-sec {
+    border: 1px solid #d2d2d2;
+    padding: 0 15px;
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.graph-sec .graph-bg {
+    /* background: url(/assets/img/graph.jpg) no-repeat; */
+    width: 100%;
+    height: 200px;
+    background-size: contain;
+}
+
+.graph-sec h3 {
+    color: #606060;
+    font-size: 1.1rem;
+    margin: 15px 0 10px;
+    border-bottom: 1px solid #d2d2d2;
+    padding-bottom: 12px;
+}
+
+.graph-sec .graph-bg div {
+    font-weight: 600;
+    position: absolute;
+    color: #666;
+    color: #225a8a;
+}
+
+.graph-sec .graph-bg div.gld-id {
+    top: 56px;
+    left: 20px;
+    font-size: 0.7rem;
+    background: #fff;
+    text-align: center;
+    height: 22px;
+}
+
+.graph-sec .graph-bg div.gld-width {
+    bottom: 27px;
+    right: 102px;
+    font-size: 0.7rem;
+    width: 80px;
+    text-align: center;
+    height: 22px;
+}
+
+.graph-sec .graph-bg div.gld-depth {
+    bottom: 94px;
+    left: 5px;
+    font-size: 0.7rem;
+    background: #fff;
+    text-align: center;
+}
+
+.graph-sec .graph-bg div.top-radii {
+    bottom: 90px;
+    left: 30px;
+    font-size: 0.7rem;
+    display: none;
+}
+
+.graph-sec .graph-bg div.bottom-radii {
+    bottom: 29px;
+    right: 8px;
+    font-size: 0.7rem;
+    width: 80px;
+    text-align: center;
+}
+
+.graph-sec .graph-bg .rect-gap {
+    top: 54px;
+    right: 38px;
+    font-size: 0.7rem;
+    width: 100px;
+    text-align: center;
+}
+
+.graph-sec .graph-bg .rect-static-value {
+    top: 120px;
+    right: 22px;
+    font-size: 0.7rem;
+    width: 100px;
+    text-align: center;
+}
+
+.graph-sec .graph-bg div strong {
+    color: #329f59;
+    font-size: 1.2em;
+    font-family: 'open_sansbold', sans-serif;
+}
+
+/* Graph media query */
+
+@media (min-width:768px) and (max-width:990px) {
+    .graph-sec {
+        width: 292px;
+        margin: 20px 15px;
+    }
+}
+
+@media (max-width:767px) {
+    .graph-sec {
+        width: 292px;
+        margin: 0 15px;
+    }
+}
+
+/* defult dropdown down arrow hide */
+select::-ms-expand {
+    display: none;
+}
+
+.required {
+    color: #ff0000;    
+    top: 0px;
+}

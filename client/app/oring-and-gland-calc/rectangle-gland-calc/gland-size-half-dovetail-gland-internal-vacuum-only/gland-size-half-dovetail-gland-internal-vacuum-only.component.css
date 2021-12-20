@@ -1,0 +1,57 @@
+/* Graph CSS */
+
+.graph-sec .halfDovtail-bg {
+    background: url(/assets/img/half_dovtail_graph.jpg) no-repeat;
+    background-size: contain;
+}
+
+.graph-sec .graph-bg.halfDovtail-bg div.top-radii {
+    bottom: 66px;
+    left: inherit;
+    right: -4px;
+    width: 88px;
+    display: inline-block;
+}
+
+.graph-sec .graph-bg.halfDovtail-bg div.bottom-radii {
+    bottom: 20px;
+    right: 4px;
+    width: 100px;
+    left: inherit;
+}
+
+.graph-sec .graph-bg.halfDovtail-bg div.gld-depth {
+    bottom: 60px;
+    left: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.graph-sec .graph-bg.halfDovtail-bg div.gld-width {
+    left: 9px;
+    right: inherit;
+    top: 92px;
+    width: 100px;
+}
+
+.graph-sec .graph-bg.halfDovtail-bg div.gld-angle {
+    bottom: 18px;
+    font-size: .70em;
+    right: 148px;
+    text-align: center;
+}
+
+.graph-sec .graph-bg.halfDovtail-bg div.gap-full-comp {
+    top: 65px;
+    font-size: .70em;
+    right: 22px;
+    width: 102px;
+    text-align: center;
+}
+
+.graph-sec .graph-bg.halfDovtail-bg div.gld-id {
+    top: 57px;
+    left: 46px;
+    width: 80px;
+    text-align: center;
+}

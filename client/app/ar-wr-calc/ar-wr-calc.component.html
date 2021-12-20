@@ -1,0 +1,37 @@
+<app-header></app-header>
+<section class="content">
+    <section class="container p-0">
+        <div class="clearfix"></div>
+        <app-tab-nav class="ignorePdf" [tabMenu]="wrArTabs"></app-tab-nav>
+        <div class="container">
+            <div class="row ignorePdf">
+                <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 p-1">
+                    <p class="info-tab pt-0">Use this tool for designing Greene Tweed’s composites wear components.
+                        Engineer, sales, channel
+                        partners etc. can use this tool and user should input data in all the required field to get the
+                        final dimensions and design notes. Please contact Greene Tweed engineering for help or advice if
+                        required as some applications are difficult to optimize the design.</p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 p-1">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 p-0">
+                                    <div class="pull-left unit-section__label">Measure:</div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 p-0">
+                                    <measure-button [defaultMeasure]="defaultMeasure"></measure-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

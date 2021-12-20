@@ -1,0 +1,55 @@
+.m-b-5 {
+    margin-bottom: 5px;
+}
+
+.user-rules {
+    border: 1px solid #d2d2d2;
+}
+
+.user-rules__header {
+    font-size: 1.1rem;
+    color: #225a8a;
+    font-weight: 400;
+    /* border-bottom: 1px solid #d2d2d2; */
+    padding: 10px 15px;
+    background: url(/assets/img/icon_plus_userheading.png) no-repeat right center;
+    cursor: pointer;
+}
+
+.user-rules__header.selected {
+    background: url(/assets/img/icon_minus_userheading.png) no-repeat right center;
+    cursor: pointer;
+}
+
+.user-rules .user-rules__rules ul, .user-rules .user-rules__rules ul li ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.user-rules .user-rules__rules {
+    padding: 10px 15px 15px;
+}
+
+.user-rules .user-rules__rules ul li {
+    background: url(/assets/img/icon_arrow_userlist.png) no-repeat 0px 5px;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.user-rules .user-rules__rules p:before {
+    content: "";
+    width: 6px;
+    height: 1px;
+    background: #4d4d4d;
+    left: 0;
+    position: absolute;
+    top: 6px;
+}
+
+.user-rules .user-rules__rules p {
+    position: relative;
+    padding-left: 14px;
+    margin: 9px 0;
+}

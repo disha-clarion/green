@@ -1,0 +1,430 @@
+<div class="sms-section" [formGroup]="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 p-0">
+                <h2 class="cal-heading">{{calculatorJSON.display_calculator_title}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <!-- left side / first column reactive form part -->
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 no-padding">
+                <div class="row {{row.css_classes.join(' ')}}"
+                    [ngClass]="{'sms-section__heading': rowIndex === 0, 'sms-section__inputs':rowIndex !== 0}"
+                    *ngFor="let row of calculatorJSON.form.left_column.form_layout_row; let rowIndex = index;">
+                    <ng-container *ngFor="let column of row.form_layout_columns;let columnIndex = index;">
+                        <ng-container *ngFor="let control of column.form_controls">
+                            <div *ngIf="control.show" [ngSwitch]="control.type"
+                                [ngClass]="{'sms-section__label': (control.type === controlType.label && columnIndex === 0), 'form-group':(rowIndex !== 0 && columnIndex !== 0 && columnIndex !== row.form_layout_columns.length-1 && control.type !== controlType.button), 'sms-section__range fw-600': (columnIndex !== 0 && columnIndex !== row.form_layout_columns.length-1 && control.type !== controlType.button && control.type !== controlType.dropdown), 'red':checkErrorOnCalculatedResult(control) }">
+                                <!-- textbox -->
+                                <!-- label container -->
+                                <ng-container *ngSwitchCase="controlType.label">
+                                    <ng-container
+                                        *ngIf="control.sub_type !== controlSubType.calculated_label && control.label === ''">
+                                        &nbsp;
+                                    </ng-container>
+                                    <ng-container
+                                        *ngIf="control.label !== '' && control.sub_type !== controlSubType.temperatureLabel && control.sub_type !== controlSubType.degreeLabel">
+                                        <span class="{{control.css_classes?.join(' ')}}">{{control.sub_type ===
+                                            controlSubType.temperatureLabel ? "" :control.label}}</span>
+                                        <!-- required star * span -->
+                                        <span class="required"
+                                            *ngIf="control.required && rowIndex !== 0 && columnIndex === 0">*</span>
+                                    </ng-container>
+                                    <!-- Temperature span -->
+                                    <span class="float-left"
+                                        *ngIf="control.sub_type === controlSubType.temperatureLabel"
+                                        [innerHTML]="control.label"></span>
+                                    <!-- Degree Label -->
+                                    <span class="float-left" *ngIf="control.sub_type === controlSubType.degreeLabel"
+                                        [innerHTML]="control.label"></span>
+                                </ng-container>
+                                <custom-textbox *ngSwitchCase="controlType.textbox" [control]="control" [form]="form"
+                                    [isFormSubmitted]="isSubmitted">
+                                </custom-textbox>
+                                <!-- numeric textbox -->
+                                <custom-numeric-textbox *ngSwitchCase="controlType.numerictextbox" [control]="control"
+                                    [form]="form" [isFormSubmitted]="isSubmitted"
+                                    [isFormatInputOnBlur]="(control.sub_type === controlSubType.temperature || control.sub_type === controlSubType.degree) ? false : true"
+                                    [isNegetiveNumber]="control.sub_type === controlSubType.temperature ? true : false"
+                                    [maxLength]="control.sub_type === controlSubType.degree ? 2 : 6"
+                                    [decimalPoint]="control.decimal_point ? control.decimal_point : decimalPoint"
+                                    [isUpdateDecimalPointOnUnitChange]="isUpdateDecimalPointOnUnitChange"
+                                    [clientErrors]="allClientErrors" [clientWarnings]="allClientWarnings"
+                                    [serverErrors]="serverErrors" [serverWarnings]="serverWarnings"
+                                    (valueChange)="onNumericInputValueChange($event)" (focusOut)="onFocusOut($event)">
+                                </custom-numeric-textbox>
+                                <!-- dropdown -->
+                                <custom-drop-down *ngSwitchCase="controlType.dropdown" [control]="control" [form]="form"
+                                    [isFormSubmitted]="isSubmitted"
+                                    [options]="control.options && control.options.length > 0 ? getDDLOptions(control.key,control.sub_type,control.options) :  getDDLOptions(control.key,control.sub_type)"
+                                    [isAddChooseOption]="isAddChooseOption"
+                                    [chooseOptionLabel]="dropdownChooseOptionLabel"
+                                    (selectionChange)="onDropdownSelectionChange($event)"
+                                    (focusOut)="onFocusOut($event)">
+                                </custom-drop-down>
+                                <ng-container *ngSwitchCase="controlType.button">
+                                    <!-- normal button -->
+                                    <button *ngIf="control.sub_type === controlSubType.button" [type]="control.sub_type"
+                                        class="{{control.css_classes?.join(' ')}}"
+                                        (click)="buttonClick($event,control)">{{control.label}}</button>
+                                    <!-- button type submit submit button -->
+                                    <button *ngIf="control.sub_type !== controlSubType.button" [type]="control.sub_type"
+                                        class="{{control.css_classes?.join(' ')}}">{{control.label}}</button>
+                                </ng-container>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+            <!-- right side / second column reactive form part -->
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="row {{row.css_classes.join(' ')}}"
+                    [ngClass]="{'sms-section__heading': rowIndex === 0, 'sms-section__inputs':rowIndex !== 0}"
+                    *ngFor="let row of calculatorJSON.form.right_column.form_layout_row; let rowIndex = index;">
+                    <ng-container class={{column?.css_classes}}
+                        *ngFor="let column of row.form_layout_columns;let columnIndex = index;">
+                        <ng-container *ngFor="let control of column.form_controls">
+                            <div *ngIf="control.show" [ngSwitch]="control.type"
+                                [ngClass]="{'sms-section__label': (control.type === controlType.label && columnIndex === 0 && control.sub_type !== controlSubType.temperatureLabel), 'form-group':(rowIndex !== 0 && columnIndex !== 0 && columnIndex !== row.form_layout_columns.length-1 && control.type !== controlType.button), 'sms-section__range fw-600': (columnIndex !== 0 && columnIndex !== row.form_layout_columns.length-1 && control.type !== controlType.button && control.type !== controlType.html), 'red':checkErrorOnCalculatedResult(control) }">
+                                <!-- label container -->
+                                <ng-container *ngSwitchCase="controlType.label">
+                                    <ng-container
+                                        *ngIf="control.sub_type !== controlSubType.calculated_label && control.label === ''">
+                                        &nbsp;
+                                    </ng-container>
+                                    <ng-container
+                                        *ngIf="control.label !== '' && control.sub_type !== controlSubType.temperatureLabel && control.sub_type !== controlSubType.degreeLabel">
+                                        {{control.sub_type === controlSubType.temperatureLabel ? "" :control.label}}
+                                        <!-- required star * span -->
+                                        <span class="required"
+                                            *ngIf="control.required && rowIndex !== 0 && columnIndex === 0">*</span>
+                                    </ng-container>
+                                    <!-- Temperature span -->
+                                    <span class="float-left"
+                                        *ngIf="control.sub_type === controlSubType.temperatureLabel"
+                                        [innerHTML]="control.label"></span>
+                                    <!-- Degree Label -->
+                                    <span class="float-left" *ngIf="control.sub_type === controlSubType.degreeLabel"
+                                        [innerHTML]="control.label"></span>
+                                </ng-container>
+                                <!-- custom textbox -->
+                                <custom-textbox *ngSwitchCase="controlType.textbox" [control]="control" [form]="form"
+                                    [isFormSubmitted]="isSubmitted">
+                                </custom-textbox>
+                                <!-- numeric textbox -->
+                                <custom-numeric-textbox *ngSwitchCase="controlType.numerictextbox" [control]="control"
+                                    [form]="form" [isFormSubmitted]="isSubmitted"
+                                    [isFormatInputOnBlur]="(control.sub_type === controlSubType.temperature || control.sub_type === controlSubType.degree) ? false : true"
+                                    [isNegetiveNumber]="control.sub_type === controlSubType.temperature ? true : false"
+                                    [maxLength]="control.sub_type === controlSubType.degree ? 2 : 6"
+                                    [decimalPoint]="control.decimal_point ? control.decimal_point : decimalPoint"
+                                    [isUpdateDecimalPointOnUnitChange]="isUpdateDecimalPointOnUnitChange"
+                                    [clientErrors]="allClientErrors" [clientWarnings]="allClientWarnings"
+                                    [serverErrors]="serverErrors" [serverWarnings]="serverWarnings"
+                                    (valueChange)="onNumericInputValueChange($event)" (focusOut)="onFocusOut($event)">
+                                </custom-numeric-textbox>
+                                <!-- HTML -->
+                                <ng-container *ngSwitchCase="controlType.html">
+                                    <span [innerHTML]="control.label"></span>
+                                </ng-container>
+                                <!-- dropdown -->
+                                <custom-drop-down *ngSwitchCase="controlType.dropdown" [control]="control" [form]="form"
+                                    [isFormSubmitted]="isSubmitted"
+                                    [options]="control.options && control.options.length > 0 ? getDDLOptions(control.key,control.sub_type,control.options) :  getDDLOptions(control.key,control.sub_type)"
+                                    [isAddChooseOption]="isAddChooseOption"
+                                    [chooseOptionLabel]="dropdownChooseOptionLabel"
+                                    (selectionChange)="onDropdownSelectionChange($event)"
+                                    (focusOut)="onFocusOut($event)">
+                                </custom-drop-down>
+                                <ng-container *ngSwitchCase="controlType.button">
+                                    <!-- normal button -->
+                                    <button *ngIf="control.sub_type === controlSubType.button" [type]="control.sub_type"
+                                        class="{{control.css_classes?.join(' ')}}"
+                                        (click)="buttonClick($event,control)">{{control.label}}</button>
+                                    <!-- button type submit submit button -->
+                                    <button *ngIf="control.sub_type !== controlSubType.button" [type]="control.sub_type"
+                                        class="{{control.css_classes?.join(' ')}}">{{control.label}}</button>
+                                </ng-container>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Client side Errors -->
+<div class="error-message" *ngIf="isSubmitted && isRequired">
+    <!-- {{"Please enter a valid value for the fields highlighted in red."}} -->
+    {{"Please enter a value for required(*) fields."}}
+</div>
+<!-- For ArWr -->
+<div *ngIf="isWrAr && isSubmitted && (groupedAllClientErrors.length > 0 || groupedAllServerErrors && groupedAllServerErrors.length > 0)"
+    class="error-message">
+    <!-- client side grouped errors -->
+    <div *ngFor="let gError of groupedAllClientErrors; let gErrorIndex=index;" class="error-body">
+        <ng-container *ngIf="gError.title">
+            <div>
+                <strong>{{gError.title}}</strong>
+            </div>
+            <div>
+                <ng-container *ngFor="let error of gError.errors">
+                    {{error}}
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!gError.title">
+            <ng-container *ngFor="let error of gError.errors">
+                <div class="">
+                    {{error}}
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+    <!-- grouped server errors -->
+    <div *ngFor="let gServerError of groupedAllServerErrors; let gServerErrorIndex=index;" class="error-body">
+        <ng-container *ngIf="gServerError.title">
+            <div>
+                <strong>{{gServerError.title}}</strong>
+            </div>
+            <div>
+                <ng-container *ngFor="let error of gServerError.errors">
+                    {{error}}
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!gServerError.title">
+            <ng-container *ngFor="let error of gServerError.errors">
+                <div class="">
+                    {{error}}
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+<!-- warnings -->
+<div *ngIf="isWrAr && isSubmitted && ((groupedAllClientWarning && groupedAllClientWarning.length > 0) || (groupedAllServerWarning && groupedAllServerWarning.length > 0))"
+    class="warning-message">
+    <!-- client side grouped warnings -->
+    <div *ngFor="let gWarning of groupedAllClientWarning; let gWarningIndex=index;" class="">
+        <ng-container *ngIf="gWarning.title">
+            <div>
+                <strong>{{gWarning.title}}</strong>
+            </div>
+            <div>
+                <ng-container *ngFor="let warning of gWarning.errors">
+                    {{warning}}
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!gWarning.title">
+            <ng-container *ngFor="let warning of gWarning.errors">
+                <div class="">
+                    {{warning}}
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+    <!-- Grouped Server side warnings -->
+    <div *ngFor="let gServerWarning of groupedAllServerWarning; let gServerWarningIndex=index;" class="">
+        <ng-container *ngIf="gServerWarning.title">
+            <div *ngIf="gServerWarning.title">
+                <strong>{{gServerWarning.title}}</strong>
+            </div>
+            <div>
+                <ng-container *ngFor="let warning of gServerWarning.errors">
+                    {{warning}}
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!gServerWarning.title">
+            <ng-container *ngFor="let warning of gServerWarning.errors">
+                <div class="">
+                    {{warning}}
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+<!-- For Other -->
+<!-- client side grouped errors -->
+<div *ngIf="!isWrAr && isSubmitted && groupedAllClientErrors.length > 0" class="error-message">
+    <div *ngIf="isShowClickMoreDetailNoteForClientErrors" class="error-message__note">
+        Click '<span>+</span>' for more details
+    </div>
+    <div *ngFor="let gError of groupedAllClientErrors; let gErrorIndex=index;" class="error-body error-message__body">
+        <ng-container *ngIf="gError.title">
+            <div (click)="onShowGroupedClientError(gErrorIndex)" [ngClass]="{'selected': gError.isDetailOpened}">
+                <strong title="Click for more details">{{gError.title}}</strong>
+            </div>
+            <div *ngIf="gError.isDetailOpened">
+                <ng-container *ngFor="let error of gError.errors">
+                    {{error}}
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!gError.title">
+            <ng-container *ngFor="let error of gError.errors">
+                <div class="">
+                    {{error}}
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+<!-- client side grouped warnings -->
+<div *ngIf="!isWrAr && isSubmitted && groupedAllClientWarning.length > 0" class="warning-message">
+    <div *ngIf="isShowClickMoreDetailNoteForClientWarning" class="error-message__note">
+        Click '<span>+</span>' for more details
+    </div>
+    <div *ngFor="let gWarning of groupedAllClientWarning; let gWarningIndex=index;" class="warning-message__body">
+        <ng-container *ngIf="gWarning.title">
+            <div (click)="onShowGroupedClientWarning(gWarningIndex)" [ngClass]="{'selected': gWarning.isDetailOpened}">
+                <strong title="Click for more details">{{gWarning.title}}</strong>
+            </div>
+            <div *ngIf="gWarning.isDetailOpened">
+                <ng-container *ngFor="let warning of gWarning.errors">
+                    {{warning}}
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!gWarning.title">
+            <ng-container *ngFor="let warning of gWarning.errors">
+                <div class="">
+                    {{warning}}
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+<!-- grouped server errors -->
+<div *ngIf="!isWrAr && isSubmitted && groupedAllServerErrors && groupedAllServerErrors.length > 0"
+    class="error-message">
+    <div *ngIf="isShowClickMoreDetailNoteForServerErrors" class="error-message__note">
+        Click '<span>+</span>' for more details</div>
+    <div *ngFor="let gServerError of groupedAllServerErrors; let gServerErrorIndex=index;"
+        class="error-body error-message__body">
+        <ng-container *ngIf="gServerError.title">
+            <div (click)="onShowGroupedServerError(gServerErrorIndex)"
+                [ngClass]="{'selected': gServerError.isDetailOpened}">
+                <strong title="Click for more details">{{gServerError.title}}</strong>
+            </div>
+            <div *ngIf="gServerError.isDetailOpened">
+                <ng-container *ngFor="let error of gServerError.errors">
+                    {{error}}
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!gServerError.title">
+            <ng-container *ngFor="let error of gServerError.errors">
+                <div class="">
+                    {{error}}
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+<!-- Grouped Server side warnings -->
+<div *ngIf="!isWrAr && isSubmitted && groupedAllServerWarning && groupedAllServerWarning.length > 0"
+    class="warning-message">
+    <div *ngIf="isShowClickMoreDetailNoteForServerWarning" class="error-message__note">
+        Click '<span>+</span>' for more details</div>
+    <div *ngFor="let gServerWarning of groupedAllServerWarning; let gServerWarningIndex=index;"
+        class="warning-message__body">
+        <ng-container *ngIf="gServerWarning.title">
+            <div *ngIf="gServerWarning.title" (click)="onShowGroupedServerWarning(gServerWarningIndex)"
+                [ngClass]="{'selected': gServerWarning.isDetailOpened}">
+                <strong title="Click for more details">{{gServerWarning.title}}</strong>
+            </div>
+            <div *ngIf="gServerWarning.isDetailOpened">
+                <ng-container *ngFor="let warning of gServerWarning.errors">
+                    {{warning}}
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!gServerWarning.title">
+            <ng-container *ngFor="let warning of gServerWarning.errors">
+                <div class="">
+                    {{warning}}
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+<!-- Form Output -->
+<div class="container">
+    <div class="row calculation-results">
+        <ng-container *ngFor="let output of calculatorJSON.form_output; let outputIndex=index;">
+            <div *ngIf="output.show" class="{{output?.css_classes.join(' ')}}">
+                <div class="row">
+                    <div class="col-md-12 column">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0">
+                                <h3 class="cal-heading">{{output.display_title}}&nbsp;{{output?.display_output_title}}
+                                </h3>
+                            </div>
+                        </div>
+                        <ng-container *ngFor="let row of output.row;let rowIndex= index;">
+                            <div *ngIf="(row.show != null || row.show != undefined ? row.show : true)"
+                                class="row {{row.css_classes.join(' ')}}"
+                                [ngClass]="{'calculation-results__heading': rowIndex === 0, 'calculation-results__outputs':true}">
+                                <!-- output row columns -->
+                                <ng-container class={{column?.css_classes}}
+                                    *ngFor="let column of row.form_layout_columns; let columnIndex = index;">
+                                    <ng-container *ngFor="let control of column.form_controls">
+                                        <div *ngIf="control.show" [ngSwitch]="control.type"
+                                            [ngClass]="{'calculation-results__label': (control.type === controlType.label && columnIndex === 0), 'calculation-results__range fw-600': (columnIndex !== 0), 'red':checkErrorOnCalculatedResult(control) }">
+                                            <!-- label output -->
+                                            <ng-container *ngSwitchCase="controlType.label">
+                                                <ng-container
+                                                    *ngIf="control.label !== '' && control.sub_type !== controlSubType.temperatureLabel && control.sub_type !== controlSubType.degreeLabel">
+                                                    {{control.sub_type === controlSubType.temperatureLabel ? ""
+                                                    :control.label}}
+                                                    <!-- required star * span -->
+                                                    <span class="required"
+                                                        *ngIf="control.required && rowIndex !== 0 && columnIndex === 0">*</span>
+                                                </ng-container>
+                                                <!-- Temperature span -->
+                                                <span *ngIf="control.sub_type === controlSubType.temperatureLabel"
+                                                    [innerHTML]="control.label"></span>
+                                            </ng-container>
+                                        </div>
+                                    </ng-container>
+                                </ng-container>                                
+                            </div>
+                        </ng-container>
+
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <!-- Additional notes -->
+    <div>&nbsp;</div>
+    <div *ngIf="notes.length === 1" class="pt-1 pl-1 notes">
+        <strong>Remark: </strong>{{notes[0]}}
+    </div>
+    <div *ngIf="notes.length > 1" class="pt-1 pl-1 notes">
+        <p><strong>Remarks:</strong></p>
+        <ul style="list-style-type:none;" *ngFor="let note of notes">
+            <li>{{note}}</li>
+        </ul>
+    </div>
+    <!-- Notes -->
+    <div *ngIf="isShowNotes" class="row pt-2">
+        <div class="col-12 col-sm-12 col-md-1 col-lg-1 col-xl-1">
+            Notes:
+        </div>
+        <div class="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-11">
+            <textarea name="txtAreaNotes" id="txtAreaNotes" cols="30" rows="5"></textarea>
+        </div>
+    </div>
+    <div class="row text-right mailto-button">
+        <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xl-12">
+            <!-- last column then add the mail to div -->
+            <a href="mailto:mhitchens@gtweed.com?subject=Submit RFQ">Submit RFQ</a>
+            <a href="mailto:{{supportEmail}}?subject=Request Engineering Support">Request
+                Engineering Support</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+        <form *ngIf="calculatorConfig && glandSizeRectangleInternalVacuumForm" (ngSubmit)="onSubmit(true)"
+            [formGroup]="glandSizeRectangleInternalVacuumForm" novalidate
+            class="form-horizontal {{calculatorConfig.form.form_title_css_class}}">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-1 ignorePdf">
+                    <calculator-toolbar [form]="glandSizeRectangleInternalVacuumForm"
+                        [control]="calculatorConfig.toolbarOption" [isSubmitted]="isSubmitted" (reset)="onReset()"
+                        (print)="onPrint()" [isShowCopyBtn]="true" (copy)="onCopy()">
+                    </calculator-toolbar>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-1">
+                    <dynamic-form-two-column-layout [form]="glandSizeRectangleInternalVacuumForm"
+                        [isSubmitted]="isSubmitted" [calculatorJSON]="calculatorConfig" [clientErrors]="clientErrors"
+                        [clientWarnings]="clientWarnings" [serverErrors]="serverErrors"
+                        [serverWarnings]="serverWarnings">
+                    </dynamic-form-two-column-layout>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 p-1">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <!-- graph -->
+                <div class="graph-sec">
+                    <h3>Gland Information</h3>
+                    <div class="graph-bg">
+                        <div class="gld-id">GLAND ID:
+                            <br><strong>{{getCalculatedControlValue('glandIdNominal')}}</strong></div>
+                        <div class="gld-width">GLAND WIDTH:
+                            <strong>{{getCalculatedControlValue('glandWidthNominal')}}</strong>
+                        </div>
+                        <div class="gld-depth">GLAND DEPTH:
+                            <br><strong>{{getCalculatedControlValue('glandDepthNominal')}}</strong>
+                        </div>
+                        <div class="top-radii">TOP RADII </div>
+                        <div class="bottom-radii">BOTTOM RADII:
+                            <strong>{{getCalculatedControlValue('bottomRadiiNominal')}}</strong>
+                        </div>
+                        <div class="gap-full-comp rect-gap">GAP: <strong>{{getControlValue('gapNominal')}}</strong>
+                            <br>(may or may not exist)
+                        </div>
+                        <div class="rect-static-value"><strong>.005</strong></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ignorePdf">
+                <user-rules></user-rules>
+            </div>
+        </div>
+    </div>
+</div>

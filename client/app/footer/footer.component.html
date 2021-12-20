@@ -1,0 +1,28 @@
+<div class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <p><strong>Disclaimer: </strong>The information provided in this tool is solely for vacuum and low pressure
+                applications within semiconductor manufacturing and processing applications, and may not function in any
+                other application. The tool will be revised as new or modified information becomes available. The data
+                reflects material properties and specifications gathered by Greene, Tweed at their expense, but may not
+                represent actual situational conditions found in a particular application. Data provided is for general
+                guidance in choosing an appropriate product. Testing should be done to confirm suitability to the
+                specific purpose and more information can be had by contacting Greene, Tweed Semiconductor Engineering.
+            </p>
+            <p>
+                Greene, Tweed cannot include all actual end use conditions applied to the products in its internal
+                testing and assumes no liability and makes no warranties based upon information garnered from the tool.
+                Use of the tool is done so by the consumer at their own risk. Greene, Tweed retains all intellectual
+                property rights associated with the tool and products.
+            </p>
+            <p>Chemraz&reg is a registered Trademark of Greene, Tweed.</p>
+        </div>
+    </div>
+
+    <div class="container text-center">
+        &copy; {{currentYear}} Greene, Tweed
+    </div>
+    <div *ngIf="isShowAppVersion" class="container text-center">
+        App Version {{version}}
+    </div>
+</div>

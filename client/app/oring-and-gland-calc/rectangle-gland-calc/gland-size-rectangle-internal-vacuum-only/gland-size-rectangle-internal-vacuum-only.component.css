@@ -1,0 +1,94 @@
+/* graph css */
+
+.graph-sec {
+    border: 1px solid #d2d2d2;
+    padding: 0 15px;
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.graph-sec .graph-bg {
+    background: url(/assets/img/graph.jpg) no-repeat;
+    width: 100%;
+    height: 200px;
+    background-size: contain;
+}
+
+.graph-sec h3 {
+    color: #606060;
+    font-size: 1.1rem;
+    margin: 15px 0 10px;
+    border-bottom: 1px solid #d2d2d2;
+    padding-bottom: 12px;
+}
+
+.graph-sec .graph-bg div {
+    font-weight: 600;
+    position: absolute;
+    color: #666;
+    color: #225a8a;
+}
+
+.graph-sec .graph-bg div.gld-id {
+    top: 56px;
+    left: 20px;
+    font-size: 0.7rem;
+    background: #fff;
+    text-align: center;
+    height: 22px;
+}
+
+.graph-sec .graph-bg div.gld-width {
+    bottom: 27px;
+    right: 102px;
+    font-size: 0.7rem;
+    width: 80px;
+    text-align: center;
+    height: 22px;
+}
+
+.graph-sec .graph-bg div.gld-depth {
+    bottom: 94px;
+    left: 5px;
+    font-size: 0.7rem;
+    background: #fff;
+    text-align: center;
+}
+
+.graph-sec .graph-bg div.top-radii {
+    bottom: 90px;
+    left: 30px;
+    font-size: 0.7rem;
+    display: none;
+}
+
+.graph-sec .graph-bg div.bottom-radii {
+    bottom: 29px;
+    right: 8px;
+    font-size: 0.7rem;
+    width: 80px;
+    text-align: center;
+}
+
+.graph-sec .graph-bg .rect-gap {
+    top: 54px;
+    right: 38px;
+    font-size: 0.7rem;
+    width: 100px;
+    text-align: center;
+}
+
+.graph-sec .graph-bg .rect-static-value {
+    top: 120px;
+    right: 22px;
+    font-size: 0.7rem;
+    width: 100px;
+    text-align: center;
+}
+
+.graph-sec .graph-bg div strong {
+    color: #329f59;
+    font-size: 1.2em;
+    font-family: 'open_sansbold', sans-serif;
+}

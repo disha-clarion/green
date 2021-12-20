@@ -1,0 +1,40 @@
+{"message":"✌️ DB loaded and connected!","level":"info","timestamp":"2021-12-17 12:04:35"}
+{"message":"✌️ Agenda injected into container","level":"info","timestamp":"2021-12-17 12:04:36"}
+{"message":"✌️ Dependency Injector loaded","level":"info","timestamp":"2021-12-17 12:04:36"}
+{"message":"✌️ Jobs loaded","level":"info","timestamp":"2021-12-17 12:04:36"}
+{"message":"✌️ Express loaded","level":"info","timestamp":"2021-12-17 12:04:36"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 4001 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2021-12-17 12:04:36"}
+{"message":"✌️ DB loaded and connected!","level":"info","timestamp":"2021-12-17 12:07:05"}
+{"message":"✌️ Agenda injected into container","level":"info","timestamp":"2021-12-17 12:07:05"}
+{"message":"✌️ Dependency Injector loaded","level":"info","timestamp":"2021-12-17 12:07:05"}
+{"message":"✌️ Jobs loaded","level":"info","timestamp":"2021-12-17 12:07:05"}
+{"message":"✌️ Express loaded","level":"info","timestamp":"2021-12-17 12:07:05"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 4001 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2021-12-17 12:07:05"}
+{"level":"info","message":"Calling auth endpoint with body: {}","timestamp":"2021-12-17 12:07:14"}
+{"message":"API [common.route] called.","level":"info","timestamp":"2021-12-17 12:07:14"}
+{"message":"[common.service.ts] material choice data found.","level":"info","timestamp":"2021-12-17 12:07:14"}
+{"message":"API [Gland-Size-cal.route] called.","level":"info","timestamp":"2021-12-17 12:07:15"}
+{"message":"[Gland-Size-cal.service] if condition called.","level":"info","timestamp":"2021-12-17 12:07:15"}
+{"level":"info","message":"Calling auth endpoint with body: {}","timestamp":"2021-12-17 12:07:56"}
+{"message":"API [common.route] called.","level":"info","timestamp":"2021-12-17 12:07:56"}
+{"message":"[common.service.ts] material choice data found.","level":"info","timestamp":"2021-12-17 12:07:56"}
+{"level":"info","message":"Calling auth endpoint with body: {}","timestamp":"2021-12-17 12:08:03"}
+{"message":"API [common.route] called.","level":"info","timestamp":"2021-12-17 12:08:03"}
+{"message":"[common.service.ts] material choice data found.","level":"info","timestamp":"2021-12-17 12:08:03"}
+{"level":"info","message":"Calling auth endpoint with body: {}","timestamp":"2021-12-17 12:08:20"}
+{"message":"API [common.route] called.","level":"info","timestamp":"2021-12-17 12:08:20"}
+{"message":"[common.service.ts] material choice data found.","level":"info","timestamp":"2021-12-17 12:08:20"}
+{"message":"API [Gland-Size-cal.route] called.","level":"info","timestamp":"2021-12-17 12:08:21"}
+{"message":"[Gland-Size-cal.service] if condition called.","level":"info","timestamp":"2021-12-17 12:08:21"}
+{"level":"info","message":"Calling auth endpoint with body: {}","timestamp":"2021-12-17 12:08:27"}
+{"message":"API [common.route] called.","level":"info","timestamp":"2021-12-17 12:08:27"}
+{"message":"[common.service.ts] material choice data found.","level":"info","timestamp":"2021-12-17 12:08:27"}
+{"message":"API [Gland-Size-cal.route] called.","level":"info","timestamp":"2021-12-17 12:08:27"}
+{"message":"[Gland-Size-cal.service] if condition called.","level":"info","timestamp":"2021-12-17 12:08:27"}
+{"level":"info","message":"Calling auth endpoint with body: {}","timestamp":"2021-12-17 12:09:31"}
+{"message":"API [common.route] called.","level":"info","timestamp":"2021-12-17 12:09:31"}
+{"message":"[common.service.ts] material choice data found.","level":"info","timestamp":"2021-12-17 12:09:31"}
+{"message":"API [ar-wr-cal.route] called.","level":"info","timestamp":"2021-12-17 12:09:31"}
+{"message":"[ar-wr-cal.service] if condition called.","level":"info","timestamp":"2021-12-17 12:09:31"}
+{"message":"API [ar-wr-cal.route] called.","level":"info","timestamp":"2021-12-17 12:09:31"}
+{"message":"[ar-wr-cal.service] function getArWrCalcDropDownItems if condition called.","level":"info","timestamp":"2021-12-17 12:09:31"}

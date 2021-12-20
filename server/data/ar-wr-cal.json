@@ -1,0 +1,3684 @@
+{
+  "calc_group_name": "AWrPressIn",
+  "display_group_title": "AWrPressIn",
+  "calculators": [
+    {
+      "id": 1,
+      "order": 1,
+      "calculator_group_name": "AWrPressIn",
+      "calculator_type": "Press-in Components",
+      "display_calculator_title": "Press-in Components",
+      "form": {
+        "form_id": 11,
+        "form_key": "formArWrPressInImperial",
+        "show": true,
+        "form_title": "Press-in Components",
+        "form_title_css_class": [],
+        "form_validation": [
+          "CLEARANCE_VALIDATION",
+          "SERVICE_STORAGE_TEMPERATURE_MIN",
+          "SERVICE_STORAGE_TEMPERATURE_MAX",
+          "STATIONARY_ELEMENT_ID_MAX",
+          "ROTATING_ELEMENT_OD_MAX",
+          "SERVICE_STORAGE_TEMPERATURE_ALLOWED_MIN",
+          "SERVICE_STORAGE_TEMPERATURE_ALLOWED_MAX",
+          "STATIONARY_ELEMENT_ID_MIN_LESSER_THAT_ROTATING_MIN",
+          "STATIONARY_ELEMENT_ID_MIN_LESSER_THAT_ROTATING_MAX"
+        ],
+        "left_column": {
+          "form_layout_row": [
+            {
+              "row_id": 11111,
+              "css_classes": [],
+              "order": 1,
+              "form_layout_columns": [
+                {
+                  "col_id": 111111,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111111,
+                      "order": 1,
+                      "key": "lblEmpty",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "emptyLabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111112,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11121,
+                      "order": 1,
+                      "key": "lblEmpty",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111115,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": []
+                }
+              ]
+            },
+            {
+              "row_id": 11112,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111121,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11211,
+                      "order": 1,
+                      "key": "lblPumpType",
+                      "label": "Pump Type",
+                      "value": "Pump Type",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111122,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11221,
+                      "order": 1,
+                      "key": "pumpType",
+                      "label": "Pump Type",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrPumptypeDropdown",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": [3],
+                      "css_classes": ["materialChoice"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11113,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111131,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111311,
+                      "order": 1,
+                      "key": "lblComponentType",
+                      "label": "Component Type",
+                      "value": "Component Type",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 1111312,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11113121,
+                      "order": 1,
+                      "key": "componentType",
+                      "label": "Component Type",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrComponenttypeDropdown",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": [3],
+                      "css_classes": ["materialChoice"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11114,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111141,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111411,
+                      "order": 1,
+                      "key": "lblComposite",
+                      "label": "Composite",
+                      "value": "Composite",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111142,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111421,
+                      "order": 1,
+                      "key": "composite",
+                      "label": "Composite",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrCompositetypeDropdown",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": ["materialChoice"],
+                      "options": [
+                        {
+                          "id": 1,
+                          "label": "AR®1",
+                          "value": 1,
+                          "show": true
+                        },
+                        {
+                          "id": 2,
+                          "label": "AR®HT",
+                          "value": 2,
+                          "show": true
+                        },
+                        {
+                          "id": 3,
+                          "label": "WR®300",
+                          "value": 3,
+                          "show": true
+                        },
+                        {
+                          "id": 4,
+                          "label": "WR®525",
+                          "value": 4,
+                          "show": true
+                        },
+                        {
+                          "id": 5,
+                          "label": "WR®600",
+                          "value": 5,
+                          "show": true
+                        },
+                        {
+                          "id": 6,
+                          "label": "WR®650",
+                          "value": 6,
+                          "show": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111143,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111431,
+                      "order": 1,
+                      "key": "compositeTemperatureRage",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": ["pl-1"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11115,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111151,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111511,
+                      "order": 1,
+                      "key": "lblInterferenceTarget",
+                      "label": "Interference Target (Diametric)",
+                      "value": "Interference Target",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111152,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111521,
+                      "order": 1,
+                      "key": "interferenceTarget",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrInterFerenceTargetPressInDropdown",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": [3],
+                      "css_classes": ["materialChoice"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 111116,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111141,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111611,
+                      "order": 1,
+                      "key": "lblCustomInterference",
+                      "label": "Custom Interference  (Diametric)",
+                      "value": "Custom Interference",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11111612,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111116121,
+                      "order": 1,
+                      "key": "customInterferenceTarget",
+                      "label": "Custom Interference",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": [],
+                      "isDisabled": true
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111165,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111651,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "unitlabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11117,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111171,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111711,
+                      "order": 1,
+                      "key": "lblClearanceTarget",
+                      "label": "Clearance Target (Diametric)",
+                      "value": "Clearance Target",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111172,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111721,
+                      "order": 1,
+                      "key": "clearanceTarget",
+                      "label": "Clearance Target (Diametric)",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrClearanceTargetDropdown",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": ["materialChoice"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 111118,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111181,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111811,
+                      "order": 1,
+                      "key": "lblCustomClearanceCTE",
+                      "label": "Custom Clearance (Diametric)",
+                      "value": "Custom Clearance",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11111812,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111118121,
+                      "order": 1,
+                      "key": "customClearanceTarget",
+                      "label": "Custom Clearance",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": false,
+                      "isDisabled": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111185,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111851,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "unitlabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11119,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": []
+            },
+            {
+              "row_id": 111110,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": []
+            }
+          ]
+        },
+        "right_column": {
+          "form_layout_row": [
+            {
+              "row_id": 11111,
+              "css_classes": [],
+              "order": 1,
+              "form_layout_columns": [
+                {
+                  "col_id": 111111,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111111,
+                      "order": 1,
+                      "key": "lblEmpty",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "emptyLabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111112,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11121,
+                      "order": 1,
+                      "key": "lblMinRight",
+                      "label": "Min",
+                      "value": "Min",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111114,
+                  "order": 4,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111141,
+                      "order": 1,
+                      "key": "lblMaxRight",
+                      "label": "Max",
+                      "value": "Max",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111115,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111151,
+                      "order": 1,
+                      "key": "lblemptyRight",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11112,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111121,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111211,
+                      "order": 1,
+                      "key": "lblRotatingElementOD",
+                      "label": "Rotating Element OD",
+                      "value": "Rotating Element OD",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111122,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111221,
+                      "order": 1,
+                      "key": "rotatingElementODMin",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111124,
+                  "order": 4,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111241,
+                      "order": 1,
+                      "key": "rotatingElementODMax",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111125,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111251,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "unitlabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 111113,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111131,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111311,
+                      "order": 1,
+                      "key": "lblRotatingMaterial",
+                      "label": "Rotating Material",
+                      "value": "Rotating Material",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11111312,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111113121,
+                      "order": 1,
+                      "key": "rotatingMaterial",
+                      "label": "Rotating Material",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrRotatingMaterial",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": ["materialChoice"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 111114,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111141,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111411,
+                      "order": 1,
+                      "key": "lblCustomRotorCTE",
+                      "label": "Custom Rotor CTE",
+                      "value": "Custom Rotor CTE",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11111412,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111114121,
+                      "order": 1,
+                      "key": "customRotatingMaterial",
+                      "label": "Custom Rotor CTE",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": false,
+                      "isDisabled": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": [],
+                      "decimal_point": 2
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111146,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111461,
+                      "order": 1,
+                      "key": "lblPowerSix",
+                      "label": "<span class='ml-n2'><strong>x10<sup>-6</sup></strong>&nbsp;&nbsp;&nbsp;</span>",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "html",
+                      "sub_type": "",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111145,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111451,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in/in/°F",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "cteUnitLabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11115,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111151,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111511,
+                      "order": 1,
+                      "key": "lblStationaryElementID",
+                      "label": "Stationary Element ID",
+                      "value": "Stationary Element ID",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111152,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111521,
+                      "order": 1,
+                      "key": "stationaryElementIDMin",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111154,
+                  "order": 4,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111541,
+                      "order": 1,
+                      "key": "stationaryElementIDMax",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111155,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111551,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "unitlabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 111116,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111161,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111611,
+                      "order": 1,
+                      "key": "lblStationaryMaterial",
+                      "label": "Stationary Material",
+                      "value": "Stationary Material",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11111612,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111116121,
+                      "order": 1,
+                      "key": "stationaryMaterial",
+                      "label": "Stationary Material",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrStationaryMaterial",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": ["materialChoice"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 111117,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111171,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111711,
+                      "order": 1,
+                      "key": "lblCustomStatorCTE",
+                      "label": "Custom Stator CTE",
+                      "value": "Custom Stator CTE",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11111712,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111117121,
+                      "order": 1,
+                      "key": "customStationaryMaterial",
+                      "label": "Custom Stator CTE",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": false,
+                      "isDisabled": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": [],
+                      "decimal_point": 2
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111146,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111461,
+                      "order": 1,
+                      "key": "lblPowerSix",
+                      "label": "<span class='ml-n2'><strong>x10<sup>-6</sup></strong>&nbsp;&nbsp;&nbsp;</span>",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "html",
+                      "sub_type": "",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111175,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111751,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in/in/°F",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "cteUnitLabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11118,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111181,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111811,
+                      "order": 1,
+                      "key": "lblStationaryBoreDepth",
+                      "label": "Stationary Bore Depth",
+                      "value": "Stationary Bore Depth",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111182,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111821,
+                      "order": 1,
+                      "key": "stationaryBoreDepthMin",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111185,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111851,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "unitlabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11119,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111191,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111911,
+                      "order": 1,
+                      "key": "lblServiceStorageTemperatureAmbient75",
+                      "label": "Service / Storage Temperature",
+                      "value": "Service / Storage Temperature",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111192,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111921,
+                      "order": 1,
+                      "key": "serviceStorageTemperatureAmbient75FMin",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "temperature",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111194,
+                  "order": 4,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111941,
+                      "order": 1,
+                      "key": "serviceStorageTemperatureAmbient75FMax",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "temperature",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111119125,
+                  "order": 5,
+                  "css_classes": ["sms-celcius"],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111191251,
+                      "order": 1,
+                      "key": "lblTemprature",
+                      "label": "&#8457;",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "temperaturelabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1111110,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111110123,
+                  "order": 3,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111101231,
+                      "order": 1,
+                      "key": "lblButtonRowEmptyLabel3",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": 1,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 1111110125,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111101251,
+                      "order": 1,
+                      "key": "buttonCalculate",
+                      "label": "Calculate",
+                      "showLabel": true,
+                      "value": "Calculate",
+                      "placeholder": "",
+                      "type": "button",
+                      "sub_type": "submit",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": 1,
+                      "css_classes": ["calculate"]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "form_output": [
+        {
+          "display_title": "Final Dimensions",
+          "css_classes": ["pr-1-row-right", "col-12", "col-sm-12", "col-md-6", "col-lg-6", "col-xl-6"],
+          "show": true,
+          "row": [
+            {
+              "row_id": 1111,
+              "order": 1,
+              "css_classes": ["pr-1-perc"],
+              "form_layout_columns": [
+                {
+                  "col_id": 11111,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111111,
+                      "order": 1,
+                      "key": "lblEmptyLabel1",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11112,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111121,
+                      "order": 1,
+                      "key": "lblOutputMin",
+                      "label": "Inch",
+                      "showLabel": true,
+                      "value": "Inch",
+                      "type": "label",
+                      "sub_type": "outputHeaderUnitLabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11113,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111131,
+                      "order": 1,
+                      "key": "lblOutputTol",
+                      "label": "Tol",
+                      "showLabel": true,
+                      "value": "Tol",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1112,
+              "order": 2,
+              "css_classes": [],
+              "form_layout_columns": [
+                {
+                  "col_id": 11121,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111211,
+                      "order": 1,
+                      "key": "lblMachineCompositeOD",
+                      "label": "Machine Composite OD",
+                      "showLabel": true,
+                      "value": "Machine Composite OD",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11122,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111221,
+                      "order": 1,
+                      "key": "machineCompositeODInch",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11123,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111231,
+                      "order": 1,
+                      "key": "machineCompositeODTol",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": [1, 2, 3],
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1113,
+              "order": 2,
+              "css_classes": [],
+              "form_layout_columns": [
+                {
+                  "col_id": 11131,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111311,
+                      "order": 1,
+                      "key": "lblFinishMachineCompositeIDAfterInstallation",
+                      "label": "Finish Machine Composite ID After Installation",
+                      "showLabel": true,
+                      "value": "Finish Machine Composite ID After Installation",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11132,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111321,
+                      "order": 1,
+                      "key": "finishMachineCompositeIDAfterInstallationInch",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11133,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111331,
+                      "order": 1,
+                      "key": "finishMachineCompositeIDAfterInstallationInchTol",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1114,
+              "order": 2,
+              "css_classes": [],
+              "form_layout_columns": [
+                {
+                  "col_id": 11141,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111411,
+                      "order": 1,
+                      "key": "lblMachineCompositeOAL",
+                      "label": "Machine Composite OAL",
+                      "showLabel": true,
+                      "value": "Machine Composite OAL",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11142,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111421,
+                      "order": 1,
+                      "key": "machineCompositeOALInch",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11133,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111431,
+                      "order": 1,
+                      "key": "machineCompositeOALTol",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1115,
+              "order": 2,
+              "css_classes": [],
+              "form_layout_columns": [
+                {
+                  "col_id": 11151,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111511,
+                      "order": 1,
+                      "key": "lblMachineCompositeOAL",
+                      "label": "If Estimating ID After Installation (No Finish Machining)",
+                      "showLabel": true,
+                      "value": "If Estimating ID After Installation (No Finish Machining)",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11152,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111521,
+                      "order": 1,
+                      "key": "estimatingIDAfterInstallationInch",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11153,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111531,
+                      "order": 1,
+                      "key": "estimatingIDAfterInstallationTol",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "display_title": "Automated Design Notes",
+          "css_classes": ["pl-1-row-left", "col-12", "col-sm-12", "col-md-6", "col-lg-6", "col-xl-6"],
+          "show": true,
+          "row": [
+            {
+              "row_id": 1112,
+              "order": 2,
+              "css_classes": [],
+              "form_layout_columns": [
+                {
+                  "col_id": 11121,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111211,
+                      "order": 1,
+                      "key": "lblPressureInfo",
+                      "label": "Inner Radius/Radial Wall Thickness(r/t)",
+                      "showLabel": true,
+                      "value": "Inner Radius/Radial Wall Thickness(r/t)",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11123,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111231,
+                      "order": 1,
+                      "key": "pressureInfoRT",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1113,
+              "order": 2,
+              "css_classes": [],
+              "form_layout_columns": [
+                {
+                  "col_id": 11131,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111311,
+                      "order": 1,
+                      "key": "lblEstimatedInterfacePressureAtHighestTemperature",
+                      "label": "Estimated Interface Pressure at Highest Temperature (Estimated pressure rating without mechanical retention)",
+                      "showLabel": true,
+                      "value": "Estimated Interface Pressure at Highest Temperature",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11132,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111321,
+                      "order": 1,
+                      "key": "estimatedInterfacePressureAtHighestTemperature",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11133,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111331,
+                      "order": 1,
+                      "key": "estimatedInterfacePressureAtHighestTemperature2",
+                      "label": "psi",
+                      "value": "psi",
+                      "type": "label",
+                      "sub_type": "pressureLabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11134,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111341,
+                      "order": 1,
+                      "key": "remark1",
+                      "label": "(*1)",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1114,
+              "order": 2,
+              "css_classes": [],
+              "form_layout_columns": [
+                {
+                  "col_id": 11141,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111411,
+                      "order": 1,
+                      "key": "lblEstimatedCollapsePressureatHighestTemperature",
+                      "label": "Estimated Collapse Pressure at Highest Temperature",
+                      "showLabel": true,
+                      "value": "Estimated Collapse Pressure at Highest Temperature",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11142,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111421,
+                      "order": 1,
+                      "key": "estimatedCollapsePressureatHighestTemperature",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11133,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111431,
+                      "order": 1,
+                      "key": "estimatedCollapsePressureatHighestTemperature2",
+                      "label": "psi",
+                      "value": "psi",
+                      "type": "label",
+                      "sub_type": "pressureLabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11134,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111341,
+                      "order": 1,
+                      "key": "remark2",
+                      "label": "(*2)",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1115,
+              "order": 2,
+              "css_classes": [],
+              "form_layout_columns": [
+                {
+                  "col_id": 11151,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111511,
+                      "order": 1,
+                      "key": "lblMinimumClearanceAtAmbient",
+                      "label": "Minimum Clearance at Ambient",
+                      "showLabel": true,
+                      "value": "Minimum Clearance at Ambient",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11152,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111521,
+                      "order": 1,
+                      "key": "minimumClearanceAtAmbient",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11153,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111531,
+                      "order": 1,
+                      "key": "minimumClearanceAtAmbientUnit",
+                      "label": "in",
+                      "value": "in",
+                      "type": "label",
+                      "sub_type": "unitlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1116,
+              "order": 2,
+              "css_classes": [],
+              "show": false,
+              "form_layout_columns": [
+                {
+                  "col_id": 11161,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111611,
+                      "order": 1,
+                      "key": "lblThermalFitting",
+                      "label": "For Optional Thermal Fitting, Heat Carrier to a Minimum",
+                      "showLabel": true,
+                      "value": "For Thermal Fitting, Heat Carrier to a Minimum",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11162,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111621,
+                      "order": 1,
+                      "key": "thermalFitTemp",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11163,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111631,
+                      "order": 1,
+                      "key": "thermalFittingTemperatureUnit",
+                      "label": "&#8457",
+                      "value": "1",
+                      "type": "label",
+                      "sub_type": "temperaturelabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "order": 2,
+      "calculator_group_name": "AWrFloating",
+      "calculator_type": "Floating Components",
+      "display_calculator_title": "Floating Components",
+      "form": {
+        "form_id": 11,
+        "form_key": "formArWrFloating",
+        "show": true,
+        "form_title": "Floating Components",
+        "form_title_css_class": [],
+        "form_validation": [
+          "CLEARANCE_VALIDATION",
+          "SERVICE_STORAGE_TEMPERATURE_MIN",
+          "SERVICE_STORAGE_TEMPERATURE_MAX",
+          "STATIONARY_ELEMENT_ID_MAX",
+          "ROTATING_ELEMENT_OD_MAX",
+          "SERVICE_STORAGE_TEMPERATURE_ALLOWED_MIN",
+          "SERVICE_STORAGE_TEMPERATURE_ALLOWED_MAX",
+          "STATIONARY_ELEMENT_ID_MIN_LESSER_THAT_ROTATING_MIN",
+          "STATIONARY_ELEMENT_ID_MIN_LESSER_THAT_ROTATING_MAX"
+        ],
+        "left_column": {
+          "form_layout_row": [
+            {
+              "row_id": 11111,
+              "css_classes": [],
+              "order": 1,
+              "form_layout_columns": [
+                {
+                  "col_id": 111111,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111111,
+                      "order": 1,
+                      "key": "lblEmpty",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "emptyLabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111112,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11121,
+                      "order": 1,
+                      "key": "lblEmpty",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111115,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": []
+                }
+              ]
+            },
+            {
+              "row_id": 11112,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111121,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11211,
+                      "order": 1,
+                      "key": "lblPumpType",
+                      "label": "Pump Type",
+                      "value": "Pump Type",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111122,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11221,
+                      "order": 1,
+                      "key": "pumpType",
+                      "label": "Pump Type",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrPumptypeDropdown",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": [3],
+                      "css_classes": ["materialChoice"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11113,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111131,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111311,
+                      "order": 1,
+                      "key": "lblComponentType",
+                      "label": "Component Type",
+                      "value": "Component Type",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 1111312,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11113121,
+                      "order": 1,
+                      "key": "componentType",
+                      "label": "Component Type",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrComponenttypeDropdown",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": [3],
+                      "css_classes": ["materialChoice"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11114,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111141,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111411,
+                      "order": 1,
+                      "key": "lblComposite",
+                      "label": "Composite",
+                      "value": "Composite",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111142,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111421,
+                      "order": 1,
+                      "key": "composite",
+                      "label": "Composite",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrCompositetypeDropdown",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": ["materialChoice"],
+                      "options": [
+                        {
+                          "id": 1,
+                          "label": "AR®1",
+                          "value": 1,
+                          "show": true
+                        },
+                        {
+                          "id": 2,
+                          "label": "AR®HT",
+                          "value": 2,
+                          "show": true
+                        },
+                        {
+                          "id": 3,
+                          "label": "WR®300",
+                          "value": 3,
+                          "show": true
+                        },
+                        {
+                          "id": 4,
+                          "label": "WR®525",
+                          "value": 4,
+                          "show": true
+                        },
+                        {
+                          "id": 5,
+                          "label": "WR®600",
+                          "value": 5,
+                          "show": true
+                        },
+                        {
+                          "id": 6,
+                          "label": "WR®650",
+                          "value": 6,
+                          "show": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111143,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111431,
+                      "order": 1,
+                      "key": "compositeTemperatureRage",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": ["pl-1"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11115,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111151,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111511,
+                      "order": 1,
+                      "key": "lblClearanceTarget",
+                      "label": "Clearance Target (Diametric)",
+                      "value": "Clearance Target",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111152,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111521,
+                      "order": 1,
+                      "key": "clearanceTarget",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrClearanceTargetDropdown",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": [3],
+                      "css_classes": ["materialChoice"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 111116,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111141,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111611,
+                      "order": 1,
+                      "key": "lblCustomClearanceTarget",
+                      "label": "Custom Clearance (Diametric)",
+                      "value": "Custom Clearance",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11111612,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111116121,
+                      "order": 1,
+                      "key": "customClearanceTarget",
+                      "label": "Custom Clearance",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": [],
+                      "isDisabled": true
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111165,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111651,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "unitlabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11117,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": []
+            },
+            {
+              "row_id": 11118,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": []
+            },
+            {
+              "row_id": 11119,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": []
+            },
+            {
+              "row_id": 111110,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": []
+            }
+          ]
+        },
+        "right_column": {
+          "form_layout_row": [
+            {
+              "row_id": 11111,
+              "css_classes": [],
+              "order": 1,
+              "form_layout_columns": [
+                {
+                  "col_id": 111111,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111111,
+                      "order": 1,
+                      "key": "lblEmpty",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "emptyLabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111112,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11121,
+                      "order": 1,
+                      "key": "lblMinRight",
+                      "label": "Min",
+                      "value": "Min",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111114,
+                  "order": 4,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111141,
+                      "order": 1,
+                      "key": "lblMaxRight",
+                      "label": "Max",
+                      "value": "Max",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111115,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111151,
+                      "order": 1,
+                      "key": "lblemptyRight",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11112,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111121,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111211,
+                      "order": 1,
+                      "key": "lblRotatingElementOD",
+                      "label": "Rotating Element OD",
+                      "value": "Rotating Element OD",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111122,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111221,
+                      "order": 1,
+                      "key": "rotatingElementODMin",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111124,
+                  "order": 4,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111241,
+                      "order": 1,
+                      "key": "rotatingElementODMax",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111125,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111251,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "unitlabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 111113,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111131,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111311,
+                      "order": 1,
+                      "key": "lblRotatingMaterial",
+                      "label": "Rotating Material",
+                      "value": "Rotating Material",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11111312,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111113121,
+                      "order": 1,
+                      "key": "rotatingMaterial",
+                      "label": "Rotating Material",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrRotatingMaterial",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": ["materialChoice"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 111114,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111141,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111411,
+                      "order": 1,
+                      "key": "lblCustomRotorCTE",
+                      "label": "Custom Rotor CTE",
+                      "value": "Custom Rotor CTE",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11111412,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111114121,
+                      "order": 1,
+                      "key": "customRotatingMaterial",
+                      "label": "Custom Rotor CTE",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": false,
+                      "isDisabled": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": [],
+                      "decimal_point": 2
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111146,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111461,
+                      "order": 1,
+                      "key": "lblPowerSix",
+                      "label": "<span class='ml-n2'><strong>x10<sup>-6</sup></strong>&nbsp;&nbsp;&nbsp;</span>",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "html",
+                      "sub_type": "",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111145,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111451,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in/in/°F",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "cteUnitLabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11115,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111151,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111511,
+                      "order": 1,
+                      "key": "lblStationaryElementID",
+                      "label": "Stationary Element ID",
+                      "value": "Stationary Element ID",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111152,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111521,
+                      "order": 1,
+                      "key": "stationaryElementIDMin",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111154,
+                  "order": 4,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111541,
+                      "order": 1,
+                      "key": "stationaryElementIDMax",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111155,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111551,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "unitlabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 111116,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111161,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111611,
+                      "order": 1,
+                      "key": "lblStationaryMaterial",
+                      "label": "Stationary Material",
+                      "value": "Stationary Material",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11111612,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111116121,
+                      "order": 1,
+                      "key": "stationaryMaterial",
+                      "label": "Stationary Material",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "dropdown",
+                      "sub_type": "arWrStationaryMaterial",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": ["materialChoice"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 111117,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111171,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111711,
+                      "order": 1,
+                      "key": "lblCustomStatorCTE",
+                      "label": "Custom Stator CTE",
+                      "value": "Custom Stator CTE",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11111712,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111117121,
+                      "order": 1,
+                      "key": "customStationaryMaterial",
+                      "label": "Custom Stator CTE",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": false,
+                      "isDisabled": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": [],
+                      "decimal_point": 2
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111146,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111461,
+                      "order": 1,
+                      "key": "lblPowerSix",
+                      "label": "<span class='ml-n2'><strong>x10<sup>-6</sup></strong>&nbsp;&nbsp;&nbsp;</span>",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "html",
+                      "sub_type": "",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111175,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111751,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in/in/°F",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "cteUnitLabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11118,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111181,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111811,
+                      "order": 1,
+                      "key": "lblStationaryBoreDepth",
+                      "label": "Stationary Bore Depth",
+                      "value": "Stationary Bore Depth",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111182,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111821,
+                      "order": 1,
+                      "key": "stationaryBoreDepthMin",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "unit",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111185,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111851,
+                      "order": 1,
+                      "key": "lblUnit",
+                      "label": "in",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "unitlabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 11119,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 111191,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111911,
+                      "order": 1,
+                      "key": "lblServiceStorageTemperatureAmbient75",
+                      "label": "Service / Storage Temperature",
+                      "value": "Service / Storage Temperature",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111192,
+                  "order": 2,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111921,
+                      "order": 1,
+                      "key": "serviceStorageTemperatureAmbient75FMin",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "temperature",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111194,
+                  "order": 4,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111941,
+                      "order": 1,
+                      "key": "serviceStorageTemperatureAmbient75FMax",
+                      "label": "",
+                      "showLabel": true,
+                      "value": "",
+                      "placeholder": "",
+                      "type": "numerictextbox",
+                      "sub_type": "temperature",
+                      "show": true,
+                      "required": true,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 111119125,
+                  "order": 5,
+                  "css_classes": ["sms-celcius"],
+                  "form_controls": [
+                    {
+                      "form_control_id": 1111191251,
+                      "order": 1,
+                      "key": "lblTemprature",
+                      "label": "&#8457;",
+                      "showLabel": true,
+                      "value": "1",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "temperaturelabel",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1111110,
+              "css_classes": [],
+              "order": 2,
+              "form_layout_columns": [
+                {
+                  "col_id": 1111110123,
+                  "order": 3,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111101231,
+                      "order": 1,
+                      "key": "lblButtonRowEmptyLabel3",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": 1,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 1111110125,
+                  "order": 5,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 11111101251,
+                      "order": 1,
+                      "key": "buttonCalculate",
+                      "label": "Calculate",
+                      "showLabel": true,
+                      "value": "Calculate",
+                      "placeholder": "",
+                      "type": "button",
+                      "sub_type": "submit",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": 1,
+                      "css_classes": ["calculate"]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "form_output": [
+        {
+          "display_title": "Final Dimensions",
+          "css_classes": ["pr-1-row-right", "col-12", "col-sm-12", "col-md-12", "col-lg-12", "col-xl-12"],
+          "show": true,
+          "row": [
+            {
+              "row_id": 1111,
+              "order": 1,
+              "css_classes": ["pr-1-perc"],
+              "form_layout_columns": [
+                {
+                  "col_id": 11111,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111111,
+                      "order": 1,
+                      "key": "lblEmptyLabel1",
+                      "label": "",
+                      "value": "",
+                      "placeholder": "",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "validation": [],
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11112,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111121,
+                      "order": 1,
+                      "key": "lblOutputMin",
+                      "label": "Inch",
+                      "showLabel": true,
+                      "value": "Inch",
+                      "type": "label",
+                      "sub_type": "outputHeaderUnitLabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11113,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111131,
+                      "order": 1,
+                      "key": "lblOutputTol",
+                      "label": "Tol",
+                      "showLabel": true,
+                      "value": "Tol",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1112,
+              "order": 2,
+              "css_classes": [],
+              "form_layout_columns": [
+                {
+                  "col_id": 11121,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111211,
+                      "order": 1,
+                      "key": "lblMachineCompositeOD",
+                      "label": "Machine Composite OD",
+                      "showLabel": true,
+                      "value": "Machine Composite OD",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11122,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111221,
+                      "order": 1,
+                      "key": "machineCompositeODInch",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11123,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111231,
+                      "order": 1,
+                      "key": "machineCompositeODTol",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": [1, 2, 3],
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1113,
+              "order": 2,
+              "css_classes": [],
+              "form_layout_columns": [
+                {
+                  "col_id": 11131,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111311,
+                      "order": 1,
+                      "key": "lblFinishMachineCompositeIDAfterInstallation",
+                      "label": "Machine Composite ID",
+                      "showLabel": true,
+                      "value": "Machine Composite ID",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11132,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111321,
+                      "order": 1,
+                      "key": "finishMachineCompositeIDAfterInstallationInch",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11133,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111331,
+                      "order": 1,
+                      "key": "finishMachineCompositeIDAfterInstallationInchTol",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "row_id": 1114,
+              "order": 2,
+              "css_classes": [],
+              "form_layout_columns": [
+                {
+                  "col_id": 11141,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111411,
+                      "order": 1,
+                      "key": "lblMachineCompositeOAL",
+                      "label": "Machine Composite OAL",
+                      "showLabel": true,
+                      "value": "Machine Composite OAL",
+                      "type": "label",
+                      "sub_type": "label",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11142,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111421,
+                      "order": 1,
+                      "key": "machineCompositeOALInch",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                },
+                {
+                  "col_id": 11133,
+                  "order": 1,
+                  "css_classes": [],
+                  "form_controls": [
+                    {
+                      "form_control_id": 111431,
+                      "order": 1,
+                      "key": "machineCompositeOALTol",
+                      "label": "",
+                      "value": "",
+                      "type": "label",
+                      "sub_type": "calculatedlabel",
+                      "show": true,
+                      "required": false,
+                      "show_control_option": null,
+                      "css_classes": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

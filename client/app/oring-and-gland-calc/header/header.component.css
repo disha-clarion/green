@@ -1,0 +1,97 @@
+.gt-banner {
+    background: url(/assets/img/semicalculator-header-img.jpg) no-repeat;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+}
+
+.gt-banner .container {
+    height: 175px;
+}
+
+.gt-banner .heading {
+    position: relative;
+    top: 49%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 32px;
+    width: 80%;
+    /* font-family: "nimbus-sans", Arial, sans-serif; */
+    font-family: "nimbus_san_nov_con", Arial, sans-serif;
+    margin: 0px 20px 0 250px;
+    font-weight: 700;
+    /* letter-spacing: 0px; */
+    /* text-shadow: 2px 2px 0 #1b3766; */
+}
+
+.gt-banner .heading span {
+    font-size: 20px;
+    display: block;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-shadow: none;
+}
+
+.gt-header-logo {
+    margin-top: -15px;
+    position: absolute;
+    /* right: 12px; */
+    /* bottom: 15px; */
+    background: url(/assets/img/GTLogo_White-semicalc.png) no-repeat;
+    width: 147px;
+    height: 54px;
+    background-size: contain;
+}
+
+/* media query */
+
+@media (max-width:600px) {
+    .gt-banner .heading {
+        width: 72%;
+        left: 0;
+    }
+}
+
+@media (max-width:767px) {
+    .gt-banner .heading {
+        font-size: 20px;
+        width: 48%;
+        padding-top: 0px;
+    }
+    .gt-banner .heading span {
+        font-size: 14px;
+    }
+    .gt-header-logo {
+        width: 112px;
+        height: 42px;
+        background-size: 112px;
+    }
+}
+
+/* @media (min-width:768px) {
+    .gt-header-graphic {
+        /* position: absolute;
+        left: 12px;
+        top: 0px;
+        background: url(/assets/img/gt-header-graphic.png) no-repeat;
+        width: 134px;
+        height: 118px; *
+    }
+} */
+
+@media (min-width:768px) and (max-width:990px) {
+    .gt-banner .heading {
+        font-size: 24px;
+        width: 58%;
+    }
+}
+
+@media (max-width:1060px) {
+    .gt-banner .heading {
+        font-size: 28px;
+        width: 73%;
+    }
+}

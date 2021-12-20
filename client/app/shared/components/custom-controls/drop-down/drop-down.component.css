@@ -1,0 +1,32 @@
+.ddl-options {
+    /* width: 330px; */
+    width: 100%;
+    border-radius: 0;
+    border: 1px solid #d2d2d2;
+    box-shadow: none;
+    height: 40px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(/assets/img/icon_select_arrow-gray.png) no-repeat center right;
+    float: left;
+    font-size: 1em;
+    /* padding-right: 20px; */
+    padding-right: 12%;
+}
+
+.ddl-options.form-control.is-invalid, .ddl-options.was-validated .form-control:invalid {
+    color: #777;
+}
+
+.materialChoice {
+    width: 200%;
+    background-color: #fff;
+    padding-right: 34% !important;
+}
+
+/* .materialChoice {
+    width: 100%;
+    min-width: 157px;
+    max-width: 100%;
+    background-color: #fff;
+} */

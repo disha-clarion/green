@@ -1,0 +1,29 @@
+<div class="row" [formGroup]="form">
+    <div *ngIf="isShowOptions" class="sms-radio-wrapper col-md-3">
+        <input type="radio" value="{{options.Nominal}}" (click)="onOptionClick($event,options.Nominal)"
+            name="calc-options" [formControl]="getFormControl()" [name]="control.key" [id]="control.key + 1">
+        Nominal
+    </div>
+    <div *ngIf="isShowOptions" class="sms-radio-wrapper col-md-3">
+        <input type="radio" value="{{options.WithTolerance}}" (click)="onOptionClick($event,options.WithTolerance)"
+            name="calc-options" [formControl]="getFormControl()" [name]="control.key" [id]="control.key + 2">
+        With Tolerance
+    </div>
+    <div *ngIf="isShowOptions" class="sms-radio-wrapper col-md-3">
+        <input type="radio" value="{{options.WithMinMax}}" (click)="onOptionClick($event,options.WithMinMax)"
+            name="calc-options" [formControl]="getFormControl()" [name]="control.key" [id]="control.key + 3">
+        Min and Max
+    </div>
+    <div [ngClass]="{'col-md-3': isShowOptions, 'col-md-12': !isShowOptions}" class="sms-radio-wrapper text-right">
+        <!-- copy button -->
+        <input class="reset" type="button" (click)="onCopy()" value="Copy" id="copybtn" title="Copy"
+            *ngIf="isShowCopyBtn">
+        <!-- paste button -->
+        <input class="reset" type="button" (click)="onPaste()" value="Paste" id="pastebtn" title="Paste"
+            *ngIf="isShowPasteBtn">
+        <!-- reset button -->
+        <input class="reset" type="button" (click)="onResetField()" value="Reset" id="resetbtn" title="Reset">
+        <!-- print icon btn -->
+        <input class="printbtn" type="button" (click)="onConvertToPdf()" value="" id="printbtn">
+    </div>
+</div>

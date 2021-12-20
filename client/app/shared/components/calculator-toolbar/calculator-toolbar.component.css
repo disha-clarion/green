@@ -1,0 +1,48 @@
+.sms-radio-wrapper {
+    float: left;
+    /* margin-right: 15px; */
+    margin-top: 5px;
+    color: #225a8a;
+    font-family: 'open_sanssemibold', sans-serif;
+}
+
+.sms-radio-wrapper input[type="radio"] {
+    position: relative;
+    top: 3px;
+}
+
+.reset {
+    /* float: right; */
+    background: #ec971f;
+    border: #ec971f;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px 15px;
+    margin-right: 11px;
+}
+
+.calculate, .custom-button, .reset {
+    /* float: right; */
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 3px 15px;
+    margin-right: 11px;
+}
+
+.printbtn {
+    background: url(/assets/img/icon_print.png) no-repeat;
+    background-size: 90%;
+    opacity: .6;
+    margin-right: 0;
+}
+
+.printbtn, .resetbtn {
+    width: 20px;
+    height: 20px;
+    border: none;
+    /* float: right; */
+    margin-top: 5px;
+    vertical-align: bottom;
+}

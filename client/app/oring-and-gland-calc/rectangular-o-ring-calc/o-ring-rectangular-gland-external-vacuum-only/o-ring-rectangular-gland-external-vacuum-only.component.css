@@ -1,0 +1,38 @@
+.graph-sec .rectangle-OD {
+	background: url(/assets/img/rectangleOd_graph.jpg) no-repeat;
+	margin-bottom: 20px;
+}
+
+.graph-sec .graph-bg.rectangle-OD .rect-static-value {
+	top: 171px;
+	right: -10px;
+}
+
+.graph-sec .graph-bg.rectangle-OD div.gld-width {
+	bottom: 17px;
+	right: 87px;
+	width: 98px;
+}
+
+.graph-sec .graph-bg.rectangle-OD div.gld-depth {
+	bottom: 73px;
+	left: 10px;
+}
+
+.graph-sec .graph-bg.rectangle-OD div.bottom-radii {
+	bottom: 5px;
+	right: 11px;
+	width: auto;
+}
+
+.graph-sec .graph-bg.rectangle-OD div.gld-id {
+	top: 96px;
+	left: inherit;
+	right: 92px;
+}
+
+.graph-sec .graph-bg.rectangle-OD .rect-gap {
+	top: 56px;
+	right: 10px;
+	text-align: right;
+}

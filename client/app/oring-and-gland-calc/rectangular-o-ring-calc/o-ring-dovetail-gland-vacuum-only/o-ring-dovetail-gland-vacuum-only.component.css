@@ -1,0 +1,61 @@
+/*css starts Dovetail*/
+
+.graph-sec .dovtail-bg div.top-radii {
+    display: inline-block;
+}
+
+.graph-sec .dovtail-bg {
+    background: url(/assets/img/dovetail_graph.jpg) no-repeat;
+    background-size: contain;
+}
+
+.graph-sec .graph-bg.dovtail-bg div.top-radii {
+    bottom: 81px;
+    left: inherit;
+    right: -3px;
+    width: 88px;
+}
+
+.graph-sec .graph-bg.dovtail-bg div.bottom-radii {
+    bottom: 7px;
+    right: 0;
+    width: 100px;
+    left: inherit;
+}
+
+.graph-sec .graph-bg.dovtail-bg div.gld-depth {
+    bottom: 60px;
+    left: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.graph-sec .graph-bg.dovtail-bg div.gld-width {
+    left: 19px;
+    right: inherit;
+    top: 92px;
+    width: 100px;
+}
+
+.graph-sec .graph-bg.dovtail-bg div.gld-angle {
+    bottom: 21px;
+    font-size: .70em;
+    right: 120px;
+    text-align: center;
+}
+
+.graph-sec .graph-bg.dovtail-bg div.gap-full-comp {
+    top: 60px;
+    font-size: .70em;
+    right: 22px;
+    width: 102px;
+    text-align: center;
+}
+
+.graph-sec .graph-bg.dovtail-bg div.gld-id {
+    top: 50px;
+    left: 46px;
+    /* font-size: 0.68rem; */
+    width: 80px;
+    text-align: center;
+}

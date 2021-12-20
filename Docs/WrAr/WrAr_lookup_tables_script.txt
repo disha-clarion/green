@@ -1,0 +1,2741 @@
+
+/* halfDovetailGland - updated formula and calculation */
+db.calculationTypeMaster.replaceOne(
+   { calType: "halfDovetailGland" },
+   {"calType":"halfDovetailGland","glandWidth":{"name":"glandWidth","nominal":{"fieldType":"input"},"min":{"fieldType":"input"},"max":{"fieldType":"input"}},"glandDepth":{"name":"glandDepth","nominal":{"fieldType":"input"},"min":{"fieldType":"input"},"max":{"fieldType":"input"}},"glandAngle":{"name":"glandAngle","nominal":{"fieldType":"input"},"min":{"fieldType":"input"},"max":{"fieldType":"input"}},"topRadii":{"name":"topRadii","nominal":{"fieldType":"input"},"min":{"fieldType":"input"},"max":{"fieldType":"input"}},"bottomRadii":{"name":"bottomRadii","nominal":{"fieldType":"input"},"min":{"fieldType":"input"},"max":{"fieldType":"input"}},"gap":{"name":"gap","nominal":{"fieldType":"input"},"min":{"fieldType":"input"},"max":{"fieldType":"input"}},"glandCenterline":{"name":"glandCenterline","nominal":{"fieldType":"input"},"min":{"fieldType":"input"},"max":{"fieldType":"input"}},"noRadiiArea":{"name":"gapArea","nominal":{"fieldType":"calculation","formula":"glandDepthNominal * glandWidthNominal + 0.5*glandDepthNominal * (glandDepthNominal / math.tan(rad(glandAngleNominal)))"},"min":{"fieldType":"calculation","formula":"glandDepthMin * glandWidthMin + 0.5*glandDepthMin * (glandDepthMin / math.tan(rad(glandAngleMin)))"},"max":{"fieldType":"calculation","formula":"glandDepthMax * glandWidthMax + 0.5*glandDepthMax * (glandDepthMax / math.tan(rad(glandAngleMax)))"}},"topRadiiAreaAngled":{"name":"topRadiiAreaAngled","nominal":{"fieldType":"calculation","formula":"(rad((90 - glandAngleNominal / 2) * 2) - math.sin(rad((90 - glandAngleNominal / 2) * 2))) * math.pow((topRadiiNominal * 2), 2) / 8"},"min":{"fieldType":"calculation","formula":"(rad((90 - glandAngleMin / 2) * 2) - math.sin(rad((90 - glandAngleMin / 2) * 2))) * math.pow((topRadiiMin * 2),2) / 8"},"max":{"fieldType":"calculation","formula":"(rad((90 - glandAngleMax / 2) * 2) - math.sin(rad((90 - glandAngleMax / 2) * 2))) * math.pow((topRadiiMax * 2),2) /8"}},"topRadiiAreaTriangle":{"name":"topRadiiAreaTriangle","nominal":{"fieldType":"calculation","formula":"topRadiiNominal * topRadiiNominal * ( math.pow(math.cos(rad(glandAngleNominal / 2)),2)) / math.tan(rad(glandAngleNominal / 2))"},"min":{"fieldType":"calculation","formula":"topRadiiMin * topRadiiMin * (math.pow(math.cos(rad(glandAngleMin / 2)),2)) / math.tan(rad(glandAngleMin / 2))"},"max":{"fieldType":"calculation","formula":"topRadiiMax * topRadiiMax * (math.pow(math.cos(rad(glandAngleMax / 2)),2)) / math.tan(rad(glandAngleMax / 2))"}},"bottomRadiiAreaAngled":{"name":"bottomRadiiAreaAngled","nominal":{"fieldType":"calculation","formula":"(rad((90 - glandAngleNominal / 2) * 2) - math.sin(rad((90 - glandAngleNominal / 2) * 2))) * math.pow((bottomRadiiNominal * 2),2) / 8"},"min":{"fieldType":"calculation","formula":"(rad((90 - glandAngleMin / 2) * 2) - math.sin(rad((90 - glandAngleMin / 2) * 2))) * math.pow((bottomRadiiMin * 2),2) / 8"},"max":{"fieldType":"calculation","formula":"(rad((90 - glandAngleMax / 2) * 2) - math.sin(rad((90 - glandAngleMax / 2) * 2))) * math.pow((bottomRadiiMax * 2),2) / 8"}},"bottomRadiiAreaRectangle":{"name":"bottomRadiiAreaRectangle","nominal":{"fieldType":"calculation","formula":"math.pi*bottomRadiiNominal * bottomRadiiNominal / 4"},"min":{"fieldType":"calculation","formula":"math.pi*bottomRadiiMin * bottomRadiiMin / 4"},"max":{"fieldType":"calculation","formula":"math.pi*bottomRadiiMax * bottomRadiiMax / 4"}},"bottomRadiiTriangle":{"name":"bottomRadiiTriangle","nominal":{"fieldType":"calculation","formula":"bottomRadiiNominal * bottomRadiiNominal * (math.pow(math.cos(rad(glandAngleNominal / 2)),2)) / math.tan(rad(glandAngleNominal / 2))"},"min":{"fieldType":"calculation","formula":"bottomRadiiMin * bottomRadiiMin * (math.pow(math.cos(rad(glandAngleMin / 2)),2)) / math.tan(rad(glandAngleMin / 2))"},"max":{"fieldType":"calculation","formula":"bottomRadiiMax * bottomRadiiMax * (math.pow(math.cos(rad(glandAngleMax / 2)),2)) / math.tan(rad(glandAngleMax / 2))"}},"bottomRadiiAreaSquare":{"name":"bottomRadiiAreaSquare","nominal":{"fieldType":"calculation","formula":"bottomRadiiNominal * bottomRadiiNominal"},"min":{"fieldType":"calculation","formula":"bottomRadiiMin * bottomRadiiMin"},"max":{"fieldType":"calculation","formula":"bottomRadiiMax * bottomRadiiMax"}},"gapArea":{"name":"gapArea","nominal":{"fieldType":"calculation","formula":"gapNominal * (glandWidthNominal + (topRadiiNominal / math.tan(rad(glandAngleNominal / 2))))"},"min":{"fieldType":"calculation","formula":"gapMin * (glandWidthMin + (topRadiiMin / math.tan(rad(glandAngleMax / 2))))"},"max":{"fieldType":"calculation","formula":"gapMax * (glandWidthMax + (topRadiiMax / math.tan(rad(glandAngleMin / 2))))"}},"calculatedAreaNoGap":{"name":"calculatedAreaNoGap","nominal":{"fieldType":"calculation","formula":"noRadiiAreaNominal + (topRadiiAreaTriangleNominal - topRadiiAreaAngledNominal - bottomRadiiTriangleNominal + bottomRadiiAreaAngledNominal - bottomRadiiAreaSquareNominal + bottomRadiiAreaRectangleNominal + topRadiiAreaSquareNominal - topRadiiAreaRectangleNominal)"},"min":{"fieldType":"calculation","formula":"noRadiiAreaMin + (topRadiiAreaTriangleMin - topRadiiAreaAngledMin - bottomRadiiTriangleMin + bottomRadiiAreaAngledMin - bottomRadiiAreaSquareMin + bottomRadiiAreaRectangleMin + topRadiiAreaSquareMin - topRadiiAreaRectangleMin)"},"max":{"fieldType":"calculation","formula":"noRadiiAreaMax + (topRadiiAreaTriangleMax-topRadiiAreaAngledMax-bottomRadiiTriangleMax+bottomRadiiAreaAngledMax-bottomRadiiAreaSquareMax + bottomRadiiAreaRectangleMax + topRadiiAreaSquareMax - topRadiiAreaRectangleMax)"}},"calculatedAreaWithGap":{"name":"calculatedAreaWithGap","nominal":{"fieldType":"calculation","formula":"calculatedAreaNoGapNominal + gapAreaNominal"},"min":{"fieldType":"calculation","formula":"calculatedAreaNoGapMin+gapAreaMin"},"max":{"fieldType":"calculation","formula":"calculatedAreaNoGapMax+gapAreaMax"}},"glandVolume":{"name":"glandVolume","nominal":{"fieldType":"calculation","formula":"calculatedAreaWithGapNominal * (centroidNominal * 2 * math.pi)"},"min":{"fieldType":"calculation","formula":"calculatedAreaWithGapMin * (centroidMin * 2 * math.pi)"},"max":{"fieldType":"calculation","formula":"calculatedAreaWithGapMax * (centroidMax * 2 * math.pi)"}},"oringCrossSection":{"name":"oringCrossSection","nominal":{"fieldType":"input"},"min":{"fieldType":"output","formula":"oringCrossSectionNominal - oringCrossSectionToleranceNominal"},"max":{"fieldType":"output","formula":"oringCrossSectionNominal + oringCrossSectionToleranceNominal"}},"oringCrossSectionTolerance":{"name":"oringCrossSectionTolerance","nominal":{"fieldType":"constant","value":"0,004"}},"oringId":{"name":"oringId","nominal":{"fieldType":"input"},"min":{"fieldType":"output","formula":"oringIdNominal - oringIdToleranceNominal"},"max":{"fieldType":"output","formula":"oringIdNominal + oringIdToleranceNominal"}},"oringIdTolerance":{"name":"oringIdTolerance","nominal":{"fieldType":"constant","value":"0.025"}},"stretchCalculation":{"name":"stretchCalculation","nominal":{"fieldType":"output","formula":"((glandCenterlineNominal -(oringIdNominal + oringCrossSectionNominal)) / (oringIdNominal + oringCrossSectionNominal)) * 100"},"min":{"fieldType":"output","formula":"((glandCenterlineMin -(oringIdMax + oringCrossSectionMax)) / (oringIdMax + oringCrossSectionMax))* 100"},"max":{"fieldType":"output","formula":"((glandCenterlineMax -(oringIdMin + oringCrossSectionMin)) / (oringIdMin + oringCrossSectionMin)) * 100"}},"oringArea":{"name":"oringArea","nominal":{"fieldType":"calculation","formula":"0.7854 * (oringCrossSectionNominal * oringCrossSectionNominal)"},"min":{"fieldType":"calculation","formula":"0.7854 * (oringCrossSectionMin * oringCrossSectionMin)"},"max":{"fieldType":"calculation","formula":"0.7854 * (oringCrossSectionMax * oringCrossSectionMax)"}},"oringVolume":{"name":"oringVolume","nominal":{"fieldType":"calculation","formula":"oringAreaNominal * ((oringIdNominal + oringCrossSectionNominal) * math.pi)"},"min":{"fieldType":"calculation","formula":"oringAreaMin * ((oringIdMin + oringCrossSectionMin) * math.pi)"},"max":{"fieldType":"calculation","formula":"oringAreaMax * ((oringIdMax + oringCrossSectionMax) * math.pi)"}},"compression":{"name":"compression","nominal":{"fieldType":"output","formula":"((oringCrossSectionNominal - glandDepthNominal - gapNominal) / oringCrossSectionNominal) * 100"},"min":{"fieldType":"output","formula":"((oringCrossSectionMin - glandDepthMax - gapMax) / oringCrossSectionMin) * 100"},"max":{"fieldType":"output","formula":"((oringCrossSectionMax - glandDepthMin - gapMin) / oringCrossSectionMax) * 100"}},"glandFill":{"name":"glandFill","nominal":{"fieldType":"output","formula":"(oringVolumeNominal / glandVolumeNominal) * 100"},"min":{"fieldType":"output","formula":"(oringVolumeMin / glandVolumeMax) * 100"},"max":{"fieldType":"output","formula":"(oringVolumeMax / glandVolumeMin) * 100"}},"operatingTemperature":{"name":"operatingTemperature","nominal":{"fieldType":"input"}},"tempC":{"name":"tempC","nominal":{"fieldType":"calculation","formula":"operatingTemperatureNominal - 23"},"min":{"fieldType":"calculation","formula":"operatingTemperatureNominal - 23"},"max":{"fieldType":"calculation","formula":"operatingTemperatureNominal - 23"}},"aOring":{"name":"aOring","nominal":{"fieldType":"calculation","formula":"2 * oringAreaNominal * tempCNominal * materialCteNominal"},"min":{"fieldType":"calculation","formula":"2 * oringAreaMin * tempCMin * materialCteMin"},"max":{"fieldType":"calculation","formula":"2 * oringAreaMax * tempCMax * materialCteMax"}},"vOring":{"name":"vOring","nominal":{"fieldType":"calculation","formula":"3 * oringVolumeNominal * tempCNominal * materialCteNominal"},"min":{"fieldType":"calculation","formula":"3 * oringVolumeMin * tempCMin * materialCteMin"},"max":{"fieldType":"calculation","formula":"3 * oringVolumeMax * tempCMax * materialCteMax"}},"newAreaOring":{"name":"newAreaOring","nominal":{"fieldType":"calculation","formula":"oringAreaNominal + aOringNominal"},"min":{"fieldType":"calculation","formula":"oringAreaMin + aOringMin"},"max":{"fieldType":"calculation","formula":"oringAreaMax + aOringMax"}},"newOringCrossSection":{"name":"newOringCrossSection","nominal":{"fieldType":"calculation","formula":"math.sqrt((4 * newAreaOringNominal) / 3.1428)"},"min":{"fieldType":"calculation","formula":"math.sqrt((4 * newAreaOringMin) / 3.1428)"},"max":{"fieldType":"calculation","formula":"math.sqrt((4 * newAreaOringMax) / 3.1428)"}},"newOringVolume":{"name":"newOringVolume","nominal":{"fieldType":"calculation","formula":"vOringNominal + oringVolumeNominal"},"min":{"fieldType":"calculation","formula":"vOringMin + oringVolumeMin"},"max":{"fieldType":"calculation","formula":"vOringMax + oringVolumeMax"}},"compressionAtTemp":{"name":"compressionAtTemp","nominal":{"fieldType":"output","formula":"((newOringCrossSectionNominal - gapNominal - glandDepthNominal) / newOringCrossSectionNominal) * 100"},"min":{"fieldType":"output","formula":"((newOringCrossSectionMin - gapMax - glandDepthMax) / newOringCrossSectionMin) * 100"},"max":{"fieldType":"output","formula":"((newOringCrossSectionMax - gapMin - glandDepthMin) / newOringCrossSectionMax) * 100"}},"glandFillAtTemp":{"name":"glandFillAtTemp","nominal":{"fieldType":"output","formula":"(newOringVolumeNominal / glandVolumeNominal) * 100"},"min":{"fieldType":"output","formula":"(newOringVolumeMin / glandVolumeMax) * 100"},"max":{"fieldType":"output","formula":"(newOringVolumeMax / glandVolumeMin) * 100"}},"topRadiiAreaRectangle":{"name":"topRadiiAreaRectangle","nominal":{"fieldType":"calculation","formula":"(math.pi * topRadiiNominal * topRadiiNominal / 4)"},"min":{"fieldType":"calculation","formula":"(math.pi * topRadiiMin * topRadiiMin / 4)"},"max":{"fieldType":"calculation","formula":"(math.pi * topRadiiMax * topRadiiMax / 4)"}},"topRadiiAreaSquare":{"name":"topRadiiAreaSquare","nominal":{"fieldType":"calculation","formula":"(topRadiiNominal*topRadiiNominal)"},"min":{"fieldType":"calculation","formula":"(topRadiiMin * topRadiiMin)"},"max":{"fieldType":"calculation","formula":"(topRadiiMax * topRadiiMax)"}},"squareAreaCentroid":{"name":"squareAreaCentroid","nominal":{"fieldType":"value","value":"0.000"},"min":{"fieldType":"value","value":"0.000"},"max":{"fieldType":"value","value":"0.000"}},"squareArea":{"name":"squareArea","nominal":{"fieldType":"calculation","formula":"glandDepthNominal * glandWidthNominal"},"min":{"fieldType":"calculation","formula":"glandDepthMin * glandWidthMin"},"max":{"fieldType":"calculation","formula":"glandDepthMax * glandWidthMax"}},"triangleAreaCentroid":{"name":"triangleAreaCentroid","nominal":{"fieldType":"calculation","formula":"glandWidthNominal / 2 + glandDepthNominal / math.tan(rad(glandAngleNominal))/3"},"min":{"fieldType":"calculation","formula":"glandWidthMin / 2 + glandDepthMin / math.tan(rad(glandAngleMin))/3"},"max":{"fieldType":"calculation","formula":"glandWidthMax / 2 + glandDepthMax / math.tan(rad(glandAngleMax))/3"}},"triangleArea":{"name":"triangleArea","nominal":{"fieldType":"calculation","formula":"0.5 * glandDepthNominal * (glandDepthNominal / math.tan(rad(glandAngleNominal)))"},"min":{"fieldType":"calculation","formula":"0.5 * glandDepthMin * (glandDepthMin / math.tan(rad(glandAngleMin)))"},"max":{"fieldType":"calculation","formula":"0.5 * glandDepthMax * (glandDepthMax / math.tan(rad(glandAngleMax)))"}},"xDistAreaInsideTriangles21":{"name":"xDistAreaInsideTriangles21","nominal":{"fieldType":"calculation","formula":"((topRadiiNominal / math.sin(rad(glandAngleNominal / 2)) - topRadiiNominal * math.sin(rad(glandAngleNominal / 2))) / 3 + topRadiiNominal * math.sin(rad(glandAngleNominal / 2))) * math.cos(rad(glandAngleNominal / 2))"},"min":{"fieldType":"calculation","formula":"((topRadiiMin / math.sin(rad(glandAngleMin / 2)) - topRadiiMin * math.sin(rad(glandAngleMin / 2))) / 3 + topRadiiMin * math.sin(rad(glandAngleMin / 2))) * math.cos(rad(glandAngleMin / 2))"},"max":{"fieldType":"calculation","formula":"((topRadiiMax / math.sin(rad(glandAngleMax / 2)) - topRadiiMax * math.sin(rad(glandAngleMax / 2))) / 3 + topRadiiMax * math.sin(rad(glandAngleMax / 2))) * math.cos(rad(glandAngleMax / 2))"}},"centroidInsideTriangles22":{"name":"centroidInsideTriangles22","nominal":{"fieldType":"calculation","formula":"glandWidthNominal / 2 + topRadiiNominal / math.tan(rad(glandAngleNominal / 2)) - xDistAreaInsideTriangles21Nominal"},"min":{"fieldType":"calculation","formula":"glandWidthMin / 2 + topRadiiMin / math.tan(rad(glandAngleMin / 2)) - xDistAreaInsideTriangles21Min"},"max":{"fieldType":"calculation","formula":"glandWidthMax / 2 + topRadiiMax / math.tan(rad(glandAngleMax / 2)) - xDistAreaInsideTriangles21Max"}},"xDistAreaInsideTriangles18":{"name":"xDistAreaInsideTriangles18","nominal":{"fieldType":"calculation","formula":"4 * topRadiiNominal *(math.pow(math.sin(rad(90 - glandAngleNominal / 2)),3)) / (3 * (2 * rad(90 - glandAngleNominal / 2) - math.sin(rad(2 * (90 - glandAngleNominal / 2))))) * math.cos(rad(glandAngleNominal / 2))"},"min":{"fieldType":"calculation","formula":"4 * topRadiiMin *(math.pow(math.sin(rad(90 - glandAngleMin / 2)),3)) / (3 * (2 * rad(90 - glandAngleMin / 2) - math.sin(rad(2 * (90 - glandAngleMin / 2))))) * math.cos(rad(glandAngleMin / 2))"},"max":{"fieldType":"calculation","formula":"4 * topRadiiMax *(math.pow(math.sin(rad(90 - glandAngleMax / 2)),3)) / (3 * (2 * rad(90 - glandAngleMax / 2) - math.sin(rad(2 * (90 - glandAngleMax / 2))))) * math.cos(rad(glandAngleMax / 2))"}},"centroidOfInsideCircle19":{"name":"centroidOfInsideCircle19","nominal":{"fieldType":"calculation","formula":"glandWidthNominal / 2 + topRadiiNominal / math.tan(rad(glandAngleNominal / 2)) - xDistAreaInsideTriangles18Nominal"},"min":{"fieldType":"calculation","formula":"glandWidthMin / 2 + topRadiiMin / math.tan(rad(glandAngleMin / 2)) - xDistAreaInsideTriangles18Min"},"max":{"fieldType":"calculation","formula":"glandWidthMax / 2 + topRadiiMax / math.tan(rad(glandAngleMax / 2)) - xDistAreaInsideTriangles18Max"}},"xDistAreaInsideTriangles27":{"name":"xDistAreaInsideTriangles27","nominal":{"fieldType":"calculation","formula":"((bottomRadiiNominal / math.sin(rad(glandAngleNominal / 2)) - bottomRadiiNominal * math.sin(rad(glandAngleNominal / 2))) / 3 + bottomRadiiNominal * math.sin(rad(glandAngleNominal / 2))) * math.cos(rad(glandAngleNominal / 2))"},"min":{"fieldType":"calculation","formula":"((bottomRadiiMin / math.sin(rad(glandAngleMin / 2)) - bottomRadiiMin * math.sin(rad(glandAngleMin / 2))) / 3 + bottomRadiiMin * math.sin(rad(glandAngleMin / 2))) * math.cos(rad(glandAngleMin / 2))"},"max":{"fieldType":"calculation","formula":"((bottomRadiiMax / math.sin(rad(glandAngleMax / 2)) - bottomRadiiMax * math.sin(rad(glandAngleMax / 2))) / 3 + bottomRadiiMax * math.sin(rad(glandAngleMax / 2))) * math.cos(rad(glandAngleMax / 2))"}},"centroidInsideTriangles28":{"name":"centroidInsideTriangles28","nominal":{"fieldType":"calculation","formula":"glandWidthNominal / 2 + glandDepthNominal / math.tan(rad(glandAngleNominal)) - bottomRadiiNominal / math.tan(rad(glandAngleNominal / 2)) + xDistAreaInsideTriangles27Nominal"},"min":{"fieldType":"calculation","formula":"glandWidthMin / 2 + glandDepthMin / math.tan(rad(glandAngleMin)) - bottomRadiiMin / math.tan(rad(glandAngleMin / 2)) + xDistAreaInsideTriangles27Min"},"max":{"fieldType":"calculation","formula":"glandWidthMax / 2 + glandDepthMax / math.tan(rad(glandAngleMax)) - bottomRadiiMax / math.tan(rad(glandAngleMax / 2)) + xDistAreaInsideTriangles27Max"}},"xDistOfAreaInsideCircle24":{"name":"xDistOfAreaInsideCircle24","nominal":{"fieldType":"calculation","formula":"4 * bottomRadiiNominal * (math.pow(math.sin(rad(90 - glandAngleNominal / 2)),3)) / (3 * (2 * rad(90 - glandAngleNominal / 2) - math.sin(rad(2 * (90 - glandAngleNominal / 2))))) * math.cos(rad(33))"},"min":{"fieldType":"calculation","formula":"4 * bottomRadiiMin * (math.pow(math.sin(rad(90 - glandAngleMin / 2)),3)) / (3 * (2 * rad(90 - glandAngleMin / 2) - math.sin(rad(2 * (90 - glandAngleMin / 2))))) * math.cos(rad(33))"},"max":{"fieldType":"calculation","formula":"4 * bottomRadiiMax * (math.pow(math.sin(rad(90 - glandAngleMax / 2)),3)) / (3 * (2 * rad(90 - glandAngleMax / 2) - math.sin(rad(2 * (90 - glandAngleMax / 2))))) * math.cos(rad(33))"}},"centroidOfInsideCircle25":{"name":"centroidOfInsideCircle25","nominal":{"fieldType":"calculation","formula":"glandWidthNominal / 2 + glandDepthNominal / math.tan(rad(glandAngleNominal)) - bottomRadiiNominal / math.tan(rad(glandAngleNominal/ 2)) + xDistOfAreaInsideCircle24Nominal"},"min":{"fieldType":"calculation","formula":"glandWidthMin / 2 + glandDepthMin / math.tan(rad(glandAngleMin)) - bottomRadiiMin / math.tan(rad(glandAngleMin/ 2)) + xDistOfAreaInsideCircle24Min"},"max":{"fieldType":"calculation","formula":"glandWidthMax / 2 + glandDepthMax / math.tan(rad(glandAngleMax)) - bottomRadiiMax / math.tan(rad(glandAngleMax/ 2)) + xDistOfAreaInsideCircle24Max"}},"centroidInsideSquare32":{"name":"centroidInsideSquare32","nominal":{"fieldType":"calculation","formula":"glandWidthNominal / 2 - (0.5 * bottomRadiiNominal)"},"min":{"fieldType":"calculation","formula":"glandWidthMin / 2 - (0.5 * bottomRadiiMin)"},"max":{"fieldType":"calculation","formula":"glandWidthMax / 2 - (0.5 * bottomRadiiMax)"}},"centroidOfInsideCircle30":{"name":"centroidOfInsideCircle30","nominal":{"fieldType":"calculation","formula":"glandWidthNominal / 2 + ((-bottomRadiiNominal) + (4 * bottomRadiiNominal / (3 * math.pi)))"},"min":{"fieldType":"calculation","formula":"glandWidthMin / 2 + ((-bottomRadiiMin) + (4 * bottomRadiiMin / (3 * math.pi)))"},"max":{"fieldType":"calculation","formula":"glandWidthMax / 2 + ((-bottomRadiiMax) + (4 * bottomRadiiMax / (3 * math.pi)))"}},"centroidInsideSquare36":{"name":"centroidInsideSquare36","nominal":{"fieldType":"calculation","formula":"glandWidthNominal / 2 - (0.5 * bottomRadiiNominal)"},"min":{"fieldType":"calculation","formula":"glandWidthMin / 2 - (0.5 * bottomRadiiMin)"},"max":{"fieldType":"calculation","formula":"glandWidthMax / 2 - (0.5 * bottomRadiiMax)"}},"centroidOfInsideCircle34":{"name":"centroidOfInsideCircle34","nominal":{"fieldType":"calculation","formula":"glandWidthNominal / 2 + (topRadiiNominal - (4 * topRadiiNominal / (3 * math.pi)))"},"min":{"fieldType":"calculation","formula":"glandWidthMin / 2 + (topRadiiMin - (4 * topRadiiMin / (3 * math.pi)))"},"max":{"fieldType":"calculation","formula":"glandWidthMax / 2 + (topRadiiMax - (4 * topRadiiMax / (3 * math.pi)))"}},"centroid":{"name":"centroid","nominal":{"fieldType":"calculation","formula":"0.5 * glandCenterlineNominal + ((squareAreaCentroidNominal * squareAreaNominal) + (-triangleAreaCentroidNominal * triangleAreaNominal) + (-centroidInsideTriangles22Nominal * topRadiiAreaTriangleNominal) + ((-centroidOfInsideCircle19Nominal) * (-topRadiiAreaAngledNominal)) + ((-centroidInsideTriangles28Nominal) * (-bottomRadiiTriangleNominal)) + ( (-centroidOfInsideCircle25Nominal) * bottomRadiiAreaAngledNominal) +(centroidInsideSquare32Nominal * (-bottomRadiiAreaSquareNominal)) + (centroidOfInsideCircle30Nominal * bottomRadiiAreaRectangleNominal) + (centroidInsideSquare36Nominal * topRadiiAreaSquareNominal) + (centroidOfInsideCircle34Nominal * (-topRadiiAreaRectangleNominal))) / calculatedAreaNoGapNominal"},"min":{"fieldType":"calculation","formula":"0.5 * glandCenterlineMin + ((squareAreaCentroidMin * squareAreaMin) + (-triangleAreaCentroidMin * triangleAreaMin) + (-centroidInsideTriangles22Min * topRadiiAreaTriangleMin) + ((-centroidOfInsideCircle19Min) * (-topRadiiAreaAngledMin)) + ((-centroidInsideTriangles28Min) * (-bottomRadiiTriangleMin)) + ( (-centroidOfInsideCircle25Min) * bottomRadiiAreaAngledMin) +(centroidInsideSquare32Min * (-bottomRadiiAreaSquareMin)) + (centroidOfInsideCircle30Min * bottomRadiiAreaRectangleMin) + (centroidInsideSquare36Min * topRadiiAreaSquareMin) + (centroidOfInsideCircle34Min * (-topRadiiAreaRectangleMin))) / calculatedAreaNoGapMin"},"max":{"fieldType":"calculation","formula":"0.5 * glandCenterlineMax + ((squareAreaCentroidMax * squareAreaMax) + (-triangleAreaCentroidMax * triangleAreaMax) + (-centroidInsideTriangles22Max * topRadiiAreaTriangleMax) + ((-centroidOfInsideCircle19Max) * (-topRadiiAreaAngledMax)) + ((-centroidInsideTriangles28Max) * (-bottomRadiiTriangleMax)) + ( (-centroidOfInsideCircle25Max) * bottomRadiiAreaAngledMax) +(centroidInsideSquare32Max * (-bottomRadiiAreaSquareMax)) + (centroidOfInsideCircle30Max * bottomRadiiAreaRectangleMax) + (centroidInsideSquare36Max * topRadiiAreaSquareMax) + (centroidOfInsideCircle34Max * (-topRadiiAreaRectangleMax))) / calculatedAreaNoGapMax"}}}
+)
+
+
+
+db.wrArCompositeMatlCheck.drop();
+db.createCollection('wrArCompositeMatlCheck')
+
+db.wrArCompositeMatlCheck.insert(
+{
+matlName:'AR®1',
+serviceStorageTemperatureAmbientMin: 32,
+serviceStorageTemperatureAmbientMax: 120,
+temperatures:[
+{
+temperature:75,
+propertyAtTemperature: {
+	compressiveModulus:157000,
+	compressiveYield:2700
+},
+cteAtTemperature:{
+idCTE:0.000067,
+odCTE:0.000067,
+oalCTE:0.000067
+}
+},
+{
+temperature:200,
+propertyAtTemperature: {
+	compressiveModulus:127297,
+	compressiveYield:2189},
+cteAtTemperature:{
+idCTE:0.000067,
+odCTE:0.000067,
+oalCTE:0.000067
+}
+},
+{
+temperature:250,
+propertyAtTemperature: {
+	compressiveModulus:101838,
+	compressiveYield:1751},
+cteAtTemperature:{
+idCTE:0.000067,
+odCTE:0.000067,
+oalCTE:0.000067
+}
+},
+{
+temperature:300,
+propertyAtTemperature: {
+	compressiveModulus:91230,
+	compressiveYield:1569
+},
+cteAtTemperature:{
+idCTE:0.000067,
+odCTE:0.000067,
+oalCTE:0.000067
+}
+},
+{
+temperature:350,
+propertyAtTemperature: {
+	compressiveModulus:89108,
+	compressiveYield:1532
+},
+cteAtTemperature:{
+idCTE:0.0001,
+odCTE:0.0001,
+oalCTE:0.0001
+}
+},
+{
+temperature:400,
+propertyAtTemperature: {
+	compressiveModulus:80622,
+	compressiveYield:1386
+},
+cteAtTemperature:{
+idCTE:0.0001,
+odCTE:0.0001,
+oalCTE:0.0001
+}
+},
+{
+temperature:500,
+propertyAtTemperature: {
+	compressiveModulus: 0,
+	compressiveYield:0
+},
+cteAtTemperature:{
+idCTE:0.0000,
+odCTE:0.0000,
+oalCTE:0.0000
+}
+}
+]
+}
+);
+
+
+
+
+
+
+
+db.wrArCompositeMatlCheck.insert(
+{
+matlName:'AR®HT',
+serviceStorageTemperatureAmbientMin: -100,
+serviceStorageTemperatureAmbientMax: 250,
+temperatures:[
+{
+temperature:75,
+propertyAtTemperature: {
+	compressiveModulus:200000,
+	compressiveYield:7200
+},
+cteAtTemperature:{
+idCTE:0.000016,
+odCTE:0.000016,
+oalCTE:0.000016
+}
+},
+{
+temperature:200,
+propertyAtTemperature: {
+	compressiveModulus:182171
+,
+	compressiveYield:6558
+},
+cteAtTemperature:{
+idCTE:0.000016,
+odCTE:0.000016,
+oalCTE:0.000016
+}
+},
+{
+temperature:250,
+propertyAtTemperature: {
+	compressiveModulus:177982,
+	compressiveYield:6407},
+cteAtTemperature:{
+idCTE:0.000016,
+odCTE:0.000016,
+oalCTE:0.000016
+}
+},
+{
+temperature:300,
+propertyAtTemperature: {
+	compressiveModulus:138532,
+	compressiveYield:4987
+},
+cteAtTemperature:{
+idCTE:0.0000461538461538462,
+odCTE:0.0000461538461538462,
+oalCTE:0.0000461538461538462
+}
+},
+{
+temperature:350,
+propertyAtTemperature: {
+	compressiveModulus:26789,
+	compressiveYield:964
+},
+cteAtTemperature:{
+idCTE:0.0000461538461538462,
+odCTE:0.0000461538461538462,
+oalCTE:0.0000461538461538462
+}
+},
+{
+temperature:400,
+propertyAtTemperature: {
+	compressiveModulus:23242,
+	compressiveYield:837
+},
+cteAtTemperature:{
+idCTE:0.0000461538461538462,
+odCTE:0.0000461538461538462,
+oalCTE:0.0000461538461538462
+}
+},
+{
+temperature:500,
+propertyAtTemperature: {
+	compressiveModulus: 15382,
+	compressiveYield:554
+},
+cteAtTemperature:{
+idCTE:0.0000461538461538462,
+odCTE:0.0000461538461538462,
+oalCTE:0.0000461538461538462
+}
+}
+]
+}
+);
+
+
+
+
+
+
+
+db.wrArCompositeMatlCheck.insert(
+{
+matlName:'WR®300',
+serviceStorageTemperatureAmbientMin: -100,
+serviceStorageTemperatureAmbientMax: 275,
+temperatures:[
+{
+temperature:75,
+propertyAtTemperature: {
+	compressiveModulus:400000,
+	compressiveYield:23500
+},
+cteAtTemperature:{
+idCTE:0.000016,
+odCTE:0.000016,
+oalCTE:0.000016
+}
+},
+{
+temperature:200,
+propertyAtTemperature: {
+	compressiveModulus:364343,
+	compressiveYield:21405
+},
+cteAtTemperature:{
+idCTE:0.000016,
+odCTE:0.000016,
+oalCTE:0.000016
+}
+},
+{
+temperature:250,
+propertyAtTemperature: {
+	compressiveModulus:355963,
+	compressiveYield:20913},
+cteAtTemperature:{
+idCTE:0.000016,
+odCTE:0.000016,
+oalCTE:0.000016
+}
+},
+{
+temperature:300,
+propertyAtTemperature: {
+	compressiveModulus:277064,
+	compressiveYield:16278
+},
+cteAtTemperature:{
+idCTE:0.0000461538461538462,
+odCTE:0.0000461538461538462,
+oalCTE:0.0000461538461538462
+}
+},
+{
+temperature:350,
+propertyAtTemperature: {
+	compressiveModulus:53578,
+	compressiveYield:3148
+},
+cteAtTemperature:{
+idCTE:0.0000461538461538462,
+odCTE:0.0000461538461538462,
+oalCTE:0.0000461538461538462
+}
+},
+{
+temperature:400,
+propertyAtTemperature: {
+	compressiveModulus:46483,
+	compressiveYield:2731
+},
+cteAtTemperature:{
+idCTE:0.0000461538461538462,
+odCTE:0.0000461538461538462,
+oalCTE:0.0000461538461538462
+}
+},
+{
+temperature:500,
+propertyAtTemperature: {
+	compressiveModulus: 30765,
+	compressiveYield:1807
+},
+cteAtTemperature:{
+idCTE:0.0000461538461538462,
+odCTE:0.0000461538461538462,
+oalCTE:0.0000461538461538462
+}
+}
+]
+}
+);
+
+
+
+
+
+
+
+
+
+
+db.wrArCompositeMatlCheck.insert(
+{
+matlName:'WR®525',
+serviceStorageTemperatureAmbientMin: -100,
+serviceStorageTemperatureAmbientMax: 525,
+temperatures:[
+{
+temperature:75,
+propertyAtTemperature: {
+	compressiveModulus:18000000,
+	compressiveYield:197000
+},
+cteAtTemperature:{
+idCTE:-0.00000193,
+odCTE:0.00000168,
+oalCTE:0.000026
+}
+},
+{
+temperature:200,
+propertyAtTemperature: {
+	compressiveModulus:18000000,
+	compressiveYield:179439
+},
+cteAtTemperature:{
+idCTE:-0.00000193,
+odCTE:0.00000168,
+oalCTE:0.000026
+}
+},
+{
+temperature:250,
+propertyAtTemperature: {
+	compressiveModulus:18000000,
+	compressiveYield:175312},
+cteAtTemperature:{
+idCTE:-0.00000193,
+odCTE:0.00000168,
+oalCTE:0.000026
+}
+},
+{
+temperature:300,
+propertyAtTemperature: {
+	compressiveModulus:18000000,
+	compressiveYield:136454
+},
+cteAtTemperature:{
+idCTE:-0.00000253,
+odCTE:0.0000025,
+oalCTE:0.000075
+}
+},
+{
+temperature:350,
+propertyAtTemperature: {
+	compressiveModulus:18000000,
+	compressiveYield:26387
+},
+cteAtTemperature:{
+idCTE:-0.00000253,
+odCTE:0.0000025,
+oalCTE:0.000075
+}
+},
+{
+temperature:400,
+propertyAtTemperature: {
+	compressiveModulus:18000000,
+	compressiveYield:22893
+},
+cteAtTemperature:{
+idCTE:-0.00000253,
+odCTE:0.0000025,
+oalCTE:0.000075
+}
+},
+{
+temperature:500,
+propertyAtTemperature: {
+	compressiveModulus: 17000000,
+	compressiveYield:15152
+},
+cteAtTemperature:{
+idCTE:-0.00000253,
+odCTE:0.0000025,
+oalCTE:0.000075
+}
+}
+]
+}
+);
+
+
+
+
+
+
+
+
+db.wrArCompositeMatlCheck.insert(
+{
+matlName:'WR®650',
+serviceStorageTemperatureAmbientMin: -100,
+serviceStorageTemperatureAmbientMax: 500,
+temperatures:[
+{
+temperature:75,
+propertyAtTemperature: {
+	compressiveModulus:2655000,
+	compressiveYield:6500
+},
+cteAtTemperature:{
+idCTE:0.000004,
+odCTE:0.0000055,
+oalCTE:0.000046
+}
+},
+{
+temperature:200,
+propertyAtTemperature: {
+	compressiveModulus:2418000,
+	compressiveYield:5921
+
+},
+cteAtTemperature:{
+idCTE:0.000004,
+odCTE:0.0000055,
+oalCTE:0.000046
+}
+},
+{
+temperature:250,
+propertyAtTemperature: {
+	compressiveModulus:2362000,
+	compressiveYield:5921
+},
+cteAtTemperature:{
+idCTE:0.000004,
+odCTE:0.0000067,
+oalCTE:0.000075
+}
+},
+{
+temperature:300,
+propertyAtTemperature: {
+	compressiveModulus:1327000,
+	compressiveYield:3250
+},
+cteAtTemperature:{
+idCTE:0.0000055,
+odCTE:0.0000067,
+oalCTE:0.0001
+}
+},
+{
+temperature:350,
+propertyAtTemperature: {
+	compressiveModulus:1062000,
+	compressiveYield:2600
+},
+cteAtTemperature:{
+idCTE:0.0000055,
+odCTE:0.000008,
+oalCTE:0.00012
+}
+},
+{
+temperature:400,
+propertyAtTemperature: {
+	compressiveModulus:796000,
+	compressiveYield:1950
+},
+cteAtTemperature:{
+idCTE:0.000007,
+odCTE:0.000008,
+oalCTE:0.00013
+}
+},
+{
+temperature:500,
+propertyAtTemperature: {
+	compressiveModulus: 667000,
+	compressiveYield:1665
+},
+cteAtTemperature:{
+idCTE:0.000009,
+odCTE:0.0000102,
+oalCTE:0.00017
+}
+}
+]
+}
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+db.wrArCompositeMatlCheck.insert(
+{
+matlName:'WR®600',
+serviceStorageTemperatureAmbientMin: -100,
+serviceStorageTemperatureAmbientMax: 500,
+temperatures:[
+{
+temperature:75,
+propertyAtTemperature: {
+	compressiveModulus:1710000,
+	compressiveYield:10200.0
+},
+cteAtTemperature:{
+idCTE:0.000,
+odCTE:0.00000388353436031093,
+oalCTE:0.0000985528510859625
+}
+},
+{
+temperature:200,
+propertyAtTemperature: {
+	compressiveModulus:1319227.5,
+	compressiveYield:7278.1
+
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.00000306004526566072,
+oalCTE:0.000121417732773205
+}
+},
+{
+temperature:250,
+propertyAtTemperature: {
+	compressiveModulus:1162918.5,
+	compressiveYield:6109.4
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.00000310911920256058,
+oalCTE:0.000134748380064014
+}
+},
+{
+temperature:300,
+propertyAtTemperature: {
+	compressiveModulus:1006609.5,
+	compressiveYield:4940.6
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.00000337470891449473,
+oalCTE:0.000150473017409693
+}
+},
+{
+temperature:350,
+propertyAtTemperature: {
+	compressiveModulus:850300.5,
+	compressiveYield:3771.9
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.00000385681440146318,
+oalCTE:0.000150473017409693
+}
+},
+{
+temperature:400,
+propertyAtTemperature: {
+	compressiveModulus:693991.5,
+	compressiveYield:2603.1
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.00000455543566346594,
+oalCTE:0.000150473017409693
+}
+},
+{
+temperature:500,
+propertyAtTemperature: {
+	compressiveModulus: 537682.5,
+	compressiveYield:265.6
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.00000660223,
+oalCTE:0.000237311467341107
+}
+}
+]
+}
+);
+
+
+
+
+
+db.wrArMetricCompositeMatlCheck.drop();
+db.createCollection('wrArMetricCompositeMatlCheck');
+
+db.wrArMetricCompositeMatlCheck.insert(
+{
+matlName:'AR®1',
+serviceStorageTemperatureAmbientMin: 0,
+serviceStorageTemperatureAmbientMax: 49,
+temperatures:[
+{
+temperature:24,
+propertyAtTemperature: {
+	compressiveModulus:1080,
+	compressiveYield:18.6
+},
+cteAtTemperature:{
+idCTE:0.0001206,
+odCTE:0.0001206,
+oalCTE:0.0001206
+}
+},
+{
+temperature:93,
+propertyAtTemperature: {
+	compressiveModulus:875,
+	compressiveYield:15.0939281282875
+	},
+cteAtTemperature:{
+idCTE:0.0001206,
+odCTE:0.0001206,
+oalCTE:0.0001206
+}
+},
+{
+temperature:121,
+propertyAtTemperature: {
+	compressiveModulus:700,
+	compressiveYield:12.07514250263
+	},
+cteAtTemperature:{
+idCTE:0.0001206,
+odCTE:0.0001206,
+oalCTE:0.0001206
+}
+},
+{
+temperature:149,
+propertyAtTemperature: {
+	compressiveModulus:630,
+	compressiveYield:10.817315158606
+},
+cteAtTemperature:{
+idCTE:0.0001206,
+odCTE:0.0001206,
+oalCTE:0.0001206
+}
+},
+{
+temperature:177,
+propertyAtTemperature: {
+	compressiveModulus:615,
+	compressiveYield:10.5657496898012
+},
+cteAtTemperature:{
+idCTE:0.00018,
+odCTE:0.00018,
+oalCTE:0.00018
+}
+},
+{
+temperature:204,
+propertyAtTemperature: {
+	compressiveModulus:550,
+	compressiveYield:9.55948781458208
+},
+cteAtTemperature:{
+idCTE:0.00018,
+odCTE:0.00018,
+oalCTE:0.00018
+}
+},
+{
+temperature:260,
+propertyAtTemperature: {
+	compressiveModulus: 0,
+	compressiveYield:0
+},
+cteAtTemperature:{
+idCTE:0.0000,
+odCTE:0.0000,
+oalCTE:0.0000
+}
+}
+]
+}
+);
+
+
+
+
+
+
+// db.wrArMetricCompositeMatlCheck.deleteOne( { matlName: "AR®HT" } )
+db.wrArMetricCompositeMatlCheck.insert(
+{
+matlName:'AR®HT',
+serviceStorageTemperatureAmbientMin: -73,
+serviceStorageTemperatureAmbientMax: 121,
+temperatures:[
+{
+temperature:24,
+propertyAtTemperature: {
+	compressiveModulus:1380,
+	compressiveYield:49.6
+},
+cteAtTemperature:{
+idCTE:0.0000288,
+odCTE:0.0000288,
+oalCTE:0.0000288
+}
+},
+{
+temperature:93,
+propertyAtTemperature: {
+	compressiveModulus:1250,
+	compressiveYield:45
+},
+cteAtTemperature:{
+idCTE:0.0000288,
+odCTE:0.0000288,
+oalCTE:0.0000288
+}
+},
+{
+temperature:121,
+propertyAtTemperature: {
+	compressiveModulus:1200,
+	compressiveYield:44},
+cteAtTemperature:{
+idCTE:0.0000288,
+odCTE:0.0000288,
+oalCTE:0.0000288
+}
+},
+{
+temperature:149,
+propertyAtTemperature: {
+	compressiveModulus:950,
+	compressiveYield:34
+},
+cteAtTemperature:{
+idCTE:0.0000830769230769231,
+odCTE:0.0000830769230769231,
+oalCTE:0.0000830769230769231
+}
+},
+{
+temperature:177,
+propertyAtTemperature: {
+	compressiveModulus:185,
+	compressiveYield:6.6
+},
+cteAtTemperature:{
+idCTE:0.0000830769230769231,
+odCTE:0.0000830769230769231,
+oalCTE:0.0000830769230769231
+}
+},
+{
+temperature:204,
+propertyAtTemperature: {
+	compressiveModulus:160,
+	compressiveYield:5.8
+},
+cteAtTemperature:{
+idCTE:0.0000830769230769231,
+odCTE:0.0000830769230769231,
+oalCTE:0.0000830769230769231
+}
+},
+{
+temperature:260,
+propertyAtTemperature: {
+	compressiveModulus:106,
+	compressiveYield:3.8
+},
+cteAtTemperature:{
+idCTE:0.0000830769230769231,
+odCTE:0.0000830769230769231,
+oalCTE:0.0000830769230769231
+}
+}
+]
+}
+);
+
+
+
+
+
+
+
+db.wrArMetricCompositeMatlCheck.insert(
+{
+matlName:'WR®300',
+serviceStorageTemperatureAmbientMin: -73,
+serviceStorageTemperatureAmbientMax: 135,
+temperatures:[
+{
+temperature:24,
+propertyAtTemperature: {
+	compressiveModulus:2750,
+	compressiveYield:162
+},
+cteAtTemperature:{
+idCTE:0.0000288,
+odCTE:0.0000288,
+oalCTE:0.0000288
+}
+},
+{
+temperature:93,
+propertyAtTemperature: {
+	compressiveModulus:2500,
+	compressiveYield:147
+},
+cteAtTemperature:{
+idCTE:0.0000288,
+odCTE:0.0000288,
+oalCTE:0.0000288
+}
+},
+{
+temperature:121,
+propertyAtTemperature: {
+	compressiveModulus:2450,
+	compressiveYield:144},
+cteAtTemperature:{
+idCTE:0.0000288,
+odCTE:0.0000288,
+oalCTE:0.0000288
+}
+},
+{
+temperature:149,
+propertyAtTemperature: {
+	compressiveModulus:1900,
+	compressiveYield:110
+},
+cteAtTemperature:{
+idCTE:0.0000830769230769231,
+odCTE:0.0000830769230769231,
+oalCTE:0.0000830769230769231
+}
+},
+{
+temperature:177,
+propertyAtTemperature: {
+	compressiveModulus:365,
+	compressiveYield:21.7
+},
+cteAtTemperature:{
+idCTE:0.0000830769230769231,
+odCTE:0.0000830769230769231,
+oalCTE:0.0000830769230769231
+}
+},
+{
+temperature:204,
+propertyAtTemperature: {
+	compressiveModulus:320,
+	compressiveYield:18.8
+},
+cteAtTemperature:{
+idCTE:0.0000830769230769231,
+odCTE:0.0000830769230769231,
+oalCTE:0.0000830769230769231
+}
+},
+{
+temperature:260,
+propertyAtTemperature: {
+	compressiveModulus:200,
+	compressiveYield:12.5
+},
+cteAtTemperature:{
+idCTE:0.0000830769230769231,
+odCTE:0.0000830769230769231,
+oalCTE:0.0000830769230769231
+}
+}
+]
+}
+);
+
+
+
+
+
+
+
+
+
+
+
+db.wrArMetricCompositeMatlCheck.insert(
+{
+matlName:'WR®525',
+serviceStorageTemperatureAmbientMin: -73,
+serviceStorageTemperatureAmbientMax: 274,
+temperatures:[
+{
+temperature:24,
+propertyAtTemperature: {
+	compressiveModulus:124105.631277031,
+	compressiveYield:1358.26718675417
+},
+cteAtTemperature:{
+idCTE:-0.000003474,
+odCTE:0.000003024,
+oalCTE:0.0000468
+}
+},
+{
+temperature:93,
+propertyAtTemperature: {
+	compressiveModulus:124105.631277031,
+	compressiveYield:1237.18618218571
+},
+cteAtTemperature:{
+idCTE:-0.000003474,
+odCTE:0.000003024,
+oalCTE:0.0000468
+}
+},
+{
+temperature:121,
+propertyAtTemperature: {
+	compressiveModulus:124105.631277031,
+	compressiveYield:1208.7331845427
+	},
+cteAtTemperature:{
+idCTE:-0.000003474,
+odCTE:0.000003024,
+oalCTE:0.0000468
+}
+},
+{
+temperature:149,
+propertyAtTemperature: {
+	compressiveModulus:124105.631277031,
+	compressiveYield:940.818097247153
+},
+cteAtTemperature:{
+idCTE:-0.000004554,
+odCTE:0.0000045,
+oalCTE:0.000135
+}
+},
+{
+temperature:177,
+propertyAtTemperature: {
+	compressiveModulus:124105.631277031,
+	compressiveYield:181.933036023953
+},
+cteAtTemperature:{
+idCTE:-0.000004554,
+odCTE:0.0000045,
+oalCTE:0.000135
+}
+},
+{
+temperature:204,
+propertyAtTemperature: {
+	compressiveModulus:124105.631277031,
+	compressiveYield:157.841446778772
+},
+cteAtTemperature:{
+idCTE:-0.000004554,
+odCTE:0.0000045,
+oalCTE:0.000135
+}
+},
+{
+temperature:260,
+propertyAtTemperature: {
+	compressiveModulus:117210.873983862,
+	compressiveYield:104.466115433845
+},
+cteAtTemperature:{
+idCTE:-0.000004554,
+odCTE:0.0000045,
+oalCTE:0.000135
+}
+}
+]
+}
+);
+
+
+
+
+
+
+
+
+db.wrArMetricCompositeMatlCheck.insert(
+{
+matlName:'WR®650',
+serviceStorageTemperatureAmbientMin: -73,
+serviceStorageTemperatureAmbientMax: 260,
+temperatures:[
+{
+temperature:24,
+propertyAtTemperature: {
+	compressiveModulus:18300,
+	compressiveYield:44.8159224055943
+},
+cteAtTemperature:{
+idCTE:0.0000072,
+odCTE:0.0000099,
+oalCTE:0.0000828
+}
+},
+{
+temperature:93,
+propertyAtTemperature: {
+	compressiveModulus:16600,
+	compressiveYield:40.8206305996488
+
+},
+cteAtTemperature:{
+idCTE:0.0000072,
+odCTE:0.0000099,
+oalCTE:0.0000828
+}
+},
+{
+temperature:121,
+propertyAtTemperature: {
+	compressiveModulus:16200,
+	compressiveYield:40.8206305996488
+},
+cteAtTemperature:{
+idCTE:0.0000072,
+odCTE:0.00001206,
+oalCTE:0.000135
+}
+},
+{
+temperature:149,
+propertyAtTemperature: {
+	compressiveModulus:9150,
+	compressiveYield:22.4079612027972
+},
+cteAtTemperature:{
+idCTE:0.0000099,
+odCTE:0.00001206,
+oalCTE:0.00018
+}
+},
+{
+temperature:177,
+propertyAtTemperature: {
+	compressiveModulus:7320,
+	compressiveYield:17.9263689622377
+},
+cteAtTemperature:{
+idCTE:0.0000099,
+odCTE:0.0000144,
+oalCTE:0.000216
+}
+},
+{
+temperature:204,
+propertyAtTemperature: {
+	compressiveModulus:5490,
+	compressiveYield:13.4447767216783
+},
+cteAtTemperature:{
+idCTE:0.0000126,
+odCTE:0.0000144,
+oalCTE:0.000234
+}
+},
+{
+temperature:260,
+propertyAtTemperature: {
+	compressiveModulus:4600,
+	compressiveYield:11.4797708931253
+},
+cteAtTemperature:{
+idCTE:0.0000162,
+odCTE:0.00001836,
+oalCTE:0.000306
+}
+}
+]
+}
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+db.wrArMetricCompositeMatlCheck.insert(
+{
+matlName:'WR®600',
+serviceStorageTemperatureAmbientMin: -73,
+serviceStorageTemperatureAmbientMax:260,
+temperatures:[
+{
+temperature:24,
+propertyAtTemperature: {
+	compressiveModulus:11790.0396,
+	compressiveYield:78.545967765
+},
+cteAtTemperature:{
+idCTE:0.000,
+odCTE:0.00000699036184855968,
+oalCTE:0.000177395131954733
+}
+},
+{
+temperature:93,
+propertyAtTemperature: {
+	compressiveModulus:9095.7569979,
+	compressiveYield:67.42558173
+
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.0000055080814781893,
+oalCTE:0.000218551918991769
+}
+},
+{
+temperature:121,
+propertyAtTemperature: {
+	compressiveModulus:8018.04395706,
+	compressiveYield:62.91296131
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.00000559641456460905,
+oalCTE:0.000242547084115226
+}
+},
+{
+temperature:149,
+propertyAtTemperature: {
+	compressiveModulus:6940.33091622,
+	compressiveYield:58.40034089
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.00000607447604609052,
+oalCTE:0.000270851431337448
+}
+},
+{
+temperature:177,
+propertyAtTemperature: {
+	compressiveModulus:5862.61787538,
+	compressiveYield:53.88772047
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.00000694226592263373,
+oalCTE:0.000270851431337448
+}
+},
+{
+temperature:204,
+propertyAtTemperature: {
+	compressiveModulus:4784.90483454,
+	compressiveYield:49.536265065
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.00000819978419423869,
+oalCTE:0.000270851431337448
+}
+},
+{
+temperature:260,
+propertyAtTemperature: {
+	compressiveModulus:3707.1917937,
+	compressiveYield:40.511024225
+},
+cteAtTemperature:{
+idCTE:0.00,
+odCTE:0.00001188396,
+oalCTE:0.00042716064
+}
+}
+]
+}
+);
+
+
+
+
+
+
+
+
+
+db.createCollection('wrArMaterial')
+
+db.wrArMaterial.insert(
+	[
+		{
+		"materialName":"Custom",
+		"poissonsRatio": 0.29,
+		"modulusPSI":28000000,
+		"rotorCTE": 0.000,
+		"statorCTE": 0.000
+		},
+		{
+		"materialName":"316 SS",
+		"poissonsRatio": 0.29,
+		"modulusPSI":28000000,
+		"rotorCTE": 0.000009,
+		"statorCTE": 0.000009
+		},
+		{
+		"materialName":"410 SS",
+		"poissonsRatio": 0.3,
+		"modulusPSI":29000000,
+		"rotorCTE": 0.000006,
+		"statorCTE": 0.000006
+		},
+		{
+		"materialName":"4140 SS",
+		"poissonsRatio": 0.29,
+		"modulusPSI":29700000,
+		"rotorCTE": 0.0000058,
+		"statorCTE": 0.0000058
+		},
+		{
+		"materialName":"Super Duplex SS",
+		"poissonsRatio": 0.29,
+		"modulusPSI":28572434,
+		"rotorCTE": 0.000007611,
+		"statorCTE": 0.000007611
+		},
+		{
+		"materialName":"Carbon Steel",
+		"poissonsRatio": 0.29,
+		"modulusPSI":29400000,
+		"rotorCTE": 0.0000065,
+		"statorCTE": 0.0000065
+		},
+		{
+		"materialName":"Nitronic 50",
+		"poissonsRatio": 0.3,
+		"modulusPSI":28000000,
+		"rotorCTE": 0.0000084,
+		"statorCTE": 0.0000084
+		},
+		{
+		"materialName":"Nitronic 60",
+		"poissonsRatio": 0.3,
+		"modulusPSI":28000000,
+		"rotorCTE": 0.0000086,
+		"statorCTE": 0.0000086
+		},
+		{
+		"materialName":"Cast Iron",
+		"poissonsRatio": 0.29,
+		"modulusPSI":16800000,
+		"rotorCTE": 0.0000058,
+		"statorCTE": 0.0000058
+		},
+		{
+		"materialName":"Bronze",
+		"poissonsRatio": 0.3,
+		"modulusPSI":14500000,
+		"rotorCTE": 0.00001,
+		"statorCTE": 0.00001
+		}
+	])
+
+
+
+
+
+
+db.createCollection('wrArMetricMaterial')
+
+db.wrArMetricMaterial.insert(
+	[
+		{
+		"materialName":"Custom",
+		"poissonsRatio": 0.29,
+		"modulusPSI":193053.204208714,
+		"rotorCTE": 0.000,
+		"statorCTE": 0.000
+		},
+		{
+		"materialName":"316 SS",
+		"poissonsRatio": 0.29,
+		"modulusPSI":193053.204208714,
+		"rotorCTE": 0.0000162,
+		"statorCTE": 0.0000162
+		},
+		{
+		"materialName":"410 SS",
+		"poissonsRatio": 0.3,
+		"modulusPSI":199947.961501882,
+		"rotorCTE": 0.0000108,
+		"statorCTE": 0.0000108
+		},
+		{
+		"materialName":"4140 SS",
+		"poissonsRatio": 0.29,
+		"modulusPSI":204774.2916071,
+		"rotorCTE": 0.00001044,
+		"statorCTE": 0.00001044
+		},
+		{
+		"materialName":"Super Duplex SS",
+		"poissonsRatio": 0.29,
+		"modulusPSI":197000,
+		"rotorCTE": 0.0000137,
+		"statorCTE": 0.0000137
+		},
+		{
+		"materialName":"Carbon Steel",
+		"poissonsRatio": 0.29,
+		"modulusPSI":202705.86441915,
+		"rotorCTE": 0.0000117,
+		"statorCTE": 0.0000117
+		},
+		{
+		"materialName":"Nitronic 50",
+		"poissonsRatio": 0.3,
+		"modulusPSI":193053.204208714,
+		"rotorCTE": 0.00001512,
+		"statorCTE": 0.00001512
+		},
+		{
+		"materialName":"Nitronic 60",
+		"poissonsRatio": 0.3,
+		"modulusPSI":193053.204208714,
+		"rotorCTE": 0.00001548,
+		"statorCTE": 0.00001548
+		},
+		{
+		"materialName":"Cast Iron",
+		"poissonsRatio": 0.29,
+		"modulusPSI":115831.922525228,
+		"rotorCTE": 0.00001044,
+		"statorCTE": 0.00001044
+		},
+		{
+		"materialName":"Bronze",
+		"poissonsRatio": 0.3,
+		"modulusPSI":99973.9807509412,
+		"rotorCTE":0.000018,
+		"statorCTE":0.000018
+		}
+	])
+
+
+
+
+
+db.createCollection('wrArCalculationTypeMaster')
+
+db.wrArCalculationTypeMaster.insert(
+{
+  "calType": "pressIn",
+  "lowTempChange": {
+    "name": "lowTempChange",
+    "fieldType": "calculation",
+    "formula": "(serviceStorageTemperatureAmbient75FMin - tempChangeConstant)"
+  },
+  "highTempChange": {
+    "name": "highTempChange",
+    "fieldType": "calculation",
+    "formula": "(serviceStorageTemperatureAmbient75FMax - tempChangeConstant)"
+  },
+  "compositeODShrinkage": {
+    "name": "compositeODShrinkage",
+    "fieldType": "calculation",
+    "formula": "(lowTempChange * stationaryElementIDMax  * compositeODCTEAtMinTemp)"
+  },
+  "statorIDShrinkageAtMinTemp": {
+    "name": "statorIDShrinkageAtMinTemp",
+    "fieldType": "calculation",
+    "formula": "(lowTempChange * stationaryElementIDMax * statorCTE)"
+  },
+  "maxStatorIDAtMinTemp": {
+    "name": "maxStatorIDAtMinTemp",
+    "fieldType": "calculation",
+    "formula": "(stationaryElementIDMax + statorIDShrinkageAtMinTemp)"
+  },
+  "minAr1Arht300ODAtMinTemp": {
+    "name": "minAr1Arht300ODAtMinTemp",
+    "fieldType": "calculation",
+    "formula": "(interferenceInt + maxStatorIDAtMinTemp)"
+  },
+  "finalOD": {
+    "name": "finalOD",
+    "fieldType": "calculation",
+	"remarks":"for composite material AR®1, AR®HT, WR®300",
+    "formula": "(minAr1Arht300ODAtMinTemp - compositeODShrinkage)"
+  },
+  "finalOD2": {
+    "name": "finalOD2",
+    "fieldType": "calculation",
+	"remarks":"for composite material WR®525, WR®650, WR®600",
+    "formula": "(maxStatorIDAtMaxTemp + interferenceInt - compositeODGrowth)"	
+  },
+  "statorIDGrowthAtMaxTemp": {
+    "name": "statorIDGrowthAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(stationaryElementIDMax * highTempChange * statorCTE)"
+  },
+  "compositeIDGrowth": {
+    "name": "compositeIDGrowth",
+    "fieldType": "calculation",
+    "formula": "(highTempChange * rotatingElementODMax * cteAtTemperatureIDCTE)"
+  },
+  "compositeODGrowth": {
+    "name": "compositeODGrowth",
+    "fieldType": "calculation",
+    "formula": "(highTempChange * stationaryElementIDMax * cteAtTemperatureODCTE)"
+  },
+  "rotorODGrowthAtMaxTemp": {
+    "name": "rotorODGrowthAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax * highTempChange * rotorCTE)"
+  },
+  "finalID": {
+    "name": "finalID",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax + clearanceCLR + rotorODGrowthAtMaxTemp + compositeODGrowth - compositeIDGrowth - statorIDGrowthAtMaxTemp)"
+  },
+  "maxStatorIDAtMaxTemp": {
+    "name": "maxStatorIDAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(statorIDGrowthAtMaxTemp + stationaryElementIDMax)"
+  },
+  "maxRotorODAtMaxTemp": {
+    "name": "maxRotorODAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(rotorODGrowthAtMaxTemp + rotatingElementODMax)"
+  },
+  "rt": {
+    "name": "rt",
+    "fieldType": "calculation",
+    "formula": "((maxRotorODAtMaxTemp) / (maxStatorIDAtMaxTemp - maxRotorODAtMaxTemp))"
+  },
+  "etComposite": {
+  "name": "etComposite",
+  "fieldType": "calculation",
+  "formula": "(wrModulus * (maxStatorIDAtMaxTemp - maxRotorODAtMaxTemp) / 2)"
+},
+"r2": {
+  "name": "r2",
+  "fieldType": "calculation",
+  "formula": "(math.pow((maxStatorIDAtMaxTemp / 2),2))"
+},
+"r2EtComposite": {
+  "name": "r2EtComposite",
+  "fieldType": "calculation",
+  "formula": "(r2 / etComposite)"
+},
+"etMetal": {
+  "name": "etMetal",
+  "fieldType": "calculation",
+  "formula": "(metalModulus * (maxStatorIDAtMaxTemp - maxRotorODAtMaxTemp) / 2)"
+},
+"r2r2": {
+  "name": "r2r2",
+  "fieldType": "calculation",
+  "formula": "(math.pow((maxStatorIDAtMaxTemp / 2),2))"
+},
+"r2EtMetal": {
+  "name": "r2EtMetal",
+  "fieldType": "calculation",
+  "formula": "(r2r2 / etMetal)"
+},
+"interferenceRadial": {
+  "name": "interferenceRadial",
+  "fieldType": "calculation",
+  "formula": "((machineCompositeODInch + compositeODGrowth - maxStatorIDAtMaxTemp) / 2)"
+},
+"interfaceP": {
+  "name": "interfaceP",
+  "fieldType": "calculation",
+  "formula": "(interferenceRadial / (r2EtMetal + r2EtComposite))"
+},
+"clearanceRadial": {
+  "name": "clearanceRadial",
+  "fieldType": "calculation",
+  "formula": "(clearanceCLR / 2)"
+},
+"collapseP": {
+  "name": "collapseP",
+  "fieldType": "calculation",
+  "formula": "(clearanceRadial / (math.pow(maxStatorIDAtMaxTemp,2) / (math.pow(maxStatorIDAtMaxTemp,2) - math.pow(maxRotorODAtMaxTemp,2))) * (wrModulus / maxRotorODAtMaxTemp))"
+},
+"maxP": {
+  "name": "maxP",
+  "fieldType": "calculation",
+  "formula": "(interfaceP + collapseP)"
+},
+"minimumClearanceAtAmbient": {
+  "name": "minimumClearanceAtAmbient",
+  "fieldType": "calculation",
+  "formula": "(finalID - rotatingElementODMax)"
+},
+"estimatingIDAfterInstallationInch": {
+  "name": "estimatingIDAfterInstallationInch",
+  "fieldType": "calculation",
+  "formula": "(machineCompositeODInch + odTol - stationaryElementIDMin + finalID)"
+},
+"thermalFitTemp": {
+  "name": "thermalFitTemp",
+  "fieldType": "calculation",
+  "formula": "thermalFitTempConst2 + ((machineCompositeODInch + thermalFitTempConst1 + (odTol)) - stationaryElementIDMin) / (statorCTE * stationaryElementIDMax)"
+}
+}
+)
+
+
+
+
+
+/* wrArCalculationTypeMaster - pressIn - updated formula and calculation */
+db.wrArCalculationTypeMaster.replaceOne(
+   { calType: "pressIn" },
+   {
+  "calType": "pressIn",
+  "lowTempChange": {
+    "name": "lowTempChange",
+    "fieldType": "calculation",
+    "formula": "(serviceStorageTemperatureAmbient75FMin - tempChangeConstant)"
+  },
+  "highTempChange": {
+    "name": "highTempChange",
+    "fieldType": "calculation",
+    "formula": "(serviceStorageTemperatureAmbient75FMax - tempChangeConstant)"
+  },
+  "compositeODShrinkage": {
+    "name": "compositeODShrinkage",
+    "fieldType": "calculation",
+    "formula": "(lowTempChange * stationaryElementIDMax  * compositeODCTEAtMinTemp)"
+  },
+  "statorIDShrinkageAtMinTemp": {
+    "name": "statorIDShrinkageAtMinTemp",
+    "fieldType": "calculation",
+    "formula": "(lowTempChange * stationaryElementIDMax * statorCTE)"
+  },
+  "maxStatorIDAtMinTemp": {
+    "name": "maxStatorIDAtMinTemp",
+    "fieldType": "calculation",
+    "formula": "(stationaryElementIDMax + statorIDShrinkageAtMinTemp)"
+  },
+  "minAr1Arht300ODAtMinTemp": {
+    "name": "minAr1Arht300ODAtMinTemp",
+    "fieldType": "calculation",
+    "formula": "(interferenceInt + maxStatorIDAtMinTemp)"
+  },
+  "finalOD": {
+    "name": "finalOD",
+    "fieldType": "calculation",
+	"remarks":"for composite material AR®1, AR®HT, WR®300",
+    "formula": "(minAr1Arht300ODAtMinTemp - compositeODShrinkage)"
+  },
+  "finalOD2": {
+    "name": "finalOD2",
+    "fieldType": "calculation",
+	"remarks":"for composite material WR®525, WR®650, WR®600",
+    "formula": "(maxStatorIDAtMaxTemp + interferenceInt - compositeODGrowth)"	
+  },
+  "statorIDGrowthAtMaxTemp": {
+    "name": "statorIDGrowthAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(stationaryElementIDMax * highTempChange * statorCTE)"
+  },
+  "compositeIDGrowth": {
+    "name": "compositeIDGrowth",
+    "fieldType": "calculation",
+    "formula": "(highTempChange * rotatingElementODMax * cteAtTemperatureIDCTE)"
+  },
+  "compositeODGrowth": {
+    "name": "compositeODGrowth",
+    "fieldType": "calculation",
+    "formula": "(highTempChange * stationaryElementIDMax * cteAtTemperatureODCTE)"
+  },
+  "rotorODGrowthAtMaxTemp": {
+    "name": "rotorODGrowthAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax * highTempChange * rotorCTE)"
+  },
+  "finalID": {
+    "name": "finalID",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax + clearanceCLR + rotorODGrowthAtMaxTemp + compositeODGrowth - compositeIDGrowth - statorIDGrowthAtMaxTemp)"
+  },
+  "maxStatorIDAtMaxTemp": {
+    "name": "maxStatorIDAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(statorIDGrowthAtMaxTemp + stationaryElementIDMax)"
+  },
+  "maxRotorODAtMaxTemp": {
+    "name": "maxRotorODAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(rotorODGrowthAtMaxTemp + rotatingElementODMax)"
+  },
+  "rt": {
+    "name": "rt",
+    "fieldType": "calculation",
+    "formula": "((maxRotorODAtMaxTemp) / (maxStatorIDAtMaxTemp - maxRotorODAtMaxTemp))"
+  },
+  "etComposite": {
+  "name": "etComposite",
+  "fieldType": "calculation",
+  "formula": "(wrModulus * (maxStatorIDAtMaxTemp - maxRotorODAtMaxTemp) / 2)"
+},
+"r2": {
+  "name": "r2",
+  "fieldType": "calculation",
+  "formula": "(math.pow((maxStatorIDAtMaxTemp / 2),2))"
+},
+"r2EtComposite": {
+  "name": "r2EtComposite",
+  "fieldType": "calculation",
+  "formula": "(r2 / etComposite)"
+},
+"etMetal": {
+  "name": "etMetal",
+  "fieldType": "calculation",
+  "formula": "(metalModulus * (maxStatorIDAtMaxTemp - maxRotorODAtMaxTemp) / 2)"
+},
+"r2r2": {
+  "name": "r2r2",
+  "fieldType": "calculation",
+  "formula": "(math.pow((maxStatorIDAtMaxTemp / 2),2))"
+},
+"r2EtMetal": {
+  "name": "r2EtMetal",
+  "fieldType": "calculation",
+  "formula": "(r2r2 / etMetal)"
+},
+"interferenceRadial": {
+  "name": "interferenceRadial",
+  "fieldType": "calculation",
+  "formula": "((machineCompositeODInch + compositeODGrowth - maxStatorIDAtMaxTemp) / 2)"
+},
+"interfaceP": {
+  "name": "interfaceP",
+  "fieldType": "calculation",
+  "formula": "(interferenceRadial / (r2EtMetal + r2EtComposite))"
+},
+"clearanceRadial": {
+  "name": "clearanceRadial",
+  "fieldType": "calculation",
+  "formula": "(clearanceCLR / 2)"
+},
+"collapseP": {
+  "name": "collapseP",
+  "fieldType": "calculation",
+  "formula": "(clearanceRadial / (math.pow(maxStatorIDAtMaxTemp,2) / (math.pow(maxStatorIDAtMaxTemp,2) - math.pow(maxRotorODAtMaxTemp,2))) * (wrModulus / maxRotorODAtMaxTemp))"
+},
+"maxP": {
+  "name": "maxP",
+  "fieldType": "calculation",
+  "formula": "(interfaceP + collapseP)"
+},
+"minimumClearanceAtAmbient": {
+  "name": "minimumClearanceAtAmbient",
+  "fieldType": "calculation",
+  "formula": "(finalID - rotatingElementODMax)"
+},
+"estimatingIDAfterInstallationInch": {
+  "name": "estimatingIDAfterInstallationInch",
+  "fieldType": "calculation",
+  "formula": "(machineCompositeODInch + odTol - stationaryElementIDMin + finalID)"
+},
+"thermalFitTemp": {
+  "name": "thermalFitTemp",
+  "fieldType": "calculation",
+  "formula": "thermalFitTempConst2 + ((machineCompositeODInch + thermalFitTempConst1 + (odTol)) - stationaryElementIDMin) / (statorCTE * stationaryElementIDMax)"
+}
+}
+)
+
+
+
+
+
+
+/* floating */
+
+db.wrArCalculationTypeMaster.insert(
+{
+  "calType": "floating",
+  "finalOD": {
+    "name": "finalOD",
+    "fieldType": "calculation",
+    "formula": "(stationaryElementIDMin - finalODConstant)"
+  },
+  "compositeIDGrowth": {
+    "name": "compositeIDGrowth",
+    "fieldType": "calculation",
+    "formula": "(highTempChange * stationaryElementIDMax * cteAtTemperatureODCTE)"
+  },
+  "compositeODGrowth": {
+    "name": "compositeODGrowth",
+    "fieldType": "calculation",
+    "formula": "(highTempChange * stationaryElementIDMax * cteAtTemperatureODCTE)"
+  },
+  "statorIDGrowthAtMaxTemp": {
+    "name": "statorIDGrowthAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(stationaryElementIDMax * highTempChange * statorCTE)"
+  },
+  "rotorODGrowthAtMaxTemp": {
+    "name": "rotorODGrowthAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax * highTempChange * rotorCTE)"
+  },
+  "idCalcTH1": {
+    "name": "idCalcTH1",
+    "fieldType": "calculation",
+	"remarks":"only for the AR®1, AR®HT(2), WR®300(3) composite material",
+    "formula": "(rotatingElementODMax + clearanceCLR + compositeODGrowth - statorIDGrowthAtMaxTemp - compositeIDGrowth + rotorODGrowthAtMaxTemp - idCalcTH1Constant1)"
+  },
+  "idCalcTH2": {
+    "name": "idCalcTH2",
+    "fieldType": "calculation",
+	"remarks":"only for the WR®525(4), WR®650(6), WR®600 composite material",
+    "formula": "(rotatingElementODMax + clearanceCLR - compositeIDGrowth + rotorODGrowthAtMaxTemp)"
+  },
+  "lowTempChange": {
+    "name": "lowTempChange",
+    "fieldType": "calculation",
+    "formula": "(serviceStorageTemperatureAmbient75FMin - tempChangeConstant)"
+  },
+  "highTempChange": {
+    "name": "highTempChange",
+    "fieldType": "calculation",
+    "formula": "(serviceStorageTemperatureAmbient75FMax - tempChangeConstant)"
+  },
+  "compositeIDShrinkage": {
+    "name": "compositeIDShrinkage",
+    "fieldType": "calculation",
+    "formula": "(lowTempChange * rotatingElementODMax * cteAtTemperatureIDCTE)"
+  },
+  "rotorODShrinkageAtMinTemp": {
+    "name": "rotorODShrinkageAtMinTemp",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax * lowTempChange * rotorCTE)"
+  },
+  "idCalcTL1": {
+    "name": "idCalcTL1",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax + clearanceCLR + compositeIDShrinkage - rotorODShrinkageAtMinTemp)"
+  },
+  "statorIDShrinkageAtMinTemp": {
+    "name": "statorIDShrinkageAtMinTemp",
+    "fieldType": "calculation",
+    "formula": "(lowTempChange * stationaryElementIDMax * statorCTE)"
+  },
+  "compositeODShrinkage": {
+    "name": "compositeODShrinkage",
+    "fieldType": "calculation",
+    "formula": "(lowTempChange * stationaryElementIDMax  * compositeODCTEAtMinTemp)"
+  },
+  "idCalcTL2": {
+    "name": "idCalcTL2",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax + clearanceCLR - compositeIDShrinkage + rotorODShrinkageAtMinTemp - statorIDShrinkageAtMinTemp + compositeODShrinkage - 0.002)"
+  },
+  "odShrinkage": {
+    "name": "odShrinkage",
+    "fieldType": "calculation",
+    "formula": "(odCTE * stationaryElementIDMax * lowTempChange)"
+  },
+  "cxShrinkage": {
+    "name": "cxShrinkage",
+    "fieldType": "calculation",
+    "formula": "(((stationaryElementIDMax - rotatingElementODMax) / 2) * lowTempChange * cxCTE)"
+  },
+  "idShinkage": {
+    "name": "idShinkage",
+    "fieldType": "calculation",
+    "formula": "((odShrinkage - 2) * cxShrinkage)"
+  },
+  "idCalcTL3": {
+    "name": "idCalcTL3",
+    "fieldType": "calculation",
+	"remarks":"WR®600",
+    "formula": "(rotatingElementODMax + clearanceCLR - idShinkage + rotorODShrinkageAtMinTemp - statorIDShrinkageAtMinTemp + compositeODShrinkage - 0.002)"
+  },
+  "axialGrowth": {
+    "name": "axialGrowth",
+    "fieldType": "calculation",
+    "formula": "(stationaryBoreDepth * highTempChange * compositeOALCTE)"
+  }
+}
+)
+
+
+/* floating replace */
+db.wrArCalculationTypeMaster.replaceOne( 
+   { calType: "floating" },
+   {
+	"calType": "floating",
+	 "finalOD": {
+			"name": "finalOD",
+			"fieldType": "calculation",
+			"formula": "(stationaryElementIDMin - finalODConstant)"
+		},
+		"compositeIDGrowth": {
+    "name": "compositeIDGrowth",
+    "fieldType": "calculation",
+    "formula": "(highTempChange * stationaryElementIDMax * cteAtTemperatureODCTE)"
+  },
+		"compositeODGrowth": {
+    "name": "compositeODGrowth",
+    "fieldType": "calculation",
+    "formula": "(highTempChange * stationaryElementIDMax * cteAtTemperatureODCTE)"
+  },
+  "statorIDGrowthAtMaxTemp": {
+    "name": "statorIDGrowthAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(stationaryElementIDMax * highTempChange * statorCTE)"
+  },
+  "rotorODGrowthAtMaxTemp": {
+    "name": "rotorODGrowthAtMaxTemp",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax * highTempChange * rotorCTE)"
+  },
+  "idCalcTH1": {
+    "name": "idCalcTH1",
+    "fieldType": "calculation",
+	"remarks":"only for the AR®1, AR®HT(2), WR®300(3) composite material",
+    "formula": "(rotatingElementODMax + clearanceCLR + compositeODGrowth - statorIDGrowthAtMaxTemp - compositeIDGrowth + rotorODGrowthAtMaxTemp - idCalcTH1Constant1)"
+  },
+  "idCalcTH2": {
+    "name": "idCalcTH2",
+    "fieldType": "calculation",
+	"remarks":"only for the WR®525(4), WR®650(6), WR®600 composite material",
+    "formula": "(rotatingElementODMax + clearanceCLR - compositeIDGrowth + rotorODGrowthAtMaxTemp)"
+  },
+  "lowTempChange": {
+    "name": "lowTempChange",
+    "fieldType": "calculation",
+    "formula": "(serviceStorageTemperatureAmbient75FMin - tempChangeConstant)"
+  },
+  "highTempChange": {
+    "name": "highTempChange",
+    "fieldType": "calculation",
+    "formula": "(serviceStorageTemperatureAmbient75FMax - tempChangeConstant)"
+  },
+  "compositeIDShrinkage": {
+    "name": "compositeIDShrinkage",
+    "fieldType": "calculation",
+    "formula": "(lowTempChange * rotatingElementODMax * cteAtTemperatureIDCTE)"
+  },
+  "rotorODShrinkageAtMinTemp": {
+    "name": "rotorODShrinkageAtMinTemp",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax * lowTempChange * rotorCTE)"
+  },
+  "idCalcTL1": {
+    "name": "idCalcTL1",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax + clearanceCLR + compositeIDShrinkage - rotorODShrinkageAtMinTemp)"
+  },
+  "statorIDShrinkageAtMinTemp": {
+    "name": "statorIDShrinkageAtMinTemp",
+    "fieldType": "calculation",
+    "formula": "(lowTempChange * stationaryElementIDMax * statorCTE)"
+  },
+  "compositeODShrinkage": {
+    "name": "compositeODShrinkage",
+    "fieldType": "calculation",
+    "formula": "(lowTempChange * stationaryElementIDMax  * compositeODCTEAtMinTemp)"
+  },
+  "idCalcTL2": {
+    "name": "idCalcTL2",
+    "fieldType": "calculation",
+    "formula": "(rotatingElementODMax + clearanceCLR - compositeIDShrinkage + rotorODShrinkageAtMinTemp - statorIDShrinkageAtMinTemp + compositeODShrinkage - 0.002)"
+  },
+  "odShrinkage": {
+    "name": "odShrinkage",
+    "fieldType": "calculation",
+    "formula": "(odCTE * stationaryElementIDMax * lowTempChange)"
+  },
+  "cxShrinkage": {
+    "name": "cxShrinkage",
+    "fieldType": "calculation",
+    "formula": "(((stationaryElementIDMax - rotatingElementODMax) / 2) * lowTempChange * cxCTE)"
+  },
+  "idShinkage": {
+    "name": "idShinkage",
+    "fieldType": "calculation",
+    "formula": "((odShrinkage - 2) * cxShrinkage)"
+  },
+"idCalcTL3": {
+    "name": "idCalcTL3",
+    "fieldType": "calculation",
+	"remarks":"WR®600",
+    "formula": "(rotatingElementODMax + clearanceCLR - idShinkage + rotorODShrinkageAtMinTemp - statorIDShrinkageAtMinTemp + compositeODShrinkage - 0.002)"
+  },
+"axialGrowth": {
+    "name": "axialGrowth",
+    "fieldType": "calculation",
+    "formula": "(stationaryBoreDepth * highTempChange * compositeOALCTE)"
+  }  
+	}
+)
+
+
+
+
+
+/* wrArPressInInterference */
+
+db.wrArPressInInterference.drop()
+
+db.createCollection('wrArPressInInterference')
+
+db.wrArPressInInterference.insert([
+{
+	"key":1,
+	"name":"AR®1",
+	"min": {
+	"fieldType": "value",
+	"value":0.004
+	},
+	"metricMin": {
+	"fieldType": "value",
+	"value":0.1
+	},
+	"max": {
+		"fieldType": "calculation",
+		"formula":"(0.006 * stationaryElementIDMax)"
+	},
+	"standard":{
+		"fieldType": "calculation",
+		"formula":"(0.002 * stationaryElementIDMax)"
+	}
+},
+{
+	"key":2,
+	"name":"AR®HT",
+	"min": {
+	"fieldType": "value",
+	"value":0.003
+	},
+	"metricMin": {
+	"fieldType": "value",
+	"value":0.0762
+	},
+	"max": {
+		"fieldType": "calculation",
+		"formula":"(0.006 * stationaryElementIDMax)"
+	},
+	"standard":{
+		"fieldType": "calculation",
+		"formula":"(0.0015 * stationaryElementIDMax)"
+	}
+},
+{
+	"key":3,
+	"name":"WR®300",
+	"min": {
+	"fieldType": "value",
+	"value":0.003
+	},
+	"metricMin": {
+	"fieldType": "value",
+	"value":0.076
+	},
+	"max": {
+		"fieldType": "calculation",
+		"formula":"(0.006 * stationaryElementIDMax)"
+	},
+	"standard":{
+		"fieldType": "calculation",
+		"formula":"(0.0015 * stationaryElementIDMax)"
+	}
+},
+{
+	"key":4,
+	"name":"WR®525",
+	"min": {
+	"fieldType": "value",
+	"value":0.002
+	},
+	"metricMin": {
+	"fieldType": "value",
+	"value":0.05
+	},
+	"max": {
+		"fieldType": "calculation",
+		"formula":"(0.002 * stationaryElementIDMax)"
+	},
+	"standard":{
+		"fieldType": "calculation",
+		"formula":"(0.0005 * stationaryElementIDMax)"
+	}
+},
+{
+	"key":5,
+	"name":"WR®600",
+	"min": {
+	"fieldType": "value",
+	"value":0.004
+	},
+	"metricMin": {
+	"fieldType": "value",
+	"value":0.102
+	},
+	"max": {
+		"fieldType": "calculation",
+		"formula":"(0.006 * stationaryElementIDMax)"
+	},
+	"standard":{
+		"fieldType": "calculation",
+		"formula":"(0.0015 * stationaryElementIDMax)"
+	}
+},
+{
+	"key":6,
+	"name":"WR®650",
+	"min": {
+	"fieldType": "value",
+	"value":0.003
+	},
+	"metricMin": {
+	"fieldType": "value",
+	"value":0.076
+	},
+	"max": {
+		"fieldType": "calculation",
+		"formula":"(0.006 * stationaryElementIDMax)"
+	},
+	"standard":{
+		"fieldType": "calculation",
+		"formula":"(0.0015 * stationaryElementIDMax)"
+	}
+}]
+)
+
+
+
+
+
+/* cteCalcs master*/  => Last Updated on 16-02-2021
+	/* cteCalcs master*/
+	db.wrArPressInCTECalculationMaster.drop();
+	db.createCollection('wrArPressInCTECalculationMaster');
+
+	db.wrArPressInCTECalculationMaster.insert(
+	[
+	{
+	"id": 4,
+	"materialName":'WR®525',
+	"acGrowth1":  {
+				"fieldType": "calculation",
+				"formula":"((nextTemp - temperature) * rotatingElementODMax * nextTempIDCTE)"
+				},
+	"acGrowth2":  {
+				"fieldType": "calculation",
+				"formula":"((serviceStorageTemperatureAmbient75FMax - temperature) * nextTempIDCTE * rotatingElementODMax)"
+				},
+	"aeGrowth1" : {
+				"fieldType": "calculation",
+				"formula":"((nextTemp - temperature) * stationaryElementIDMax * nextTempODCTE)"
+				},
+	"aeGrowth2" : {
+				"fieldType": "calculation",
+				"formula":"((serviceStorageTemperatureAmbient75FMax - temperature) * nextTempODCTE * stationaryElementIDMax)"
+				},
+	"agGrowth1" : {
+				"fieldType": "calculation",
+				"formula":"((nextTemp - temperature) * stationaryBoreDepth * nextOALCTE)"
+				},
+	"agGrowth2" : {
+				"fieldType": "calculation",
+				"formula":"((serviceStorageTemperatureAmbient75FMax - temperature) * nextOALCTE * stationaryBoreDepth)"
+				},
+	"aiGrowth": ''
+	},
+	{
+	"id": 6,
+	"materialName":'WR®650',
+	"acGrowth1":  {
+				"fieldType": "calculation",
+				"formula":"((nextTemp - temperature) * rotatingElementODMax * nextTempIDCTE)"
+				},
+	"acGrowth2":  {
+				"fieldType": "calculation",
+				"formula":"((serviceStorageTemperatureAmbient75FMax - temperature) * nextTempIDCTE * rotatingElementODMax)"
+				},
+	"aeGrowth1" : {
+				"fieldType": "calculation",
+				"formula":"((nextTemp - temperature) * stationaryElementIDMax * nextTempODCTE)"
+				},
+	"aeGrowth2" : {
+				"fieldType": "calculation",
+				"formula":"((serviceStorageTemperatureAmbient75FMax - temperature) * nextTempODCTE * stationaryElementIDMax)"
+				},
+	"agGrowth1" : {
+				"fieldType": "calculation",
+				"formula":"((nextTemp - temperature) * stationaryBoreDepth * nextOALCTE)"
+				},
+	"agGrowth2" : {
+				"fieldType": "calculation",
+				"formula":"((serviceStorageTemperatureAmbient75FMax - temperature) * nextOALCTE * stationaryBoreDepth)"
+				},
+	"aiGrowth": ''
+	},
+	{
+	"id": 5,
+	"materialName":'WR®600',
+	"acGrowth1":  {
+				"fieldType": "calculation",
+				"formula":"(aeGrowth - 2 * aiGrowth)"
+				},
+	"aeGrowth1" : {
+				"fieldType": "calculation",
+				"formula":"((nextTemp - temperature) * stationaryElementIDMax * nextTempODCTE)"
+				},
+	"aeGrowth2" : {
+				"fieldType": "calculation",
+				"formula":"((serviceStorageTemperatureAmbient75FMax - temperature) * nextTempODCTE * stationaryElementIDMax)"
+				},
+	"agGrowth1" : {
+				"fieldType": "calculation",
+				"formula":"((nextTemp - temperature) * stationaryBoreDepth * nextOALCTE)"
+				},
+	"agGrowth2" : {
+				"fieldType": "calculation",
+				"formula":"((serviceStorageTemperatureAmbient75FMax - temperature) * nextOALCTE * stationaryBoreDepth)"
+				},
+	"aiGrowth1": {
+				"fieldType": "calculation",
+				"formula":"((nextTemp - temperature) * (stationaryElementIDMax - rotatingElementODMax) / 2 * nextCXCTE)"
+				},
+	"aiGrowth2": {
+	"fieldType": "calculation",
+	"formula":"((serviceStorageTemperatureAmbient75FMax - temperature) * nextCXCTE * (stationaryElementIDMax - rotatingElementODMax) / 2)"
+	}
+	}]
+	);
+
+
+
+
+
+/* cteCalcs */
+db.wrArCTECalcs.drop();
+	db.createCollection('wrArCTECalcs');
+
+	db.wrArCTECalcs.insert(
+	[
+	{
+	"calType": "pressIn",
+	"compositeMaterials":[
+	{
+	"id": 4,
+	"materialName":'WR®525',
+	"temperatures":[
+			{
+				temperature:75,
+				idCTE:-0.00000193, 
+				odCTE:0.00000168,
+				oalCTE:0.000026
+			},
+			{
+				temperature:289,
+				idCTE:-0.00000193, 
+				odCTE:0.00000168,
+				oalCTE:0.000026
+			},
+			{
+				temperature:550,
+				idCTE:-0.00000253, 
+				odCTE:0.0000025,
+				oalCTE:0.000075
+			}
+		]
+	},
+	{
+	"id": 6,
+	"materialName":'WR®650',
+	"temperatures":[
+			{
+				temperature:75,
+				idCTE:0.000004, 
+				odCTE:0.0000055,
+				oalCTE:0.000046
+			},
+			{
+				temperature:200,
+				idCTE:0.000004, 
+				odCTE:0.0000055,
+				oalCTE:0.000046
+			},
+			{
+				temperature:250,
+				idCTE:0.0000055, 
+				odCTE:0.0000067,
+				oalCTE:0.000075
+			},
+			{
+				temperature:300,
+				idCTE:0.0000055, 
+				odCTE:0.0000067,
+				oalCTE:0.0001
+			},
+			{
+				temperature:350,
+				idCTE:0.000007, 
+				odCTE:0.000008,
+				oalCTE:0.00013
+			},
+			{
+				temperature:400,
+				idCTE:0.000009, 
+				odCTE:0.000008,
+				oalCTE:0.00017
+			},
+			{
+				temperature:500,
+				idCTE:0.000009, 
+				odCTE:0.0000102,
+				oalCTE:0.00017
+			}
+		]
+	},
+	{
+	"id": 5,
+	"materialName":'WR®600',
+	"temperatures":[
+			{
+				temperature:75,
+				idCTE:0.000, 
+				odCTE:0.00000388353436031093,
+				oalCTE:0.0000985528510859625,
+				cxCTE:0.0000234845469935985
+			},
+			{
+				temperature:200,
+				idCTE:0.000, 
+				odCTE:0.00000306004526566072,
+				oalCTE:0.000121417732773205,
+				cxCTE:0.0000192666509030636
+			},
+			{
+				temperature:250,
+				idCTE:0.000, 
+				odCTE:0.00000310911920256058,
+				oalCTE:0.000134748380064014,
+				cxCTE:0.0000201772896204848
+			},
+			{
+				temperature:300,
+				idCTE:0.000, 
+				odCTE:0.00000337470891449473,
+				oalCTE:0.000150473017409693,
+				cxCTE:0.0000225740823159578
+			},
+			{
+				temperature:350,
+				idCTE:0.000, 
+				odCTE:0.00000385681440146318,
+				oalCTE:0.000150473017409693,
+				cxCTE:0.0000264570289894833
+			},
+			{
+				temperature:400,
+				idCTE:0.000, 
+				odCTE:0.00000455543566346594,
+				oalCTE:0.000150473017409693,
+				cxCTE:0.0000318261296410608
+			},
+			{
+				temperature:500,
+				idCTE:0.000, 
+				odCTE:0.00000660223,
+				oalCTE:0.000237311467341107,
+				cxCTE:0.0000470227928783723
+			}
+		]
+	}]
+	},
+{
+	"calType": "floating",
+	"compositeMaterials":[
+	{
+	"id": 4,
+	"materialName":'WR®525',
+	"temperatures":[
+			{
+				temperature:75,
+				idCTE:-0.00000193, 
+				odCTE:0.00000168,
+				oalCTE:0.000026
+			},
+			{
+				temperature:289,
+				idCTE:-0.00000193, 
+				odCTE:0.00000168,
+				oalCTE:0.000026
+			},
+			{
+				temperature:550,
+				idCTE:-0.00000253, 
+				odCTE:0.0000025,
+				oalCTE:0.000075
+			}
+		]
+	},
+	{
+	"id": 6,
+	"materialName":'WR®650',
+	"temperatures":[
+			{
+				temperature:75,
+				idCTE:0.000004,
+				odCTE:0.0000055,
+				oalCTE:0.000046
+			},
+			{
+				temperature:250,
+				idCTE:0.000004, 
+				odCTE:0.0000067,
+				oalCTE:0.000046
+			},
+			{
+				temperature:289,
+				idCTE:0.0000055, 
+				odCTE:0.0000067,
+				oalCTE:0.000075
+			},
+			{
+				temperature:300,
+				idCTE:0.0000055, 
+				odCTE:0.0000067,
+				oalCTE:0.0001
+			},			
+			{
+				temperature:400,
+				idCTE:0.000007, 
+				odCTE:0.000008,
+				oalCTE:0.00013
+			},
+			{
+				temperature:500,
+				idCTE:0.000009, 
+				odCTE:0.0000102,
+				oalCTE:0.00017
+			},
+			{
+				temperature:550,
+				idCTE:0.000009, 
+				odCTE:0.0000102,
+				oalCTE:0.00017
+			}
+		]
+	},
+	{
+	"id": 5,
+	"materialName":'WR®600',
+	"temperatures":[
+			{
+				temperature:75,
+				idCTE:0.000, 
+				odCTE:0.00000388353436031093,
+				oalCTE:0.0000985528510859625,
+				cxCTE:0.0000234845469935985
+			},
+			{
+				temperature:200,
+				idCTE:0.000, 
+				odCTE:0.00000306004526566072,
+				oalCTE:0.000121417732773205,
+				cxCTE:0.0000192666509030636
+			},
+			{
+				temperature:250,
+				idCTE:0.000, 
+				odCTE:0.00000310911920256058,
+				oalCTE:0.000134748380064014,
+				cxCTE:0.0000201772896204848
+			},
+			{
+				temperature:300,
+				idCTE:0.000, 
+				odCTE:0.00000337470891449473,
+				oalCTE:0.000150473017409693,
+				cxCTE:0.0000225740823159578
+			},
+			{
+				temperature:350,
+				idCTE:0.000, 
+				odCTE:0.00000385681440146318,
+				oalCTE:0.000150473017409693,
+				cxCTE:0.0000264570289894833
+			},
+			{
+				temperature:400,
+				idCTE:0.000, 
+				odCTE:0.00000455543566346594,
+				oalCTE:0.000150473017409693,
+				cxCTE:0.0000318261296410608
+			},
+			{
+				temperature:500,
+				idCTE:0.000, 
+				odCTE:0.0000470227928783723,
+				oalCTE:0.000237311467341107,
+				cxCTE:0.0000470227928783723
+			}
+		]
+	}]
+	}	
+	]
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+db.wrArMetricCTECalcs.drop();
+db.createCollection('wrArMetricCTECalcs');
+
+db.wrArMetricCTECalcs.insert([
+{
+	"calType": "pressIn",
+	"compositeMaterials":
+[
+	{
+	"id": 4,
+	"materialName":'WR®525',
+	"temperatures":[
+			{
+				temperature:23.8888888888889,
+				idCTE:-0.000003474, 
+				odCTE:0.000003024,
+				oalCTE:0.0000468
+			},
+			{
+				temperature:142.777777777778,
+				idCTE:-0.000003474, 
+				odCTE:0.000003024,
+				oalCTE:0.0000468
+			},
+			{
+				temperature:287.777777777778,
+				idCTE:-0.000004554, 
+				odCTE:0.0000045,
+				oalCTE:0.000135
+			}
+		]
+	},
+	{
+	"id": 6,
+	"materialName":'WR®650',
+	"temperatures":[
+			{
+				temperature:23.8888888888889,
+				idCTE:0.0000072, 
+				odCTE:0.0000099,
+				oalCTE:0.0000828
+			},
+			{
+				temperature:93.3333333333333,
+				idCTE:0.0000072, 
+				odCTE:0.0000099,
+				oalCTE:0.0000828
+			},
+			{
+				temperature:121.111111111111,
+				idCTE:0.0000099, 
+				odCTE:0.00001206,
+				oalCTE:0.000135
+			},
+			{
+				temperature:148.888888888889,
+				idCTE:0.0000099, 
+				odCTE:0.00001206,
+				oalCTE:0.00018
+			},
+			{
+				temperature:176.666666666667,
+				idCTE:0.0000126, 
+				odCTE:0.0000144,
+				oalCTE:0.000234
+			},
+			{
+				temperature:204.444444444444,
+				idCTE:0.0000162, 
+				odCTE:0.0000144,
+				oalCTE:0.000306
+			},
+			{
+				temperature:260,
+				idCTE:0.0000162, 
+				odCTE:0.00001836,
+				oalCTE:0.000306
+			}
+		]
+	},
+	{
+	"id": 5,
+	"materialName":'WR®600',
+	"temperatures":[
+			{
+				temperature:24,
+				idCTE:0.000, 
+				odCTE:0.00000699036184855968,
+				oalCTE:0.000177395131954733,
+				cxCTE:0.0000422721845884773
+			},
+			{
+				temperature:93,
+				idCTE:0.000, 
+				odCTE:0.0000055080814781893,
+				oalCTE:0.000218551918991769,
+				cxCTE:0.0000346799716255144
+			},
+			{
+				temperature:121,
+				idCTE:0.000, 
+				odCTE:0.00000559641456460905,
+				oalCTE:0.000242547084115226,
+				cxCTE:0.0000363191213168726
+			},
+			{
+				temperature:149,
+				idCTE:0.000, 
+				odCTE:0.00000607447604609052,
+				oalCTE:0.000270851431337448,
+				cxCTE:0.0000406333481687241
+			},
+			{
+				temperature:177,
+				idCTE:0.000, 
+				odCTE:0.00000694226592263373,
+				oalCTE:0.000270851431337448,
+				cxCTE:0.0000476226521810699
+			},
+			{
+				temperature:204,
+				idCTE:0.000, 
+				odCTE:0.00000819978419423869,
+				oalCTE:0.000270851431337448,
+				cxCTE:0.0000572870333539095
+			},
+			{
+				temperature:260,
+				idCTE:0.000, 
+				odCTE:0.000011884,
+				oalCTE:0.000427160641213992,
+				cxCTE:0.0000846410271810701
+			}
+		]
+	}]	
+},
+{
+	"calType": "floating",
+	"compositeMaterials":
+	[
+	{
+	"id": 4,
+	"materialName":'WR®525',
+	"temperatures":[
+			{
+				temperature:23.8888888888889,
+				idCTE:-0.000003474, 
+				odCTE:0.000003024,
+				oalCTE:0.0000468
+			},
+			{
+				temperature:142.777777777778,
+				idCTE:-0.000003474, 
+				odCTE:0.000003024,
+				oalCTE:0.0000468
+			},
+			{
+				temperature:287.777777777778,
+				idCTE:-0.000004554, 
+				odCTE:0.0000045,
+				oalCTE:0.000135
+			}
+		]
+	},
+	{
+	"id": 6,
+	"materialName":'WR®650',
+	"temperatures":[
+			{
+				temperature:23.8888888888889,
+				idCTE:0.0000072, 
+				odCTE:0.0000099,
+				oalCTE:0.0000828
+			},
+			{
+				temperature:93.3333333333333,
+				idCTE:0.0000072, 
+				odCTE:0.0000099,
+				oalCTE:0.0000828
+			},
+			{
+				temperature:121.111111111111,
+				idCTE:0.0000099, 
+				odCTE:0.00001206,
+				oalCTE:0.000135
+			},
+			{
+				temperature:148.888888888889,
+				idCTE:0.0000099, 
+				odCTE:0.00001206,
+				oalCTE:0.00018
+			},
+			{
+				temperature:176.666666666667,
+				idCTE:0.0000126, 
+				odCTE:0.0000144,
+				oalCTE:0.000234
+			},
+			{
+				temperature:204.444444444444,
+				idCTE:0.0000162, 
+				odCTE:0.0000144,
+				oalCTE:0.000306
+			},
+			{
+				temperature:260,
+				idCTE:0.0000162, 
+				odCTE:0.00001836,
+				oalCTE:0.000306
+			}
+		]
+	},
+	{
+	"id": 5,
+	"materialName":'WR®600',
+	"temperatures":[
+			{
+				temperature:24,
+				idCTE:0.000, 
+				odCTE:0.00000699036184855968,
+				oalCTE:0.000177395131954733,
+				cxCTE:0.0000422721845884773
+			},
+			{
+				temperature:93,
+				idCTE:0.000, 
+				odCTE:0.0000055080814781893,
+				oalCTE:0.000218551918991769,
+				cxCTE:0.0000346799716255144
+			},
+			{
+				temperature:121,
+				idCTE:0.000, 
+				odCTE:0.00000559641456460905,
+				oalCTE:0.000242547084115226,
+				cxCTE:0.0000363191213168726
+			},
+			{
+				temperature:149,
+				idCTE:0.000, 
+				odCTE:0.00000607447604609052,
+				oalCTE:0.000270851431337448,
+				cxCTE:0.0000406333481687241
+			},
+			{
+				temperature:177,
+				idCTE:0.000, 
+				odCTE:0.00000694226592263373,
+				oalCTE:0.000270851431337448,
+				cxCTE:0.0000476226521810699
+			},
+			{
+				temperature:204,
+				idCTE:0.000, 
+				odCTE:0.00000819978419423869,
+				oalCTE:0.000270851431337448,
+				cxCTE:0.0000572870333539095
+			},
+			{
+				temperature:260,
+				idCTE:0.000, 
+				odCTE:0.0000846410271810701,
+				oalCTE:0.000427160641213992,
+				cxCTE:0.0000846410271810701
+			}
+		]
+	}]
+}
+]);
+
+
+
